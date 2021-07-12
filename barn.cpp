@@ -1,4 +1,4 @@
-#include "barn.h"
+#include "barn.h" 
 #include "ui_barn.h"
 #include "information.h"
 #include<cmath>
