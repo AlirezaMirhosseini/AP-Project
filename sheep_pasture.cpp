@@ -120,3 +120,20 @@ void sheep_pasture::on_Fleece_Shave_clicked()
                QMessageBox::warning(this , " " ," ");
 }
 
+
+void sheep_pasture::on_build_clicked()
+{
+    if(info["nail_count"].toInt()  < 4 || info["shovel_count"].toInt()  < 2 || info["coin"].toInt() < 50)
+         QMessageBox::warning(this , " " ," ");
+     else{
+          info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 4 );
+           info["shovel_count"] = QJsonValue (info["shovel_count"].toInt() - 2 );
+          info["coin"] = QJsonValue (info["coin"].toInt() - 50 );
+          time_t _time = time(NULL);
+          info["sheep_upgrade_time"] = _time;
+          QJsonArray info_2 = _info["User"].toArray();
+             info_2[id] = QJsonValue(info);
+             _info["User"] = info_2;
+              write_info(_info);
+}
+}

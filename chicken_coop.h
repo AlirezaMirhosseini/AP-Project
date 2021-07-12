@@ -28,6 +28,8 @@ private slots:
 
     void increamenter();
 
+    void on_build_pushButton_clicked();
+
 public:
 
 

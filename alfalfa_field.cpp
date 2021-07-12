@@ -142,3 +142,27 @@ void alfalfa_field::on_btn_plow_clicked()
         write_info(_info);
     }
 }
+
+void alfalfa_field::on_build_clicked()
+{
+    if(info["nail_count"].toInt() < 1)
+        QMessageBox::warning(this , " " , "<b>Nail</b> needed!" );
+   else {
+    if(info["coin"].toInt() < 15)
+        QMessageBox::warning(this , " " , "<b>Coin</b> needed!" );
+    else if(info["shovel_count"].toInt() < 1 )
+        QMessageBox::warning(this , " " , "<b>Shovel</b> needed!" );
+    else{
+        info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - 1);
+         info["nail_count"] = QJsonValue(info["nail_count"].toInt() - 1);
+        info["coin"] = QJsonValue(info["coin"].toInt() - 15);
+  //      info["alfalfa_upgrading"] = QJsonValue(true);
+        time_t _time = time(NULL);
+        info["alfalfa_upgrade_time"] = QJsonValue(_time);
+        QJsonArray info_2 = _info["User"].toArray();
+        info_2[id] = QJsonValue(info);
+        _info["User"] = info_2;
+        write_info(_info);
+    }
+}
+}

@@ -332,7 +332,7 @@ font: 75 9pt &quot;MS Shell Dlg 2&quot;;</string>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>Build</string>
    </property>
   </widget>
   <zorder>label_4</zorder>

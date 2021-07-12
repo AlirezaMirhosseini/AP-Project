@@ -123,3 +123,22 @@ void cow_pasture::on_collect_milk_clicked()
 
 }
 
+
+void cow_pasture::on_build_clicked()
+{
+    if(info["nail_count"].toInt()  < 3 || info["coin"].toInt() < 20 ||info["shovel_count"].toInt()<1 )
+        QMessageBox::warning(this , " " ," ");
+    else{
+         info["nail_count"] = info["nail_count"].toInt() - 3 ;
+         info["shovel_count"] = info["shovel_count"].toInt() - 1 ;
+         info["coin"] = info["coin"].toInt() - 20 ;
+         time_t _time = time(NULL);
+         info["cow_upgrade_time"] = _time;
+         QJsonArray info_2 = _info["User"].toArray();
+            info_2[id] = QJsonValue(info);
+            _info["User"] = info_2;
+             write_info(_info);
+
+     }
+}
+
