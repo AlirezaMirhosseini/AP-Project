@@ -117,3 +117,20 @@ void chicken_coop::on_upgrade_clicked()
              write_info(_info);
     }
 }
+
+void chicken_coop::on_build_pushButton_clicked()
+{
+    if(info["nail_count"].toInt()  < 2 || info["coin"].toInt() < 10)
+        QMessageBox::warning(this , " " ," ");
+    else{
+         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 2 );
+         info["coin"] = QJsonValue (info["coin"].toInt() - 10 );
+         time_t _time = time(NULL);
+         info["chicken_upgrade_time"] = _time;
+         QJsonArray info_2 = _info["User"].toArray();
+            info_2[id] = QJsonValue(info);
+            _info["User"] = info_2;
+             write_info(_info);
+    }
+}
+

@@ -27,6 +27,8 @@ private slots:
     void on_Fleece_Shave_clicked();
 
     void increamenter();
+    void on_build_clicked();
+
 private:
     int id;
 

@@ -24,6 +24,12 @@ private slots:
 
     void on_collect_milk_clicked();
 
+
+    void increamenter();
+
+
+    void on_build_clicked();
+
 private:
 
     Ui::cow_pasture *ui;
