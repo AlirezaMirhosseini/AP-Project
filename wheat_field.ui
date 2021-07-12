@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>wheat_field</class>
+ <widget class="QDialog" name="wheat_field">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>371</width>
+    <height>372</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>wheat field</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="game_recources.qrc">
+    <normaloff>:/game_backgrounds/pics_project/wheat_icon.jfif</normaloff>:/game_backgrounds/pics_project/wheat_icon.jfif</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/game_backgrounds/pics_project/qqqq.jpg);</string>
+  </property>
+  <widget class="QProgressBar" name="seed_progress">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>342</y>
+     <width>141</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 85, 0);
+background-image: url(:/game_backgrounds/pics_project/clipart244133.png);</string>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="textVisible">
+    <bool>true</bool>
+   </property>
+   <property name="textDirection">
+    <enum>QProgressBar::TopToBottom</enum>
+   </property>
+   <property name="format">
+    <string>%p%</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>80</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(21, 0, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+background-image: url(:/game_backgrounds/pics_project/clipart244133.png);
+background-color: rgb(255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string> Level =</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>40</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(28, 20, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+background-image: url(:/game_backgrounds/pics_project/clipart244133.png);
+background-color: rgb(255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string>Area =</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>40</y>
+     <width>21</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/game_backgrounds/pics_project/clipart244133.png);
+font: 11pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>80</y>
+     <width>21</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/game_backgrounds/pics_project/clipart244133.png);
+font: 11pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="upgrade">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>170</y>
+     <width>111</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/game_backgrounds/pics_project/clipart244133.png);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(0, 255, 0);
+color: rgb(60, 0, 255);
+border-top-left-radius:20px; 
+border-bottom-right-radius:20px;
+border-top-right-radius:20px; 
+border-bottom-left-radius:20px;</string>
+   </property>
+   <property name="text">
+    <string>Upgrade</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>130</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 255);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 0);
+background-image: url(:/game_backgrounds/pics_project/clipart244133.png);</string>
+   </property>
+   <property name="text">
+    <string>Cultivated area =</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>130</y>
+     <width>21</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/game_backgrounds/pics_project/clipart244133.png);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="seed">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>280</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 255, 0);
+color: rgb(0, 0, 127);
+font: 14pt &quot;MS Shell Dlg 2&quot;;
+background-image: url(:/game_backgrounds/pics_project/clipart244133.png);
+border-top-left-radius:20px; 
+border-bottom-right-radius:20px;
+border-top-right-radius:20px; 
+border-bottom-left-radius:20px;</string>
+   </property>
+   <property name="text">
+    <string>Seed</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="spinBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>330</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 255, 255);
+background-image: url(:/game_backgrounds/pics_project/clipart244133.png);</string>
+   </property>
+   <property name="wrapping">
+    <bool>false</bool>
+   </property>
+   <property name="readOnly">
+    <bool>false</bool>
+   </property>
+   <property name="buttonSymbols">
+    <enum>QAbstractSpinBox::PlusMinus</enum>
+   </property>
+   <property name="minimum">
+    <number>1</number>
+   </property>
+   <property name="stepType">
+    <enum>QAbstractSpinBox::DefaultStepType</enum>
+   </property>
+   <property name="displayIntegerBase">
+    <number>10</number>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="wheat_upgrade_pro">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>230</y>
+     <width>118</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;
+background-color: rgb(255, 85, 0);
+background-image: url(:/game_backgrounds/pics_project/clipart244133.png);</string>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Harvesting">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>300</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>OpenHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 255, 0);
+color: rgb(0, 0, 127);
+font: 9pt &quot;MS Shell Dlg 2&quot;;
+background-image: url(:/game_backgrounds/pics_project/clipart244133.png);
+border-top-left-radius:20px; 
+border-bottom-right-radius:20px;
+border-top-right-radius:20px; 
+border-bottom-left-radius:20px;</string>
+   </property>
+   <property name="text">
+    <string>Harvesting</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="game_recources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/game_backgrounds">
+        <file>pics_project/138manfarmer2_100718.png</file>
+        <file>pics_project/139womanfarmer1_100885 (1).png</file>
+        <file>pics_project/anbar.png</file>
+        <file>pics_project/cow.png</file>
+        <file>pics_project/farm_barn_icon_153817.png</file>
+        <file>pics_project/gandom.png</file>
+        <file>pics_project/hen.png</file>
+        <file>pics_project/joe.png</file>
+        <file>pics_project/pngwing.com.png</file>
+        <file>pics_project/sheep.png</file>
+        <file>pics_project/background-scene-with-green-field_1308-8895 (1).jpg</file>
+        <file>pics_project/silo.png</file>
+        <file>pics_project/favpng_grocery-store-shopping-clip-art.png</file>
+        <file>pics_project/favpng_common-wheat-cereal-ear-illustration.png</file>
+        <file>pics_project/favpng_vaisakhi.png</file>
+        <file>pics_project/clipart244133.png</file>
+        <file>pics_project/Tea_plant.png</file>
+        <file>pics_project/qqqq.jpg</file>
+        <file>pics_project/sun.png</file>
+        <file>pics_project/egg.png</file>
+        <file>pics_project/shelf.png</file>
+        <file>pics_project/shovel.png</file>
+        <file>pics_project/store_cow.png</file>
+        <file>pics_project/store_hen.png</file>
+        <file>pics_project/store_milk.png</file>
+        <file>pics_project/store_sheep.png</file>
+        <file>pics_project/store_wheat.png</file>
+        <file>pics_project/wool.png</file>
+        <file>pics_project/nail.png</file>
+        <file>pics_project/login_background_2.jpg</file>
+        <file>pics_project/qqqq.jpg</file>
+        <file>pics_project/alfalfa_icon.jpg</file>
+        <file>pics_project/images.jfif</file>
+        <file>pics_project/wheat_icon.jfif</file>
+        <file>pics_project/alfalfa-plant.jpg</file>
+        <file>pics_project/hennouse.jpg</file>
+        <file>pics_project/upgrade.png</file>
+        <file>pics_project/egg_collecting.png</file>
+        <file>pics_project/feeding_hen.png</file>
+        <file>pics_project/chickens-chicken-coop-farm_43633-10574.jpg</file>
+        <file>pics_project/push botton.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>register_info</class>
+ <widget class="QDialog" name="register_info">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>671</width>
+    <height>560</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Sign up  page</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="game_recources.qrc">
+    <normaloff>:/game_backgrounds/pics_project/pngwing.com.png</normaloff>:/game_backgrounds/pics_project/pngwing.com.png</iconset>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-40</y>
+     <width>671</width>
+     <height>641</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/game_backgrounds/pics_project/login_background_2.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>230</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+background-color:rgb(59, 59, 59);
+border-top-left-radius:5px; 
+border-bottom-left-radius:5px; 
+color:rgb(255, 255, 255);
+</string>
+   </property>
+   <property name="text">
+    <string> Name </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>270</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+background-color:rgb(59, 59, 59);
+border-top-left-radius:5px; 
+border-bottom-left-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string> Username </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>310</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+background-color:rgb(59, 59, 59);
+border-top-left-radius:5px; 
+border-bottom-left-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string> Password </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>350</y>
+     <width>181</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+background-color:rgb(59, 59, 59);
+border-top-left-radius:5px; 
+border-bottom-left-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string> Confirm Password </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>390</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+background-color:rgb(59, 59, 59);
+border-top-left-radius:5px; 
+border-bottom-left-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>  Email  </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>430</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+background-color:rgb(59, 59, 59);
+border-top-left-radius:5px; 
+border-bottom-left-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string> Gender </string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>430</y>
+     <width>111</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(50, 50, 50);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border-top-right-radius:5px;
+color:rgb(255, 255, 255);
+</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>      Male</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>     Female</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>230</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(50, 50, 50);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border-top-right-radius:5px; 
+border-bottom-right-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="placeholderText">
+    <string>is empty</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>270</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(50, 50, 50);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border-top-right-radius:5px; 
+border-bottom-right-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="placeholderText">
+    <string>is empty</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_3">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>310</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(50, 50, 50);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border-top-right-radius:5px; 
+border-bottom-right-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="placeholderText">
+    <string>is empty</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_4">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>350</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(50, 50, 50);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border-top-right-radius:5px; 
+border-bottom-right-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="placeholderText">
+    <string>is empty</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_5">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>390</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(50, 50, 50);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border-top-right-radius:5px; 
+border-bottom-right-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="placeholderText">
+    <string>is empty</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>470</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(50, 50, 50);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>470</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(50, 50, 50);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+border-radius:5px; 
+color:rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="game_recources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

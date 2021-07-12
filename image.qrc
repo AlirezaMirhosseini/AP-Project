@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>esqa_3xad_161204.jpg</file>
+        <file>farm_barn_icon_153817.png</file>
+        <file>houseicon.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix2">
+        <file>file.json</file>
+    </qresource>
+</RCC>
