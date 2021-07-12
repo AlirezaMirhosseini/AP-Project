@@ -7,46 +7,25 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
     QDialog(parent),
     ui(new Ui::cow_pasture)
 {
-     ui->setupUi(this);
-     id = _id;
-     _info = read_info();
-     info = (_info["User"].toArray())[id].toObject();
 
+    ui->setupUi(this);
+    id = _id;
+    QJsonObject _info = read_info();
+    QJsonObject info = (_info["User"].toArray())[id].toObject();
+     ui->setupUi(this);
      ui->count->setText(QString::number(info["cow_count"].toInt()));
      ui->capacity->setText(QString::number( pow(2,info["cow_level"].toInt())));
      ui->level->setText(QString::number(info["cow_level"].toInt()));
-
-     if(info["cow_upgrade_time"].toInt() == -1)
-           ui->cow_pro->hide();
-
-
-     else
-        ui->cow_pro->setValue(info["cow_upgrade_pro"].toInt());
-
-     timer = new QTimer();
-
-
-      if(info["cow_upgrade_time"].toInt() != -1)
-        timer->start(4320000);
-
-      connect(timer,SIGNAL(timeout()),this,SLOT(increamenter()));
 }
 cow_pasture::~cow_pasture()
 {
     delete ui;
 }
 
-void cow_pasture::increamenter()
-{
-    int aux = 0;
-    aux = ui->cow_pro->value();
-    aux++;
-    ui->cow_pro->setValue(aux);
-}
-
 void cow_pasture::on_upgrade_clicked()
 {
-
+    QJsonObject _info = read_info();
+    QJsonObject info = (_info["User"].toArray())[id].toObject();
     if(info["nail_count"].toInt()  < 2 || info["coin"].toInt() < 15 || info["level_palyer"].toInt() < 5 || info["level_palyer"].toInt() < info["chicken_level"].toInt() + 1 )
         QMessageBox::warning(this , " " ," ");
     else{
@@ -65,7 +44,8 @@ void cow_pasture::on_upgrade_clicked()
 
 void cow_pasture::on_feed_clicked()
 {
-
+        QJsonObject _info = read_info();
+        QJsonObject info = (_info["User"].toArray())[id].toObject();
 
         if(info["alfalfa_count"].toInt()  < 2 * info["cow_count"].toInt()){
             QMessageBox::warning(this , " " ," ");
@@ -90,7 +70,8 @@ void cow_pasture::on_feed_clicked()
 void cow_pasture::on_collect_milk_clicked()
 {
 
-
+    QJsonObject _info = read_info();
+    QJsonObject info = (_info["User"].toArray())[id].toObject();
     QJsonArray milk_array = info["milks"].toArray();
 
     time_t _time = time(NULL);
