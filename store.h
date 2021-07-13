@@ -1,5 +1,7 @@
+#pragma once
 #ifndef STORE_H
 #define STORE_H
+
 #include "farm.h"
 #include <QDialog>
 

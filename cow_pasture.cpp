@@ -7,27 +7,27 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
     QDialog(parent),
     ui(new Ui::cow_pasture)
 {
-     ui->setupUi(this);
-     id = _id;
-     _info = read_info();
-     info = (_info["User"].toArray())[id].toObject();
+    ui->setupUi(this);
+    id = _id;
+    _info = read_info();
+    info = (_info["User"].toArray())[id].toObject();
 
-     ui->count->setText(QString::number(info["cow_count"].toInt()));
-     ui->capacity->setText(QString::number( pow(2,info["cow_level"].toInt())));
-     ui->level->setText(QString::number(info["cow_level"].toInt()));
+    ui->count->setText(QString::number(info["cow_count"].toInt()));
+    ui->capacity->setText(QString::number( pow(2,info["cow_level"].toInt())));
+    ui->level->setText(QString::number(info["cow_level"].toInt()));
 
-     if(info["cow_upgrade_time"].toInt() == -1)
-         ui->cow_pro->hide();
-     else
-         ui->cow_pro->setValue(info["cow_upgrade_pro"].toInt());
-     timer = new QTimer();
-     if(info["cow_feed_time"] != -1)
-         ui->feed->setEnabled(false);
+    if(info["cow_upgrade_time"].toInt() == -1)
+        ui->cow_pro->hide();
+    else
+        ui->cow_pro->setValue(info["cow_upgrade_pro"].toInt());
+    timer = new QTimer();
+    if(info["cow_feed_time"] != -1)
+        ui->feed->setEnabled(false);
 
-      if(info["cow_upgrade_time"].toInt() != -1)
-          timer->start(4320000);
+    if(info["cow_upgrade_time"].toInt() != -1)
+        timer->start(4320000);
 
-      connect(timer,SIGNAL(timeout()),this,SLOT(increamenter()));
+    connect(timer,SIGNAL(timeout()),this,SLOT(increamenter()));
 }
 cow_pasture::~cow_pasture()
 {
@@ -51,15 +51,15 @@ void cow_pasture::on_upgrade_clicked()
     else if(info["nail_count"].toInt()  < 2)
         QMessageBox::warning(this , " " ,"Nail needed!");
     else{
-         info["nail_count"] = info["nail_count"].toInt() - 2 ;
-         info["coin"] = info["coin"].toInt() - 15 ;
-         time_t _time = time(NULL);
-         info["cow_upgrade_time"] = _time;
-         QJsonArray info_2 = _info["User"].toArray();
-         info_2[id] = QJsonValue(info);
-         _info["User"] = info_2;
-         write_info(_info);
-     }
+        info["nail_count"] = info["nail_count"].toInt() - 2 ;
+        info["coin"] = info["coin"].toInt() - 15 ;
+        time_t _time = time(NULL);
+        info["cow_upgrade_time"] = _time;
+        QJsonArray info_2 = _info["User"].toArray();
+        info_2[id] = QJsonValue(info);
+        _info["User"] = info_2;
+        write_info(_info);
+    }
 }
 
 
@@ -121,15 +121,15 @@ void cow_pasture::on_build_clicked()
     else if(info["shovel_count"].toInt() < 1)
         QMessageBox::warning(this , " " ,"Shovel needed!");
     else{
-         info["nail_count"] = info["nail_count"].toInt() - 3 ;
-         info["shovel_count"] = info["shovel_count"].toInt() - 1 ;
-         info["coin"] = info["coin"].toInt() - 20 ;
-         time_t _time = time(NULL);
-         info["cow_upgrade_time"] = _time;
-         QJsonArray info_2 = _info["User"].toArray();
-         info_2[id] = QJsonValue(info);
-         _info["User"] = info_2;
-         write_info(_info);
-     }
+        info["nail_count"] = info["nail_count"].toInt() - 3 ;
+        info["shovel_count"] = info["shovel_count"].toInt() - 1 ;
+        info["coin"] = info["coin"].toInt() - 20 ;
+        time_t _time = time(NULL);
+        info["cow_upgrade_time"] = _time;
+        QJsonArray info_2 = _info["User"].toArray();
+        info_2[id] = QJsonValue(info);
+        _info["User"] = info_2;
+        write_info(_info);
+    }
 }
 

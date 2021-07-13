@@ -1,6 +1,7 @@
 #include "farm.h"
 #include "ui_farm.h"
 #include "cow_pasture.h"
+
 #include "information.h"
 #include <QIcon>
 

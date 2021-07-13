@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QJsonObject>
 #include <QJsonArray>
+
 namespace Ui {class wheat_field;}
 
 class wheat_field : public QDialog

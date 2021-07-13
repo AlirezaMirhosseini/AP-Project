@@ -1,9 +1,9 @@
 #pragma once
-    
+
 #ifndef ALFALFA_FIELD_H
 #define ALFALFA_FIELD_H
 #include <QDialog>
-#include<QTimer>
+#include <QTimer>
 #include <QJsonObject>
 #include <QJsonArray>
 
@@ -31,12 +31,12 @@ private slots:
 public slots:
     void increamenter_upgrade();
     void increamenter_plow();
-
+    void increamenter_seed();
 private:
 
     Ui::alfalfa_field *ui;
     int id;
-    QTimer* timer1 , *timer2 ;
+    QTimer* timer1 , *timer2 , *timer3;
     QJsonObject info ,_info ;
 
 };

@@ -11,37 +11,32 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
 {
     ui->setupUi(this);
     id = _id;
-     _info = read_info();
-     info = (_info["User"].toArray())[id].toObject();
+    _info = read_info();
+    info = (_info["User"].toArray())[id].toObject();
 
     if(info["alfalfa_upgrade_time"].toInt() == -1)
         ui->alfalfa_upgrade_pro->hide();
-
-
 
     ui->spinBox->setMaximum(4 * pow(2, info["alfalfa_level"].toInt() - 1));
     ui->lbl_area_value->setText(QString::number(4 * pow(2, info["alfalfa_level"].toInt() - 1)));
     ui->lbl_level_value->setText(QString::number(info["alfalfa_level"].toInt()));
     ui->lbl_cultivated_area_value->setText(QString::number(info["alfalfa_cultivated_area"].toInt()));
+    ui->alfalfa_upgrade_pro->setValue(info["alfalfa_upgrade_pro"].toInt());
 
-     ui->alfalfa_upgrade_pro->setValue(info["alfalfa_upgrade_pro"].toInt());
-     timer1 = new QTimer();
-     timer2 = new QTimer();
+    timer1 = new QTimer();
+    timer2 = new QTimer();
+    timer3 = new QTimer();
 
+    if(info["alfalfa_upgrade_time"].toInt() != -1)
+        timer1->start(2592000);
+    if(info["alfalfa_plow_time"].toInt() != -1)
+        timer2->start(864000);
+    if(info["alfalfa_seed_time"].toInt() != -1)
+        timer3->start(3456000);
 
-     if(info["alfalfa_upgrade_time"].toInt() != -1)
-         timer1->start(2592000);
-     if(info["alfalfa_plow_time"].toInt() != -1)
-         timer2->start(864000);
-
-
-     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
-
-     connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_plow()));
-
-
-
-
+    connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_plow()));
+    connect(timer3,SIGNAL(timeout()),this,SLOT(increamenter_seed()));
 }
 
 alfalfa_field::~alfalfa_field()
@@ -51,18 +46,25 @@ alfalfa_field::~alfalfa_field()
 
 void alfalfa_field::increamenter_upgrade()
 {
-    int aux = 0;
-    aux = ui->alfalfa_upgrade_pro->value();
-    aux++;
-    ui->alfalfa_upgrade_pro->setValue(aux);
+    int aux1 = 0;
+    aux1 = ui->alfalfa_upgrade_pro->value();
+    aux1++;
+    ui->alfalfa_upgrade_pro->setValue(aux1);
 }
 
 void alfalfa_field::increamenter_plow()
 {
-    int aux = 0;
-    aux = ui->plow_pro->value();
-    aux++;
-    ui->plow_pro->setValue(aux);
+    int aux2 = 0;
+    aux2 = ui->plow_pro->value();
+    aux2++;
+    ui->plow_pro->setValue(aux2);
+}
+
+void alfalfa_field::increamenter_seed(){
+    int aux3 = 0;
+    aux3 = ui->prg_harvesting->value();
+    aux3++;
+    ui->prg_harvesting->setValue(aux3);
 }
 
 void alfalfa_field::on_btn_upgrade_clicked()
@@ -146,15 +148,15 @@ void alfalfa_field::on_build_clicked()
 {
     if(info["level_player"].toInt() < 3)
         QMessageBox::warning(this , " " ,"You need to reach <b>level 3</b>");
-   else if(info["nail_count"].toInt() < 1)
+    else if(info["nail_count"].toInt() < 1)
         QMessageBox::warning(this , " " , "<b>Nail</b> needed!" );
-   else if(info["coin"].toInt() < 15)
+    else if(info["coin"].toInt() < 15)
         QMessageBox::warning(this , " " , "<b>Coin</b> needed!" );
     else if(info["shovel_count"].toInt() < 1 )
         QMessageBox::warning(this , " " , "<b>Shovel</b> needed!" );
     else{
         info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - 1);
-         info["nail_count"] = QJsonValue(info["nail_count"].toInt() - 1);
+        info["nail_count"] = QJsonValue(info["nail_count"].toInt() - 1);
         info["coin"] = QJsonValue(info["coin"].toInt() - 15);
         time_t _time = time(NULL);
         info["alfalfa_upgrade_time"] = QJsonValue(_time);
