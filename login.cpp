@@ -90,7 +90,7 @@ login::login(QWidget *parent) :
         if(info["wheat_seed_time"].toInt() != -1 && _time - info["wheat_seed_time"].toInt() >= 172800)
           {
             info["wheat_seed_time"] = -1;
-            info["wheat_in_use"] = false;
+
           }
 
         else if(info["wheat_seed_time"].toInt() != -1){

@@ -144,10 +144,11 @@ void alfalfa_field::on_btn_plow_clicked()
 
 void alfalfa_field::on_build_clicked()
 {
-    if(info["nail_count"].toInt() < 1)
+    if(info["level_player"].toInt() < 3)
+        QMessageBox::warning(this , " " ,"You need to reach <b>level 3</b>");
+   else if(info["nail_count"].toInt() < 1)
         QMessageBox::warning(this , " " , "<b>Nail</b> needed!" );
-   else {
-    if(info["coin"].toInt() < 15)
+   else if(info["coin"].toInt() < 15)
         QMessageBox::warning(this , " " , "<b>Coin</b> needed!" );
     else if(info["shovel_count"].toInt() < 1 )
         QMessageBox::warning(this , " " , "<b>Shovel</b> needed!" );
@@ -162,5 +163,4 @@ void alfalfa_field::on_build_clicked()
         _info["User"] = info_2;
         write_info(_info);
     }
-}
 }
