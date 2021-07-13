@@ -19,8 +19,12 @@ barn::barn(QWidget *parent, int _id) :
     ui->egg->setText(QString::number(info["eggs_count"].toInt()));
     ui->milk->setText(QString::number(info["milks"].toArray().size()));
     ui->fleece->setText(QString::number(info["fleece_count"].toInt()));
-    if(info["barn_upgrade_time"] == -1)
-        ui->barn_pro->hide();
+
+       if(info["barn_upgrade_time"] == -1)
+           ui->barn_pro->hide();
+    int item=info["nail_count"].toInt()+info["shovel_count"].toInt()+info["alfalfa_count"].toInt()+info["eggs_count"].toInt()+info["milks"].toArray().size()+info["fleece_count"].toInt();
+    ui->items->setText(QString::number(item));
+
 
 }
 
