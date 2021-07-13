@@ -1,8 +1,8 @@
 #include "barn.h" 
 #include "ui_barn.h"
 #include "information.h"
-#include<cmath>
-#include<QMessageBox>
+#include <cmath>
+#include <QMessageBox>
 barn::barn(QWidget *parent, int _id) :
     QDialog(parent),
     ui(new Ui::barn)
@@ -19,8 +19,8 @@ barn::barn(QWidget *parent, int _id) :
     ui->egg->setText(QString::number(info["eggs_count"].toInt()));
     ui->milk->setText(QString::number(info["milks"].toArray().size()));
     ui->fleece->setText(QString::number(info["fleece_count"].toInt()));
-       if(info["barn_upgrade_time"] == -1)
-           ui->barn_pro->hide();
+    if(info["barn_upgrade_time"] == -1)
+        ui->barn_pro->hide();
 
 }
 
@@ -31,15 +31,18 @@ barn::~barn()
 
 void barn::on_upgrade_clicked()
 {
-
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this," ","Are you sure? you want to upgrade?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes){
-        if(info["barn_level"].toInt()>=info["level_palyer"].toInt())
-            QMessageBox::warning(this , " " ," ");
+        if(info["barn_level"].toInt() >= info["level_palyer"].toInt())
+            QMessageBox::warning(this , " " ,"Barn level cant be greater than Your Level!");
         else{
-            if((info["nail_count"].toInt()<info["barn_level"].toInt())||(info["shovel_count"].toInt()<(info["barn_level"].toInt()-1))||(info["coin"].toInt()<(10*pow(info["barn_level"].toInt(),3))))
-                QMessageBox::warning(this , " " ," ");
+            if((info["nail_count"].toInt() < info["barn_level"].toInt()))
+                QMessageBox::warning(this , " " ,"<b>Nail</b> needed!");
+            else if((info["shovel_count"].toInt() < (info["barn_level"].toInt()-1)))
+                QMessageBox::warning(this , " " ,"<b>Shovel</b> needed!");
+            else if((info["coin"].toInt() < (10*pow(info["barn_level"].toInt(),3))))
+                QMessageBox::warning(this , " " ,"<b>Coin</b> needed!");
             else{
                 info["nail_count"]=QJsonValue(info["nail_count"].toInt()-info["barn_level"].toInt());
                 info["shovel_count"]=QJsonValue(info["shovel_count"].toInt()-(info["barn_level"].toInt()-1));
