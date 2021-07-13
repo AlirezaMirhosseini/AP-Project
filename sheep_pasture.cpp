@@ -28,6 +28,7 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
        timer->start(7776000);
 
      connect(timer,SIGNAL(timeout()),this,SLOT(increamenter()));
+     ui->label->setText("<b> exist sheep </b>");
 }
 
 sheep_pasture::~sheep_pasture()
