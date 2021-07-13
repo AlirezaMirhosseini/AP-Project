@@ -1,13 +1,23 @@
 #include "farm.h"
 #include "ui_farm.h"
-#include"cow_pasture.h"
+#include "cow_pasture.h"
+#include "information.h"
+#include <QIcon>
+
 
 farm::farm(QWidget *parent, int _id) :
     QDialog(parent),
     ui(new Ui::farm)
 {
+
     ui->setupUi(this);
     id = _id;
+    _info = read_info();
+    info = (_info["User"].toArray())[id].toObject();
+    if(info["gender"].toString()=="      Male")
+        ui->profile_pushButton->setIcon(QIcon(":/game_backgrounds/pics_project/138manfarmer2_100718.png"));
+    else
+    ui->profile_pushButton->setIcon(QIcon(":/game_backgrounds/pics_project/139womanfarmer1_100885 (1).png"));
 }
 
 
