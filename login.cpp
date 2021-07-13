@@ -1,10 +1,10 @@
 #include "login.h"
 #include "ui_login.h"
-#include<QLabel>
-#include<QMessageBox>
-#include"information.h"
-#include"game.h"
-#include<math.h>
+#include <QLabel>
+#include <QMessageBox>
+#include "information.h"
+#include "game.h"
+#include <math.h>
 
 login::login(QWidget *parent) :
     QDialog(parent),
@@ -12,66 +12,66 @@ login::login(QWidget *parent) :
 {
     ui->setupUi(this);
     QJsonObject _info=read_info();
-     QJsonArray info_2 ;
-      time_t _time = time(NULL);
+    QJsonArray info_2 ;
+    time_t _time = time(NULL);
     for(int i = 0; i < _info["User"].toArray().size() ; i++){
-         QJsonObject info = _info["User"].toArray()[i].toObject();
+        QJsonObject info = _info["User"].toArray()[i].toObject();
 
         if(info["chicken_upgrade_time"].toInt() != -1 && _time - info["chicken_upgrade_time"].toInt() >= 259200 )
         {
             info["chicken_upgrade_time"] = -1;
-        info["chicken_level"] = QJsonValue(info["chicken_level"].toInt() + 1); //when upgrade finished
-          info["exp"] = QJsonValue(info["exp"].toInt() + 5);
+            info["chicken_level"] = QJsonValue(info["chicken_level"].toInt() + 1); //when upgrade finished
+            info["exp"] = QJsonValue(info["exp"].toInt() + 5);
         }
 
-         else if(info["chicken_upgrade_time"].toInt() != -1){
-             int dif_time = _time - info["chicken_upgrade_time"].toInt();
-             info["chicken_upgrade_pro"] = (dif_time * 100 /259200);
+        else if(info["chicken_upgrade_time"].toInt() != -1){
+            int dif_time = _time - info["chicken_upgrade_time"].toInt();
+            info["chicken_upgrade_pro"] = (dif_time * 100 /259200);
         }
 
         if(info["cow_upgrade_time"].toInt() != -1 && info["cow_level"].toInt() == 0 && _time - info["cow_upgrade_time"].toInt() >= 432000 )
         {
             info["cow_upgrade_time"] = -1;
-        info["cow_level"] = QJsonValue(1); //when upgrade finished
-          info["exp"] = QJsonValue(info["exp"].toInt() + 10);
-         }
+            info["cow_level"] = QJsonValue(1); //when upgrade finished
+            info["exp"] = QJsonValue(info["exp"].toInt() + 10);
+        }
         else if(info["cow_upgrade_time"].toInt() != -1 && info["cow_level"].toInt() == 0){
-             int dif_time = _time - info["cow_upgrade_time"].toInt();
+            int dif_time = _time - info["cow_upgrade_time"].toInt();
             info["cow_upgrade_pro"] =  dif_time * 100 /432000;
         }
-            if(info["cow_upgrade_time"].toInt() != -1 && info["cow_level"].toInt() != 0 && _time - info["cow_upgrade_time"].toInt() >= 432000 )
-            {
-                info["cow_upgrade_time"] = -1;
+        if(info["cow_upgrade_time"].toInt() != -1 && info["cow_level"].toInt() != 0 && _time - info["cow_upgrade_time"].toInt() >= 432000 )
+        {
+            info["cow_upgrade_time"] = -1;
             info["cow_level"] = QJsonValue(info["cow_level"].toInt() + 1); //when upgrade finished
-              info["exp"] = QJsonValue(info["exp"].toInt() + 6);
-             }
-            else if(info["cow_upgrade_time"].toInt() != -1 && info["cow_level"].toInt() != 0){
-                 int dif_time = _time - info["cow_upgrade_time"].toInt();
-                info["cow_upgrade_pro"] =  dif_time * 100 /432000;
-            }
+            info["exp"] = QJsonValue(info["exp"].toInt() + 6);
+        }
+        else if(info["cow_upgrade_time"].toInt() != -1 && info["cow_level"].toInt() != 0){
+            int dif_time = _time - info["cow_upgrade_time"].toInt();
+            info["cow_upgrade_pro"] =  dif_time * 100 /432000;
+        }
 
-            if(info["sheep_upgrade_time"].toInt() != -1 && info["sheep_level"].toInt() == 0 && _time - info["sheep_upgrade_time"].toInt() >= 777600 )
-            {
-             info["sheep_upgrade_time"] = -1;
-             info["sheep_level"] = QJsonValue(1); //when upgrade finished
-               info["exp"] = QJsonValue(info["exp"].toInt() + 20);
+        if(info["sheep_upgrade_time"].toInt() != -1 && info["sheep_level"].toInt() == 0 && _time - info["sheep_upgrade_time"].toInt() >= 777600 )
+        {
+            info["sheep_upgrade_time"] = -1;
+            info["sheep_level"] = QJsonValue(1); //when upgrade finished
+            info["exp"] = QJsonValue(info["exp"].toInt() + 20);
 
-            }
-            else if(info["sheep_upgrade_time"].toInt() != -1 && info["sheep_level"].toInt() == 0){
-                 int dif_time = _time - info["sheep_upgrade_time"].toInt();
-                 info["sheep_upgrade_pro"]  = dif_time * 100 /864000 ;
-            }
+        }
+        else if(info["sheep_upgrade_time"].toInt() != -1 && info["sheep_level"].toInt() == 0){
+            int dif_time = _time - info["sheep_upgrade_time"].toInt();
+            info["sheep_upgrade_pro"]  = dif_time * 100 /864000 ;
+        }
 
         if(info["sheep_upgrade_time"].toInt() != -1 && info["sheep_level"].toInt() != 0  && _time - info["sheep_upgrade_time"].toInt() >= 777600 )
         {
-         info["sheep_upgrade_time"] = -1;
-         info["sheep_level"] = QJsonValue(info["sheep_level"].toInt() + 1); //when upgrade finished
-           info["exp"] = QJsonValue(info["exp"].toInt() + 15);
+            info["sheep_upgrade_time"] = -1;
+            info["sheep_level"] = QJsonValue(info["sheep_level"].toInt() + 1); //when upgrade finished
+            info["exp"] = QJsonValue(info["exp"].toInt() + 15);
 
         }
         else if(info["sheep_upgrade_time"].toInt() != -1 && info["sheep_level"].toInt() != 0){
-             int dif_time = _time - info["sheep_upgrade_time"].toInt();
-             info["sheep_upgrade_pro"]  = dif_time * 100 /777600 ;
+            int dif_time = _time - info["sheep_upgrade_time"].toInt();
+            info["sheep_upgrade_pro"]  = dif_time * 100 /777600 ;
         }
 
 
@@ -79,22 +79,22 @@ login::login(QWidget *parent) :
         if(info["wheat_upgrade_time"].toInt() != -1 && _time - info["wheat_upgrade_time"].toInt() >= 172800 )
         {
             info["wheat_upgrade_time"] = -1;
-        info["wheat_level"] = QJsonValue(info["wheat_level"].toInt() + 1); //when upgrade finished
-          info["exp"] = QJsonValue(info["exp"].toInt() + 3 * 5 * pow(2, info["wheat_level"].toInt() - 2));
-         }
+            info["wheat_level"] = QJsonValue(info["wheat_level"].toInt() + 1); //when upgrade finished
+            info["exp"] = QJsonValue(info["exp"].toInt() + 3 * 5 * pow(2, info["wheat_level"].toInt() - 2));
+        }
         else if(info["wheat_upgrade_time"].toInt() != -1){
-             int dif_time = _time - info["wheat_upgrade_time"].toInt();
+            int dif_time = _time - info["wheat_upgrade_time"].toInt();
             info["wheat_upgrade_pro"] = dif_time * 100 /172800 ;
         }
 
         if(info["wheat_seed_time"].toInt() != -1 && _time - info["wheat_seed_time"].toInt() >= 172800)
-          {
+        {
             info["wheat_seed_time"] = -1;
 
-          }
+        }
 
         else if(info["wheat_seed_time"].toInt() != -1){
-           int dif_time = _time - info["wheat_seed_time"].toInt();
+            int dif_time = _time - info["wheat_seed_time"].toInt();
             info["wheat_seed_pro"] = dif_time * 100 /172800 ;
         }
 
@@ -105,32 +105,32 @@ login::login(QWidget *parent) :
             info["alfalfa_in_use"] = false;
         }
         else if(info["alfalfa_seed_time"].toInt() != -1){
-           int dif_time = _time - info["alfalfa_seed_time"].toInt();
+            int dif_time = _time - info["alfalfa_seed_time"].toInt();
             info["alfalfa_seed_pro"] = dif_time * 100 /345600 ;
         }
 
         if(info["alfalfa_upgrade_time"].toInt() != -1 && info["alfalfa_level"].toInt() == 0 && _time - info["alfalfa_upgrade_time"].toInt() >= 259200  )
         {
-           info["alfalfa_upgrade_time"] = -1;
-           info["exp"] = QJsonValue(info["exp"].toInt() + 6); //when upgrade finished
-           info["alfalfa_level"] = QJsonValue(1);
+            info["alfalfa_upgrade_time"] = -1;
+            info["exp"] = QJsonValue(info["exp"].toInt() + 6); //when upgrade finished
+            info["alfalfa_level"] = QJsonValue(1);
         }
         else if(info["alfalfa_upgrade_time"].toInt() != -1 && info["alfalfa_level"].toInt() == 0)
         {
-             int dif_time = _time - info["alfalfa_upgrade_time"].toInt();
-             info["alfalfa_upgrade_pro"]  = dif_time * 100 /259200;
+            int dif_time = _time - info["alfalfa_upgrade_time"].toInt();
+            info["alfalfa_upgrade_pro"]  = dif_time * 100 /259200;
         }
 
         if(info["alfalfa_upgrade_time"].toInt() != -1 && info["alfalfa_level"].toInt() != 0 && _time - info["alfalfa_upgrade_time"].toInt() >= 259200  )
         {
-           info["alfalfa_upgrade_time"] = -1;
-           info["exp"] = QJsonValue(info["exp"].toInt() + 3 *(4 * pow (2, info["alfalfa_level"].toInt() - 1))); //when upgrade finished
-           info["alfalfa_level"] = QJsonValue(info["alfalfa_level"].toInt() + 1);
+            info["alfalfa_upgrade_time"] = -1;
+            info["exp"] = QJsonValue(info["exp"].toInt() + 3 *(4 * pow (2, info["alfalfa_level"].toInt() - 1))); //when upgrade finished
+            info["alfalfa_level"] = QJsonValue(info["alfalfa_level"].toInt() + 1);
         }
         else if(info["alfalfa_upgrade_time"].toInt() != -1 && info["alfalfa_level"].toInt() != 0)
         {
-             int dif_time = _time - info["alfalfa_upgrade_time"].toInt();
-             info["alfalfa_upgrade_pro"]  = dif_time * 100 /259200;
+            int dif_time = _time - info["alfalfa_upgrade_time"].toInt();
+            info["alfalfa_upgrade_pro"]  = dif_time * 100 /259200;
         }
 
         if(info["barn_upgrade_time"].toInt() != -1 && _time - info["barn_upgrade_time"].toInt() > 432000)
@@ -161,17 +161,17 @@ login::login(QWidget *parent) :
         }
 
         if(info["alfalfa_plow_time"].toInt() != -1 && _time - info["alfalfa_plow_time"].toInt() >= 86400)
-                    info["alfalfa_plow_time"] = -1;
-         else if(info["alfalfa_plow_time"].toInt() != -1){
-                   int dif_time = _time - info["alfalfa_plow_time"].toInt();
-                    info["alfalfa_plow_pro"] = dif_time * 100 /86400 ;
-         }
+            info["alfalfa_plow_time"] = -1;
+        else if(info["alfalfa_plow_time"].toInt() != -1){
+            int dif_time = _time - info["alfalfa_plow_time"].toInt();
+            info["alfalfa_plow_pro"] = dif_time * 100 /86400 ;
+        }
 
         if(info["alfalfa_plow_time"].toInt() != -1 && _time - info["alfalfa_plow_time"].toInt() >= 86400)
         {
-          info["alfalfa_plow_time"] = -1;
-          info["alfalfa_plowed"] = QJsonValue(true);
-         }
+            info["alfalfa_plow_time"] = -1;
+            info["alfalfa_plowed"] = QJsonValue(true);
+        }
         else if(info["alfalfa_plow_time"].toInt() != -1)
         {
             int dif_time = _time - info["alfalfa_plow_time"].toInt();
@@ -184,12 +184,12 @@ login::login(QWidget *parent) :
 
         for(int j= 0 ; j < info["milks"].toArray().size() ; j++ )
         {
-           if(_time - info["milks"].toArray()[j].toInt() >= 864000)
-               info["milks"].toArray().erase(info["milks"].toArray().begin() + j);
+            if(_time - info["milks"].toArray()[j].toInt() >= 864000)
+                info["milks"].toArray().erase(info["milks"].toArray().begin() + j);
         }
-            info_2.push_back(QJsonValue(info));
+        info_2.push_back(QJsonValue(info));
     }
-      check_level();
+    check_level();
     _info["User"] = info_2;
     write_info(_info);
 }

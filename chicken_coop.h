@@ -5,8 +5,8 @@
 
 #include <QDialog>
 #include <QTimer>
-#include<QJsonObject>
-#include<QJsonArray>
+#include <QJsonObject>
+#include <QJsonArray>
 
 namespace Ui {class checken_coop;}
 

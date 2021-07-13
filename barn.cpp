@@ -9,8 +9,10 @@ barn::barn(QWidget *parent, int _id) :
 {
     id = _id;
     ui->setupUi(this);
+
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
+
     ui->level->setText(QString::number(info["barn_level"].toInt()));
     ui->capacity->setText(QString::number(ceil(5*pow(1.5,info["barn_level"].toInt()-1))));
     ui->shovel->setText(QString::number(info["shovel_count"].toInt()));
@@ -22,7 +24,12 @@ barn::barn(QWidget *parent, int _id) :
 
     if(info["barn_upgrade_time"] == -1)
         ui->barn_pro->hide();
-    int item=info["nail_count"].toInt()+info["shovel_count"].toInt()+info["alfalfa_count"].toInt()+info["eggs_count"].toInt()+info["milks"].toArray().size()+info["fleece_count"].toInt();
+    int item = info["nail_count"].toInt() +
+            info["shovel_count"].toInt() +
+            info["alfalfa_count"].toInt() +
+            info["eggs_count"].toInt() +
+            info["milks"].toArray().size() +
+            info["fleece_count"].toInt();
     ui->items->setText(QString::number(item));
 }
 
@@ -34,7 +41,7 @@ barn::~barn()
 void barn::on_upgrade_clicked()
 {
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this," ","Are you sure? you want to upgrade?", QMessageBox::Yes | QMessageBox::No);
+    reply = QMessageBox::question(this," ","Are you sure?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes){
         if(info["barn_level"].toInt() >= info["level_palyer"].toInt())
             QMessageBox::warning(this , " " ,"Barn level cant be greater than Your Level!");
@@ -46,9 +53,9 @@ void barn::on_upgrade_clicked()
             else if((info["coin"].toInt() < (10*pow(info["barn_level"].toInt(),3))))
                 QMessageBox::warning(this , " " ,"<b>Coin</b> needed!");
             else{
-                info["nail_count"]=QJsonValue(info["nail_count"].toInt()-info["barn_level"].toInt());
-                info["shovel_count"]=QJsonValue(info["shovel_count"].toInt()-(info["barn_level"].toInt()-1));
-                info["coin"]=QJsonValue( info["coin"].toInt()-(10*pow(info["barn_level"].toInt(),3)));
+                info["nail_count"]=QJsonValue(info["nail_count"].toInt() - info["barn_level"].toInt());
+                info["shovel_count"]=QJsonValue(info["shovel_count"].toInt() - (info["barn_level"].toInt()-1));
+                info["coin"]=QJsonValue(info["coin"].toInt() - (10*pow(info["barn_level"].toInt(),3)));
                 time_t _time = time(NULL);
                 info["barn_upgrade_time"] = _time;
                 QJsonArray info_2 = _info["User"].toArray();

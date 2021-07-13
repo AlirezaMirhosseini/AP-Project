@@ -5,8 +5,9 @@
 
 #include <QDialog>
 #include <QTimer>
-#include<QJsonObject>
-#include<QJsonArray>
+#include <QJsonObject>
+#include <QJsonArray>
+
 namespace Ui {class sheep_pasture;}
 
 class sheep_pasture : public QDialog

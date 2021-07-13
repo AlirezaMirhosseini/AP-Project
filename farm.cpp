@@ -1,6 +1,6 @@
 #include "farm.h"
 #include "ui_farm.h"
-#include"cow_pasture.h"
+#include "cow_pasture.h"
 
 farm::farm(QWidget *parent, int _id) :
     QDialog(parent),

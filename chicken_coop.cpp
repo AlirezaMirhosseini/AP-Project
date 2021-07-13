@@ -1,12 +1,12 @@
 #pragma once
 #include "chicken_coop.h"
 #include "ui_chicken_coop.h"
-#include<QJsonObject>
-#include"information.h"
-#include<QMessageBox>
-#include<ctime>
-#include<time.h>
-#include<cmath>
+#include <QJsonObject>
+#include "information.h"
+#include <QMessageBox>
+#include <ctime>
+#include <time.h>
+#include <cmath>
 
 chicken_coop::chicken_coop(QWidget *parent , int _id) :
     QDialog(parent),
@@ -56,7 +56,7 @@ void chicken_coop::on_feed_clicked()
 {
 
     if(info["chicken_feed_time"].toInt() != -1)
-    QMessageBox::warning(this , " " ,"Chickens are feeding!");
+        QMessageBox::warning(this , " " ,"Chickens are feeding!");
     else{
         if(info["wheat_count"].toInt() < info["chicken_count"].toInt()){
             QMessageBox::warning(this , " " ,"<b>Wheat</b> needed!");
@@ -110,14 +110,14 @@ void chicken_coop::on_upgrade_clicked()
     else if(info["coin"].toInt() < 10)
         QMessageBox::warning(this , " " ,"<b>Coin</b> needed!");
     else{
-         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 1 );
-         info["coin"] = QJsonValue (info["coin"].toInt() - 10 );
-         time_t _time = time(NULL);
-         info["chicken_upgrade_time"] = _time;
-         QJsonArray info_2 = _info["User"].toArray();
-         info_2[id] = QJsonValue(info);
-         _info["User"] = info_2;
-         write_info(_info);
+        info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 1 );
+        info["coin"] = QJsonValue (info["coin"].toInt() - 10 );
+        time_t _time = time(NULL);
+        info["chicken_upgrade_time"] = _time;
+        QJsonArray info_2 = _info["User"].toArray();
+        info_2[id] = QJsonValue(info);
+        _info["User"] = info_2;
+        write_info(_info);
     }
 }
 

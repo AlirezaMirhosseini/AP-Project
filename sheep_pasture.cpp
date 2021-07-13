@@ -4,8 +4,6 @@
 #include <QMessageBox>
 #include <cmath>
 
-
-
 sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
     QDialog(parent),
     ui(new Ui::sheep_pasture)
@@ -47,7 +45,7 @@ void sheep_pasture::increamenter()
 void sheep_pasture::on_feed_clicked()
 {
     if(info["sheep_feed_time"].toInt() != -1)
-    QMessageBox::warning(this , " " ,"Sheeps are feeding!");
+        QMessageBox::warning(this , " " ,"Sheeps are feeding!");
     else{
         if(info["alfalfa_count"].toInt() < info["sheep_count"].toInt()){
             QMessageBox::warning(this , " " ,"<b>Alfalfa</b> needed!");
