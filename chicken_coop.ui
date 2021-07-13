@@ -325,7 +325,7 @@ border : none;</string>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>Build</string>
    </property>
   </widget>
   <widget class="QProgressBar" name="chicken_pro">

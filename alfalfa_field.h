@@ -26,6 +26,8 @@ private slots:
     void on_btn_harvesting_clicked();
 
     void on_btn_plow_clicked();
+    void on_build_clicked();
+
 public slots:
     void increamenter_upgrade();
     void increamenter_plow();
