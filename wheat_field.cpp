@@ -37,21 +37,21 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
 
     ui->wheat_upgrade_pro->setValue(info["wheat_upgrade_pro"].toInt());
     ui->seed_progress->setValue(info["wheat_seed_pro"].toInt());
-     timer1 = new QTimer();
-     timer2 = new QTimer();
+    timer1 = new QTimer();
+    timer2 = new QTimer();
 
 
-     if(info["wheat_upgrade_time"].toInt() != -1)
-       timer1->start(1728000);
+    if(info["wheat_upgrade_time"].toInt() != -1)
+        timer1->start(1728000);
 
-     if(info["wheat_seed_time"].toInt() != -1)
-       timer2->start(1000);
+    if(info["wheat_seed_time"].toInt() != -1)
+        timer2->start(1728000);
 
 
 
-     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
+    connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
 
-     connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_seed()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_seed()));
 }
 
 
