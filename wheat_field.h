@@ -24,14 +24,17 @@ private slots:
 
     void on_Harvesting_clicked();
 
+
 public slots:
-    void increamenter();
+    void increamenter_seed();
+
+    void  increamenter_upgrade();
 
 private:
 
     Ui::wheat_field *ui;
     int id ;
-    QTimer* timer1 ;
+    QTimer* timer1 , *timer2 ;
     QJsonObject info ,_info ;
 
 };

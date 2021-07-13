@@ -122,7 +122,9 @@ void sheep_pasture::on_Fleece_Shave_clicked()
 
 void sheep_pasture::on_build_clicked()
 {
-    if(info["nail_count"].toInt()  < 4)
+    if(info["level_player"].toInt() < 6)
+        QMessageBox::warning(this , " " ,"You need to reach <b>level 6</b>");
+    else if(info["nail_count"].toInt()  < 4)
         QMessageBox::warning(this , " " ,"<b>Nail</b> needed!");
     else if(info["shovel_count"].toInt()  < 2)
         QMessageBox::warning(this , " " ,"<b>Shovel</b> needed!");

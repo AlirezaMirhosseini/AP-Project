@@ -110,10 +110,11 @@ void cow_pasture::on_collect_milk_clicked()
         }
     }
 }
-
 void cow_pasture::on_build_clicked()
 {
-    if(info["nail_count"].toInt())
+    if(info["level_player"].toInt() < 4)
+        QMessageBox::warning(this , " " ,"You need to reach <b>level 4</b>");
+    else if(info["nail_count"].toInt())
         QMessageBox::warning(this , " " ,"Nail needed!");
     else if(info["coin"].toInt() < 20)
         QMessageBox::warning(this , " " ,"Coin needed!");

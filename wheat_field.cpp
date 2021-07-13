@@ -20,6 +20,14 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     if(info["wheat_upgrade_time"].toInt() == -1)
         ui->wheat_upgrade_pro->hide();
 
+    if(info["wheat_seed_time"].toInt() != -1)
+        ui->seed->setEnabled(false);
+    if(info["wheat_seed_time"].toInt() == -1)
+        ui->seed_progress->hide();
+
+
+
+
 
     ui->spinBox->setMaximum(5 * pow(2, info["wheat_level"].toInt() - 1));
     ui->label_3->setText(QString::number(5 * pow(2, info["wheat_level"].toInt() - 1)));
@@ -28,13 +36,22 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
 
 
     ui->wheat_upgrade_pro->setValue(info["wheat_upgrade_pro"].toInt());
+    ui->seed_progress->setValue(info["wheat_seed_pro"].toInt());
      timer1 = new QTimer();
+     timer2 = new QTimer();
 
 
      if(info["wheat_upgrade_time"].toInt() != -1)
        timer1->start(1728000);
 
-     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter()));
+     if(info["wheat_seed_time"].toInt() != -1)
+       timer2->start(1000);
+
+
+
+     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
+
+     connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_seed()));
 }
 
 
@@ -43,12 +60,20 @@ wheat_field::~wheat_field()
     delete ui;
 }
 
-void wheat_field::increamenter()
+void wheat_field::increamenter_upgrade()
 {
     int aux = 0;
     aux = ui->wheat_upgrade_pro->value();
     aux++;
     ui->wheat_upgrade_pro->setValue(aux);
+}
+
+void wheat_field::increamenter_seed()
+{
+    int aux = 0;
+    aux = ui->seed_progress->value();
+    aux++;
+    ui->seed_progress->setValue(aux);
 }
 
 
@@ -89,6 +114,7 @@ void wheat_field::on_seed_clicked()
         info["wheat_seed_time"] = _time;
         info["wheat_count"] = info["wheat_count"].toInt() - ui->spinBox->value();
         info["wheat_in_use"] = true;
+        info["exp"] = QJsonValue(info["exp"].toInt() + ui->spinBox->value());
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
@@ -100,11 +126,12 @@ void wheat_field::on_Harvesting_clicked()
 {
     if(!info["wheat_in_use"].toBool())
         QMessageBox::warning(this , " " , "You havent seed yet!");
-    else if(ui->seed_progress->value() != 100)
+    else if(info["wheat_seed_time"].toInt() != -1 && info["wheat_in_use"].toBool())
         QMessageBox::warning(this , " " , "Wheat isn't ripe");
     else{
         info["wheat_count"] = info["wheat_count"].toInt() + 2 * info["wheat_cultivated_area"].toInt();
         info["wheat_in_use"] = false;
+        info["exp"] =QJsonValue(info["exp"].toInt() + info["wheat_cultivated_area"].toInt());
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;

@@ -123,7 +123,10 @@ void chicken_coop::on_upgrade_clicked()
 
 void chicken_coop::on_build_pushButton_clicked()
 {
-    if(info["nail_count"].toInt()  < 2)
+    if(info["level_player"].toInt() < 2)
+        QMessageBox::warning(this , " " ,"You need to reach <b>level 2</b>");
+
+    else if(info["nail_count"].toInt()  < 2)
         QMessageBox::warning(this , " " ,"<b>Nail</b> needed!");
     else if(info["coin"].toInt() < 10)
         QMessageBox::warning(this , " " ,"<b>Coin</b> needed!");
