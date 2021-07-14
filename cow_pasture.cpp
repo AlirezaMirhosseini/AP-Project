@@ -44,7 +44,7 @@ void cow_pasture::increamenter()
 
 void cow_pasture::on_upgrade_clicked()
 {
-    if(info["level_palyer"].toInt() < info["cow_level"].toInt() + 4)
+    if(info["level_player"].toInt() < info["cow_level"].toInt() + 4)
         QMessageBox::warning(this , " " ,"You need to reach <b>level </b>" + QString::number(info["cow_level"].toInt() + 4));
     else if(info["coin"].toInt() < 15)
         QMessageBox::warning(this , " " ,"Coin needed!");

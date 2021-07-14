@@ -679,6 +679,71 @@ p, li { white-space: pre-wrap; }
     <string>Next Day</string>
    </property>
   </widget>
+  <widget class="QLabel" name="exp">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>80</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>exp :</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="exp_num">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>80</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="level">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>120</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>level : </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="level_num">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>120</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="back">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>30</y>
+     <width>80</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>back</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>profile_pushButton</zorder>
   <zorder>chicken_pushButton</zorder>
@@ -706,6 +771,11 @@ p, li { white-space: pre-wrap; }
   <zorder>label_7</zorder>
   <zorder>textBrowser</zorder>
   <zorder>next_day</zorder>
+  <zorder>exp</zorder>
+  <zorder>exp_num</zorder>
+  <zorder>level</zorder>
+  <zorder>level_num</zorder>
+  <zorder>back</zorder>
  </widget>
  <resources>
   <include location="game_recources.qrc"/>

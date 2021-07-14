@@ -103,7 +103,7 @@ void chicken_coop::on_collect_eggs_clicked()
 
 void chicken_coop::on_upgrade_clicked()
 {
-    if(info["level_palyer"].toInt() < info["chicken_level"].toInt() + 1)
+    if(info["level_player"].toInt() < info["chicken_level"].toInt() + 1)
         QMessageBox::warning(this , " " ,"You need to reach <b>level </b>" + QString::number(info["chicken_level"].toInt() + 1));
     else if(info["nail_count"].toInt()  < 1)
         QMessageBox::warning(this , " " ,"<b>Nail</b> needed!");
