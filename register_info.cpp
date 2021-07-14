@@ -1,8 +1,9 @@
 #include "register_info.h"
 #include "ui_register_info.h"
-#include"information.h"
-#include"login.h"
-#include<QMessageBox>
+#include "information.h"
+#include "login.h"
+#include <QMessageBox>
+
 register_info::register_info(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::register_info)
@@ -22,16 +23,16 @@ void register_info::on_pushButton_clicked()
     QJsonObject _info=read_info();
     QJsonArray info = _info["User"].toArray();
     if(ui->lineEdit->text().isEmpty() ||
-       ui->lineEdit_2->text().isEmpty()||
-       ui->lineEdit_3->text().isEmpty()||
-       ui->lineEdit_4->text().isEmpty()||
-       ui->lineEdit_5->text().isEmpty())
+            ui->lineEdit_2->text().isEmpty()||
+            ui->lineEdit_3->text().isEmpty()||
+            ui->lineEdit_4->text().isEmpty()||
+            ui->lineEdit_5->text().isEmpty())
         QMessageBox::warning(this ," " , "one or more line is empty");
 
     else{
         bool usernumber=0;
         if(ui->lineEdit_3->text()!=ui->lineEdit_4->text()){
-             QMessageBox::warning(this ," " , "confirm password is not equal to password");
+            QMessageBox::warning(this ," " , "confirm password is not equal to password");
         }
         else{
 
@@ -115,7 +116,7 @@ void register_info::on_pushButton_clicked()
 
                 obj["milks"] = _milk;
 
-
+                obj["time"] = 0;
 
                 info.push_back(QJsonValue(obj));
                 _info["User"]=info;

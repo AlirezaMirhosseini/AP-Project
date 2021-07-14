@@ -12,12 +12,14 @@
 #include "wheat_field.h"
 #include "alfalfa_field.h"
 #include "store.h"
+#include "farm.h"
 
 namespace Ui {class farm;}
 
 class farm : public QDialog
 {
     Q_OBJECT
+    QJsonObject info ,_info ;
 
 public:
     explicit farm(QWidget *parent = nullptr, int _id = 0);
@@ -43,6 +45,8 @@ private slots:
     void on_alfalfa_pushButton_clicked();
 
     void on_profile_pushButton_clicked();
+
+    void on_next_day_clicked();
 
 private:
 
