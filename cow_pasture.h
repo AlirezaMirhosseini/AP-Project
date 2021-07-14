@@ -32,6 +32,7 @@ private slots:
 
     void increamenter();
 
+    void on_build_clicked();
 
 private:
 

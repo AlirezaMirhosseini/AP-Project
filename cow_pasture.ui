@@ -49,7 +49,7 @@ border : none;
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="game_recources.qrc">
+    <iconset>
      <normaloff>:/game_backgrounds/pics_project/upgrade.png</normaloff>:/game_backgrounds/pics_project/upgrade.png</iconset>
    </property>
    <property name="iconSize">
@@ -82,7 +82,7 @@ border : none;</string>
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="game_recources.qrc">
+    <iconset>
      <normaloff>:/game_backgrounds/pics_project/cow milking.png</normaloff>:/game_backgrounds/pics_project/cow milking.png</iconset>
    </property>
    <property name="iconSize">
@@ -215,7 +215,7 @@ border : none;</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/cowhouse.png</pixmap>
+    <pixmap>:/game_backgrounds/pics_project/cowhouse.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -245,7 +245,7 @@ border : none;
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="game_recources.qrc">
+    <iconset>
      <normaloff>:/game_backgrounds/pics_project/cow feeding.png</normaloff>:/game_backgrounds/pics_project/cow feeding.png</iconset>
    </property>
    <property name="iconSize">
@@ -268,7 +268,7 @@ border : none;
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/cow (2).png</pixmap>
+    <pixmap>:/game_backgrounds/pics_project/cow (2).png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -290,7 +290,7 @@ border : none;
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/push botton.png</pixmap>
+    <pixmap>:/game_backgrounds/pics_project/push botton.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -312,7 +312,7 @@ border : none;
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/push botton.png</pixmap>
+    <pixmap>:/game_backgrounds/pics_project/push botton.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -334,13 +334,13 @@ border : none;
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/push botton.png</pixmap>
+    <pixmap>:/game_backgrounds/pics_project/push botton.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="unlock">
+  <widget class="QPushButton" name="build">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -350,7 +350,7 @@ border : none;
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>Build</string>
    </property>
   </widget>
   <zorder>label_4</zorder>
@@ -368,10 +368,8 @@ border : none;
   <zorder>capacity</zorder>
   <zorder>count</zorder>
   <zorder>label</zorder>
-  <zorder>unlock</zorder>
+  <zorder>build</zorder>
  </widget>
- <resources>
-  <include location="game_recources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

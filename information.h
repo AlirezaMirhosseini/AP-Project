@@ -27,7 +27,7 @@ static void write_info(QJsonObject j){
 }
 static void check_level(){
     QJsonObject _info=read_info();
-     QJsonArray info_2 ;
+    QJsonArray info_2 ;
     for(int i = 0; i < _info["User"].toArray().size() ; i++){
         QJsonObject info = _info["User"].toArray()[i].toObject();
         for(int j=  info["level_player"].toInt() ; true ; j++){
