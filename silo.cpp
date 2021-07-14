@@ -42,7 +42,7 @@ void silo::on_upgrade_clicked()
                 info["coin"] = QJsonValue( info["coin"].toInt() - (100*pow((2*info["silo_level"].toInt()),2)));
                 if(info["silo_level"].toInt() > 2)
                     info["shovel_count"] = QJsonValue(info["shovel_count"].toInt()-(info["silo_level"].toInt()-2));
-                time_t _time = time(NULL);
+                time_t _time = time(NULL) + info["time"].toInt();
                 info["silo_upgrade_time"] = _time;
                 QJsonArray info_2 = _info["User"].toArray();
                 info_2[id] = QJsonValue(info);

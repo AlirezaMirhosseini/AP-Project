@@ -78,7 +78,7 @@ void alfalfa_field::on_btn_upgrade_clicked()
     else{
         info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - 2 * (4 * pow(2, info["alfalfa_level"].toInt() - 1)));
         info["coin"] = QJsonValue(info["coin"].toInt() - 5 * (4 * pow(2, info["alfalfa_level"].toInt() - 1)));
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["alfalfa_upgrade_time"] = QJsonValue(_time);
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
@@ -96,7 +96,7 @@ void alfalfa_field::on_btn_seed_clicked()
     else if(info["alfalfa_count"].toInt() < ui->spinBox->value())
         QMessageBox::warning(this , " " , "<b>Alfalfa</b> needed");
     else{
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["alfalfa_cultivated_area"] = QJsonValue(ui->spinBox->value());
         info["alfalfa_seed_time"] = QJsonValue(_time);
         info["alfalfa_count"] = QJsonValue(info["alfalfa_count"].toInt() - ui->spinBox->value());
@@ -135,7 +135,7 @@ void alfalfa_field::on_btn_plow_clicked()
         QMessageBox::warning(this , " " , "You havent seed yet!");
     else
     {
-        time_t _time = time(0);
+        time_t _time = time(0) + info["time"].toInt();
         info["alfalfa_plow_time"] = QJsonValue(_time);
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
@@ -158,7 +158,7 @@ void alfalfa_field::on_build_clicked()
         info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - 1);
         info["nail_count"] = QJsonValue(info["nail_count"].toInt() - 1);
         info["coin"] = QJsonValue(info["coin"].toInt() - 15);
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["alfalfa_upgrade_time"] = QJsonValue(_time);
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
