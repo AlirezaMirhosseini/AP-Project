@@ -76,7 +76,7 @@ void wheat_field::on_upgrade_clicked()
     else{
         info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - 1);
         info["coin"] = QJsonValue(info["coin"].toInt() - 5);
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["wheat_upgrade_time"] = QJsonValue(_time);
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
@@ -92,7 +92,7 @@ void wheat_field::on_seed_clicked()
     else if(info["wheat_count"].toInt() < ui->spinBox->value())
         QMessageBox::warning(this , " " , "<b>Wheat</b> needed");
     else{
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["wheat_cultivated_area"] = ui->spinBox->value();
         info["wheat_seed_time"] = QJsonValue(_time);
         info["wheat_count"] = info["wheat_count"].toInt() - ui->spinBox->value();
