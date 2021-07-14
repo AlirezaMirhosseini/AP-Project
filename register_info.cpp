@@ -116,7 +116,7 @@ void register_info::on_pushButton_clicked()
 
                 obj["milks"] = _milk;
 
-
+                obj["time"] = 0;
 
                 info.push_back(QJsonValue(obj));
                 _info["User"]=info;

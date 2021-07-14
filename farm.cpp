@@ -93,3 +93,14 @@ void farm::on_profile_pushButton_clicked()
     gamer->show();
 }
 
+
+
+void farm::on_next_day_clicked()
+{
+    info["time"]=QJsonValue(info["time"].toInt() + 86400);
+    QJsonArray info_2 = _info["User"].toArray();
+    info_2[id] = QJsonValue(info);
+    _info["User"] = info_2;
+    write_info(_info);
+}
+

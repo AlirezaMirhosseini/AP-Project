@@ -46,6 +46,8 @@ private slots:
 
     void on_profile_pushButton_clicked();
 
+    void on_next_day_clicked();
+
 private:
 
     Ui::farm *ui;
