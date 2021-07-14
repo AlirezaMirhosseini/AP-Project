@@ -7,7 +7,7 @@ class time_thread : public QThread
 {
 public:
     explicit time_thread(QObject *parent = nullptr);
-     void run();
+    void run();
 };
 
 #endif // TIME_THREAD_H

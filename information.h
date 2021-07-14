@@ -35,7 +35,6 @@ static void check_level(){
                 info["level_player"] = j ;
                 break;
             }
-
         }
         info_2.push_back(QJsonValue(info));
     }
