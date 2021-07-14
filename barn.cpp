@@ -43,7 +43,7 @@ void barn::on_upgrade_clicked()
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this," ","Are you sure?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes){
-        if(info["barn_level"].toInt() >= info["level_palyer"].toInt())
+        if(info["barn_level"].toInt() >= info["level_player"].toInt())
             QMessageBox::warning(this , " " ,"Barn level cant be greater than Your Level!");
         else{
             if((info["nail_count"].toInt() < info["barn_level"].toInt()))
