@@ -45,6 +45,7 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     if(info["wheat_upgrade_time"].toInt() != -1)
         timer1->start(1000);
     if(info["wheat_seed_time"].toInt() != -1)
+
         timer2->start(1000);
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
