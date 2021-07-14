@@ -22,6 +22,7 @@ SOURCES += \
     sheep_pasture.cpp \
     silo.cpp \
     store.cpp \
+    time_thread.cpp \
     wheat_field.cpp
 
 HEADERS += \
@@ -37,6 +38,7 @@ HEADERS += \
     sheep_pasture.h \
     silo.h \
     store.h \
+    time_thread.h \
     wheat_field.h
 
 FORMS += \
