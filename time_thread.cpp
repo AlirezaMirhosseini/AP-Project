@@ -75,21 +75,21 @@ void time_thread::run()
             }
 
             // Exist from beginning
-            if(info["wheat_upgrade_time"].toInt() != -1 && _time - info["wheat_upgrade_time"].toInt() >= 172800 ){
+            if(info["wheat_upgrade_time"].toInt() != -1 && _time - info["wheat_upgrade_time"].toInt() >= 100 ){
                 info["wheat_upgrade_time"] = -1;
                 info["wheat_level"] = QJsonValue(info["wheat_level"].toInt() + 1); //when upgrade finished
                 info["exp"] = QJsonValue(info["exp"].toInt() + 3 * 5 * pow(2, info["wheat_level"].toInt() - 2));
             }
             else if(info["wheat_upgrade_time"].toInt() != -1){
                 int dif_time = _time - info["wheat_upgrade_time"].toInt();
-                info["wheat_upgrade_pro"] = dif_time * 100 /172800 ;
+                info["wheat_upgrade_pro"] = dif_time * 100 /100 ;
             }
-            if(info["wheat_seed_time"].toInt() != -1 && _time - info["wheat_seed_time"].toInt() >= 172800){
+            if(info["wheat_seed_time"].toInt() != -1 && _time - info["wheat_seed_time"].toInt() >= 100){
                 info["wheat_seed_time"] = -1;
             }
             else if(info["wheat_seed_time"].toInt() != -1){
                 int dif_time = _time - info["wheat_seed_time"].toInt();
-                info["wheat_seed_pro"] = dif_time * 100 /172800;
+                info["wheat_seed_pro"] = dif_time * 100 /100;
             }
 
             // Before Build
