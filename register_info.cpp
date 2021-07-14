@@ -53,7 +53,7 @@ void register_info::on_pushButton_clicked()
                 obj["password"] = ui->lineEdit_3->text();
                 obj["email"] = ui->lineEdit_5->text();
                 obj["gender"] = ui->comboBox->currentText();
-                obj["level_palyer"] = 1;
+                obj["level_player"] = 1;
                 obj["coin"] = 20;
                 obj["exp"] = 0;
 

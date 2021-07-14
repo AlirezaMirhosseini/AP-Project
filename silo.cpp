@@ -28,7 +28,7 @@ void silo::on_upgrade_clicked()
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this," ","Are you sure?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes){
-        if((info["silo_level"].toInt() + 1 ) >= info["level_palyer"].toInt())
+        if((info["silo_level"].toInt() + 1 ) >= info["level_player"].toInt())
             QMessageBox::warning(this , " " ,"Silo level cannot be higher than it!");
         else{
             if(info["coin"].toInt() < (100 * pow((2 * info["silo_level"].toInt()), 2)))

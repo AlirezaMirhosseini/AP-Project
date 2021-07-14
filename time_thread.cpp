@@ -1,9 +1,5 @@
 #include "time_thread.h"
 #include "information.h"
-#include <windows.h>
-#include <QMutex>
-
-QMutex mutex;
 
 time_thread::time_thread(QObject *parent) : QThread(parent)
 {
@@ -13,7 +9,7 @@ time_thread::time_thread(QObject *parent) : QThread(parent)
 void time_thread::run()
 {
     forever{
-        mutex.lock();
+
         QJsonObject _info  = read_info();
         QJsonArray info_2 ;
 
@@ -93,7 +89,7 @@ void time_thread::run()
             }
             else if(info["wheat_seed_time"].toInt() != -1){
                 int dif_time = _time - info["wheat_seed_time"].toInt();
-                info["wheat_seed_pro"] = dif_time * 100 /172800 ;
+                info["wheat_seed_pro"] = dif_time * 100 /172800;
             }
 
             // Before Build
@@ -160,13 +156,18 @@ void time_thread::run()
                 if(_time - info["milks"].toArray()[j].toInt() >= 864000)
                     info["milks"].toArray().erase(info["milks"].toArray().begin() + j);
 
+            for(int j=  info["level_player"].toInt() ; true ; j++){
+                if(info["exp"].toInt() < (pow(2 , j) -1)*10){
+                    info["level_player"] = QJsonValue(j) ;
+                    break;
+                }
+            }
+
             info_2.push_back(QJsonValue(info));
         }
-        check_level();
         _info["User"] = info_2;
         write_info(_info);
-        Sleep(10000);
-        mutex.unlock();
+        this->msleep(500);
     }
 
 }

@@ -65,7 +65,7 @@ void sheep_pasture::on_feed_clicked()
 
 void sheep_pasture::on_upgrade_clicked()
 {
-    if(info["level_palyer"].toInt() < info["sheep_level"].toInt() + 6)
+    if(info["level_player"].toInt() < info["sheep_level"].toInt() + 6)
         QMessageBox::warning(this , " " ,"You need to reach <b>level </b>" + QString::number(info["sheep_level"].toInt() + 6));
     else if(info["nail_count"].toInt() < 3)
         QMessageBox::warning(this , " " ,"<b>Nail</b> needed!");

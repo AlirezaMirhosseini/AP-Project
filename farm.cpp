@@ -5,6 +5,8 @@
 #include "information.h"
 #include <QIcon>
 
+#include <login.h>
+
 
 farm::farm(QWidget *parent, int _id) :
     QDialog(parent),
@@ -13,8 +15,12 @@ farm::farm(QWidget *parent, int _id) :
 
     ui->setupUi(this);
     id = _id;
-    _info = read_info();
-    info = (_info["User"].toArray())[id].toObject();
+    QJsonObject _info = read_info();
+     QJsonObject  info = (_info["User"].toArray())[id].toObject();
+
+     ui->exp_num->setText(QString::number(info["exp"].toInt()));
+     ui->level_num->setText(QString::number(info["level_player"].toInt()));
+
     if(info["gender"].toString()=="      Male")
         ui->profile_pushButton->setIcon(QIcon(":/game_backgrounds/pics_project/138manfarmer2_100718.png"));
     else
@@ -97,10 +103,21 @@ void farm::on_profile_pushButton_clicked()
 
 void farm::on_next_day_clicked()
 {
+    QJsonObject _info = read_info();
+    QJsonObject  info = (_info["User"].toArray())[id].toObject();
     info["time"]=QJsonValue(info["time"].toInt() + 86400);
     QJsonArray info_2 = _info["User"].toArray();
     info_2[id] = QJsonValue(info);
     _info["User"] = info_2;
     write_info(_info);
+}
+
+
+void farm::on_back_clicked()
+{
+    this->close();
+    login *_login = new login;
+    _login->show();
+
 }
 
