@@ -26,6 +26,12 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     else
         ui->seed_progress->hide();
 
+    if(!info["wheat_in_use"].toBool()){
+        ui->label_5->hide();
+        ui->label_6->hide();
+}
+
+
     ui->spinBox->setMaximum(min1(info["wheat_count"].toInt(),5 * pow(2, info["wheat_level"].toInt() - 1)));
     ui->label_3->setText(QString::number(5 * pow(2, info["wheat_level"].toInt() - 1)));
     ui->label_4->setText(QString::number(info["wheat_level"].toInt()));
@@ -37,9 +43,9 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     timer2 = new QTimer();
 
     if(info["wheat_upgrade_time"].toInt() != -1)
-        timer1->start(1728000);
+        timer1->start(1000);
     if(info["wheat_seed_time"].toInt() != -1)
-        timer2->start(172800);
+        timer2->start(1000);
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_seed()));
