@@ -75,10 +75,10 @@ void chicken_coop::increamenter()
 void chicken_coop::on_feed_clicked()
 {
     if(info["chicken_feed_time"].toInt() != -1)
-        QMessageBox::warning(this , " " ,"Chickens are feeding!");
+        QMessageBox::warning(this , " " ,"Chickens are feeding !");
     else{
         if(info["wheat_count"].toInt() < info["chicken_count"].toInt()){
-            QMessageBox::warning(this , " " ,"<b>Wheat</b> needed!");
+            QMessageBox::warning(this , " " ,"<b>Wheat</b> needed !");
         }
         else{
             info["wheat_count"] = QJsonValue(info["wheat_count"].toInt() - info["chicken_count"].toInt());
@@ -105,7 +105,7 @@ void chicken_coop::on_collect_eggs_clicked()
                 info["milk_count"].toInt() +
                 info["fleece_count"].toInt() +
                 info["chicken_count"].toInt())//chicken count for added eggs number)
-            QMessageBox::warning(this , " " ,"You don't have enough space in barn!");
+            QMessageBox::warning(this , " " ,"You don't have enough space in barn !");
         else{
             info["eggs_count"] = QJsonValue(info["eggs_count"] .toInt() + info["chicken_count"].toInt());
             info["chicken_feed_time"] = -1;
@@ -116,18 +116,18 @@ void chicken_coop::on_collect_eggs_clicked()
         }
     }
     else
-        QMessageBox::warning(this , " " ,"Chickens are feeding!");
+        QMessageBox::warning(this , " " ,"Chickens are feeding !");
 }
 
 
 void chicken_coop::on_upgrade_clicked()
 {
     if(info["level_player"].toInt() < info["chicken_level"].toInt() + 1)
-        QMessageBox::warning(this , " " ,"You need to reach <b>level </b>" + QString::number(info["chicken_level"].toInt() + 1));
+        QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level </b>" + QString::number(info["chicken_level"].toInt() + 1) + " !");
     else if(info["nail_count"].toInt()  < 1)
-        QMessageBox::warning(this , " " ,"<b>Nail</b> needed!");
+        QMessageBox::warning(this , " " ,"<b>Nail</b> needed !");
     else if(info["coin"].toInt() < 10)
-        QMessageBox::warning(this , " " ,"<b>Coin</b> needed!");
+        QMessageBox::warning(this , " " ,"<b>Coin</b> needed !");
     else{
         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 1 );
         info["coin"] = QJsonValue (info["coin"].toInt() - 10 );
@@ -143,12 +143,12 @@ void chicken_coop::on_upgrade_clicked()
 void chicken_coop::on_build_pushButton_clicked()
 {
     if(info["level_player"].toInt() < 2)
-        QMessageBox::warning(this , " " ,"You need to reach <b>level 2</b>");
+        QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level 2</b>");
 
     else if(info["nail_count"].toInt()  < 2)
-        QMessageBox::warning(this , " " ,"<b>Nail</b> needed!");
+        QMessageBox::warning(this , " " ,"<b>Nail</b> needed !");
     else if(info["coin"].toInt() < 10)
-        QMessageBox::warning(this , " " ,"<b>Coin</b> needed!");
+        QMessageBox::warning(this , " " ,"<b>Coin</b> needed !");
     else{
         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 2 );
         info["coin"] = QJsonValue (info["coin"].toInt() - 10 );

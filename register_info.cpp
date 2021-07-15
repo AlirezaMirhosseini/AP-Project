@@ -27,12 +27,12 @@ void register_info::on_pushButton_clicked()
             ui->lineEdit_3->text().isEmpty()||
             ui->lineEdit_4->text().isEmpty()||
             ui->lineEdit_5->text().isEmpty())
-        QMessageBox::warning(this ," " , "one or more line is empty");
+        QMessageBox::warning(this ," " , "one or more line is empty !");
 
     else{
         bool usernumber=0;
         if(ui->lineEdit_3->text()!=ui->lineEdit_4->text()){
-            QMessageBox::warning(this ," " , "confirm password is not equal to password");
+            QMessageBox::warning(this ," " , "confirm password is not equal to password !");
         }
         else{
 
@@ -43,7 +43,7 @@ void register_info::on_pushButton_clicked()
                 }
             }
             if(usernumber){
-                QMessageBox::warning(this ," " , "this username have already used");
+                QMessageBox::warning(this ," " , "this username have already used !");
             }
             else{
                 QJsonObject obj;
