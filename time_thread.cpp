@@ -161,6 +161,24 @@ void time_thread::run()
                     break;
                 }
             }
+
+            if(info["level_player"].toInt() >= 2)
+                info["store_lock"] = false ;
+
+            if(info["level_player"].toInt() >= 4)
+                info["cow_lock"] = false ;
+
+            if(info["level_player"].toInt() >= 6)
+                info["sheep_lock"] = false ;
+
+            if(info["level_player"].toInt() >= 2)
+                info["chicken_lock"] = false ;
+
+            if(info["level_player"].toInt() >= 3)
+                info["alfalfa_lock"] = false ;
+
+
+
             info_2.push_back(QJsonValue(info));
         }
         _info["User"] = info_2;

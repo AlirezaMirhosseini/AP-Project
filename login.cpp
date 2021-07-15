@@ -32,7 +32,7 @@ void login::on_pushButton_clicked()
                     (info[counter].toObject())["password"] == ui->lineEdit_2->text()){
                 this->close();
                 temp = 0;
-                farm *w = new farm(this, counter);
+                farm *w = new farm( counter);
                 w->show();
             }
         }

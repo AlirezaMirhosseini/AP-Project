@@ -18,6 +18,26 @@ chicken_coop::chicken_coop(QWidget *parent , int _id) :
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
 
+    if(info["chicken_level"].toInt() == 0){
+
+        ui->collecteggs->setEnabled(false);
+        ui->feed->setEnabled(false);
+        ui->label->hide();
+        ui->label_2->hide();
+        ui->label_3->hide();
+        ui->label_5->hide();
+        ui->label_6->hide();
+        ui->label_7->hide();
+        ui->capacity->hide();
+        ui->count->hide();
+        ui->level->hide();
+
+
+
+
+
+    }
+
     ui->count->setText(QString::number(info["chicken_count"].toInt()));
     ui->capacity->setText(QString::number( pow(2,info["chicken_level"].toInt())));
     ui->level->setText(QString::number(info["chicken_level"].toInt()));
