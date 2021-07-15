@@ -17,9 +17,10 @@ farm::farm(QWidget *parent, int _id) :
     id = _id;
     QJsonObject _info = read_info();
      QJsonObject  info = (_info["User"].toArray())[id].toObject();
-
+     time_t now = time(NULL)+info["time"].toInt();
      ui->exp_num->setText(QString::number(info["exp"].toInt()));
      ui->level_num->setText(QString::number(info["level_player"].toInt()));
+     ui->day->setText(QString::number((int)((now-info["signup_time"].toInt())/86400)));
 
     if(info["gender"].toString()=="      Male")
         ui->profile_pushButton->setIcon(QIcon(":/game_backgrounds/pics_project/138manfarmer2_100718.png"));
