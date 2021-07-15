@@ -122,12 +122,12 @@ void alfalfa_field::on_btn_upgrade_clicked()
 void alfalfa_field::on_btn_seed_clicked()
 {
 
-      if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() == -1)
+    if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() == -1)
         QMessageBox::warning(this , " " , "After harvesting, you can seed!");
     else if(!info["alfalfa_plowed"].toBool())
         QMessageBox::warning(this , " " , "You have to plow field first!");
     else{
-         info["alfalfa_plowed"] = false;
+        info["alfalfa_plowed"] = false;
         time_t _time = time(NULL) + info["time"].toInt();
         info["alfalfa_cultivated_area"] = QJsonValue(ui->spinBox->value());
         info["alfalfa_seed_time"] = QJsonValue(_time);
@@ -140,9 +140,9 @@ void alfalfa_field::on_btn_seed_clicked()
         write_info(_info);
 
         Sleep(100);
-       this->close();
-       alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
-       alfalfaField->show();
+        this->close();
+        alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
+        alfalfaField->show();
     }
 }
 
@@ -161,7 +161,7 @@ void alfalfa_field::on_btn_harvesting_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-         Sleep(100);
+        Sleep(100);
         this->close();
         alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
         alfalfaField->show();
@@ -171,7 +171,7 @@ void alfalfa_field::on_btn_harvesting_clicked()
 void alfalfa_field::on_btn_plow_clicked()
 {
     if(info["alfalfa_plowed"].toBool() )
-         QMessageBox::warning(this , " " , "You have already plowed");
+        QMessageBox::warning(this , " " , "You have already plowed");
     else if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() != -1 )
         QMessageBox::warning(this , " " , "You cant plow ,  alfalfa isn't ripe!");
     else if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() == -1)
@@ -184,7 +184,7 @@ void alfalfa_field::on_btn_plow_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-         Sleep(100);
+        Sleep(100);
         this->close();
         alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
         alfalfaField->show();
@@ -211,7 +211,7 @@ void alfalfa_field::on_build_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-         Sleep(100);
+        Sleep(100);
 
         this->close();
         alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
