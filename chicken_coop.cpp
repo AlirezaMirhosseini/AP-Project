@@ -7,16 +7,23 @@
 #include <ctime>
 #include <time.h>
 #include <cmath>
+#include "farm.h"
+#include<QThread>
+
 
 chicken_coop::chicken_coop(QWidget *parent , int _id) :
     QDialog(parent),
     ui(new Ui::checken_coop)
 {
+
     ui->setupUi(this);
     id = _id;
+    farm = new QWidget;
+    farm = parent;
 
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
+
 
     if(info["chicken_level"].toInt() == 0){
 
@@ -31,11 +38,6 @@ chicken_coop::chicken_coop(QWidget *parent , int _id) :
         ui->capacity->hide();
         ui->count->hide();
         ui->level->hide();
-
-
-
-
-
     }
 
     ui->count->setText(QString::number(info["chicken_count"].toInt()));
@@ -52,7 +54,7 @@ chicken_coop::chicken_coop(QWidget *parent , int _id) :
     ui->chicken_pro->setValue(info["chicken_upgrade_pro"].toInt());
 
     if(info["chicken_upgrade_time"].toInt() != -1)
-        timer->start(100);
+        timer->start(1000);
 
     connect(timer,SIGNAL(timeout()),this,SLOT(increamenter()));
 
@@ -88,6 +90,13 @@ void chicken_coop::on_feed_clicked()
             info_2[id] = QJsonValue(info);
             _info["User"] = info_2;
             write_info(_info);
+            QThread::msleep(100);
+            this->close();
+            chicken_coop *w = new chicken_coop(farm , id);
+            w->show();
+
+
+
         }
     }
 }
@@ -113,6 +122,10 @@ void chicken_coop::on_collect_eggs_clicked()
             info_2[id] = QJsonValue(info);
             _info["User"] = info_2;
             write_info(_info);
+            QThread::msleep(100);
+            this->close();
+            chicken_coop *w = new chicken_coop(farm , id);
+            w->show();
         }
     }
     else
@@ -137,6 +150,10 @@ void chicken_coop::on_upgrade_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
+        QThread::msleep(100);
+        this->close();
+        chicken_coop *w = new chicken_coop(farm , id);
+        w->show();
     }
 }
 
@@ -158,6 +175,11 @@ void chicken_coop::on_build_pushButton_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
+
+        QThread::msleep(100);
+        this->close();
+        chicken_coop *w = new chicken_coop(farm , id);
+        w->show();
     }
 }
 

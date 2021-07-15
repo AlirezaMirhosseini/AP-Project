@@ -3,6 +3,7 @@
 #include "information.h"
 #include <QMessageBox>
 #include <cmath>
+#include<QThread>
 
 sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
     QDialog(parent),
@@ -10,8 +11,29 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
 {
     ui->setupUi(this);
     id=_id;
+    farm = new QWidget;
+    farm = parent;
+
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
+
+    if(info["sheep_level"].toInt() == 0){
+        ui->Fleece_Shave->setEnabled(false);
+        ui->feed->setEnabled(false);
+        ui->capacity->hide();
+        ui->count->hide();
+        ui->label->hide();
+        ui->label_3->hide();
+        ui->label_5->hide();
+        ui->label_6->hide();
+        ui->label_7->hide();
+        ui->label_8->hide();
+        ui->count->hide();
+        ui->capacity->hide();
+        ui->level->hide();
+    }
+
+
     ui->count->setText(QString::number(info["sheep_count"].toInt()));
     ui->capacity->setText(QString::number( pow(2,info["sheep_level"].toInt())));
     ui->level->setText(QString::number(info["sheep_level"].toInt()));
@@ -58,6 +80,12 @@ void sheep_pasture::on_feed_clicked()
             info_2[id] = QJsonValue(info);
             _info["User"] = info_2;
             write_info(_info);
+
+            QThread::msleep(100);
+            this->close();
+            sheep_pasture *w = new sheep_pasture(farm , id);
+            w->show();
+
         }
     }
 }
@@ -81,6 +109,10 @@ void sheep_pasture::on_upgrade_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
+        QThread::msleep(100);
+        this->close();
+        sheep_pasture *w = new sheep_pasture(farm , id);
+        w->show();
     }
 }
 
@@ -110,6 +142,10 @@ void sheep_pasture::on_Fleece_Shave_clicked()
                 info_2[id] = QJsonValue(info);
                 _info["User"] = info_2;
                 write_info(_info);
+                QThread::msleep(100);
+                this->close();
+                sheep_pasture *w = new sheep_pasture(farm , id);
+                w->show();
             }
         }
     }
@@ -138,5 +174,10 @@ void sheep_pasture::on_build_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
+
+        QThread::msleep(100);
+        this->close();
+        sheep_pasture *w = new sheep_pasture(farm , id);
+        w->show();
     }
 }

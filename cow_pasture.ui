@@ -346,14 +346,31 @@ border : none;
   <widget class="QPushButton" name="build">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>270</y>
+     <x>400</x>
+     <y>280</y>
      <width>80</width>
-     <height>25</height>
+     <height>61</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">alternate-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:1 rgba(0, 0, 0, 0));
+border:none;</string>
+   </property>
    <property name="text">
-    <string>Build</string>
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/buildicon.png</normaloff>:/game_backgrounds/pics_project/buildicon.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>70</width>
+     <height>70</height>
+    </size>
    </property>
   </widget>
   <zorder>label_4</zorder>

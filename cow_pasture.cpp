@@ -3,14 +3,34 @@
 #include "information.h"
 #include <QMessageBox>
 #include <cmath>
+#include<QThread>
 cow_pasture::cow_pasture(QWidget *parent , int _id) :
     QDialog(parent),
     ui(new Ui::cow_pasture)
 {
     ui->setupUi(this);
     id = _id;
+    farm = new QWidget;
+    farm = parent;
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
+
+    if(info["cow_level"].toInt() == 0){
+        ui->feed->setEnabled(false);
+        ui->collect_milk->setEnabled(false);
+        ui->feed->setEnabled(false);
+
+        ui->label->hide();
+        ui->label_2->hide();
+        ui->label_3->hide();
+        ui->label->hide();
+        ui->label_6->hide();
+        ui->label_7->hide();
+        ui->label_8->hide();
+        ui->count->hide();
+        ui->capacity->hide();
+        ui->level->hide();
+    }
 
     ui->count->setText(QString::number(info["cow_count"].toInt()));
     ui->capacity->setText(QString::number( pow(2,info["cow_level"].toInt())));
@@ -59,6 +79,12 @@ void cow_pasture::on_upgrade_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
+        QThread::msleep(100);
+
+        this->close();
+        cow_pasture *w = new cow_pasture(farm , id);
+        w->show();
+
     }
 }
 
@@ -76,6 +102,11 @@ void cow_pasture::on_feed_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
+        QThread::msleep(100);
+
+        this->close();
+        cow_pasture *w = new cow_pasture(farm , id);
+        w->show();
     }
 }
 
@@ -106,6 +137,11 @@ void cow_pasture::on_collect_milk_clicked()
                 info_2[id] = QJsonValue(info);
                 _info["User"] = info_2;
                 write_info(_info);
+                QThread::msleep(100);
+
+                this->close();
+                cow_pasture *w = new cow_pasture(farm , id);
+                w->show();
             }
         }
     }
@@ -130,6 +166,11 @@ void cow_pasture::on_build_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
+        QThread::msleep(100);
+
+        this->close();
+        cow_pasture *w = new cow_pasture(farm , id);
+        w->show();
     }
 }
 

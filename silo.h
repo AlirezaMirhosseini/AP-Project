@@ -28,6 +28,7 @@ private:
     Ui::silo *ui;
     int id;
     QJsonObject info ,_info ;
+    QWidget *farm;
 
 };
 

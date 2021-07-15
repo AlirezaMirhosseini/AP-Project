@@ -4,7 +4,7 @@
 #include "cmath"
 #include <QMessageBox>
 #include <time.h>
-#include <windows.h>
+#include <QThread>
 
 int min2(int a ,int b){return a > b ? b : a ; }
 
@@ -109,7 +109,7 @@ void alfalfa_field::on_btn_upgrade_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        Sleep(100);
+        QThread::msleep(100);
         this->close();
         alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
         alfalfaField->show();
@@ -136,9 +136,9 @@ void alfalfa_field::on_btn_seed_clicked()
         _info["User"] = info_2;
         write_info(_info);
 
-        Sleep(100);
+        QThread::msleep(100);
         this->close();
-        alfalfa_field* alfalfaField = new alfalfa_field(farm, id);
+        alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
         alfalfaField->show();
     }
 }
@@ -158,7 +158,7 @@ void alfalfa_field::on_btn_harvesting_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        Sleep(100);
+        QThread::msleep(100);
         this->close();
         alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
         alfalfaField->show();
@@ -181,7 +181,7 @@ void alfalfa_field::on_btn_plow_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        Sleep(100);
+        QThread::msleep(100);
         this->close();
         alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
         alfalfaField->show();
@@ -208,8 +208,7 @@ void alfalfa_field::on_build_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        Sleep(100);
-
+        QThread::msleep(100);
         this->close();
         alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
         alfalfaField->show();

@@ -25,6 +25,7 @@ store::store(QWidget *parent, int _id) :
     ui->wool_label->setText(QString::number(info["fleece_count"].toInt()));
     ui->milk_label->setText(QString::number(info["milk_count"].toInt()));
     ui->egg_label->setText(QString::number(info["egg_count"].toInt()));
+
 }
 
 store::~store()

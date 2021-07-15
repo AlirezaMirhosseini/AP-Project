@@ -1,10 +1,10 @@
 #include "wheat_field.h"
 #include "ui_wheat_field.h"
 #include "information.h"
-#include "cmath"
+#include <cmath>
 #include <QMessageBox>
 #include <time.h>
-#include <windows.h>
+#include <QThread>
 #include "farm.h"
 
 int min1(int a , int b){return a > b ? b : a ;}
@@ -95,7 +95,7 @@ void wheat_field::on_upgrade_clicked()
         _info["User"] = info_2;
         write_info(_info);
 
-        Sleep(100);
+        QThread::msleep(100);
         this->close();
         wheat_field* wheatField = new wheat_field( farm , id);
         wheatField->show();
@@ -118,7 +118,7 @@ void wheat_field::on_seed_clicked()
         _info["User"] = info_2;
         write_info(_info);
 
-        Sleep(100);
+        QThread::msleep(100);
         this->close();
         wheat_field* wheatField = new wheat_field( farm , id);
         wheatField->show();
@@ -142,9 +142,9 @@ void wheat_field::on_Harvesting_clicked()
         _info["User"] = info_2;
         write_info(_info);
 
-        Sleep(100);
+        QThread::msleep(100);
         this->close();
-        wheat_field* wheatField = new wheat_field(farm, id);
+        wheat_field* wheatField = new wheat_field( farm , id);
         wheatField->show();
     }
 }
