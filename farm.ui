@@ -153,9 +153,9 @@ border: none;</string>
   <widget class="QPushButton" name="cow_pushButton">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>250</x>
      <y>390</y>
-     <width>211</width>
+     <width>221</width>
      <height>131</height>
     </rect>
    </property>
@@ -735,6 +735,101 @@ border: none;</string>
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="cow_lock">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>410</y>
+     <width>151</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/chain.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sheep_lock">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>420</y>
+     <width>171</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/chain.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="chicken_lock">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>590</y>
+     <width>141</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/chain.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="chicken_lock_2">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>450</y>
+     <width>181</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/chain.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="chicken_lock_3">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>570</y>
+     <width>371</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/fence.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>profile_pushButton</zorder>
   <zorder>chicken_pushButton</zorder>
@@ -767,6 +862,11 @@ border: none;</string>
   <zorder>level_num</zorder>
   <zorder>back</zorder>
   <zorder>day</zorder>
+  <zorder>cow_lock</zorder>
+  <zorder>sheep_lock</zorder>
+  <zorder>chicken_lock</zorder>
+  <zorder>chicken_lock_2</zorder>
+  <zorder>chicken_lock_3</zorder>
  </widget>
  <resources>
   <include location="game_recources.qrc"/>
