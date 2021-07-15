@@ -119,7 +119,6 @@ void store::on_sell_pushButton_clicked()
     info["cow_count"] = info["cow_count"].toInt() - cow_num;
     info["chicken_count"] = info["chicken_count"].toInt() - hen_num;
 
-
     ui->coin_label->setText(QString::number(info["coin"].toInt()));
 
     ui->alfalfa_label->setText(QString::number(info["alfalfa_count"].toInt()));
@@ -161,7 +160,7 @@ void store::on_buy_pushButton_clicked()
     int cow_num,hen_num,wool_num,sheep_num,nail_num,milk_num,egg_num,wheat_num,alfalfa_num,shovel_num;
 
     cow_num = ui->cow_spinBox->text().toInt();
-    if(info["level_palyer"].toInt() < 4 && cow_num > 0){
+    if(info["level_player"].toInt() < 4 && cow_num > 0){
         QMessageBox::warning(this," ","your level is too low to have cow :(");
         return;
     }
@@ -174,7 +173,7 @@ void store::on_buy_pushButton_clicked()
         return;
     }
     hen_num = ui->hen_spinBox->text().toInt();
-    if(info["level_palyer"].toInt() < 2 && hen_num > 0){
+    if(info["level_player"].toInt() < 2 && hen_num > 0){
         QMessageBox::warning(this," ","your level is too low to have chicken :(");
         return;
     }
@@ -187,7 +186,7 @@ void store::on_buy_pushButton_clicked()
         return;
     }
     sheep_num = ui->sheep_spinBox->text().toInt();
-    if(info["level_palyer"].toInt() < 6 && sheep_num > 0){
+    if(info["level_player"].toInt() < 6 && sheep_num > 0){
         QMessageBox::warning(this," ","your level is too low to have sheep :(");
         return;
     }
@@ -228,7 +227,7 @@ void store::on_buy_pushButton_clicked()
             info["shovel_count"].toInt() +
             info["nail_count"].toInt();
     alfalfa_num = ui->alfala_spinBox->text().toInt();
-    if(info["level_palyer"].toInt() < 3 && alfalfa_num > 0){
+    if(info["level_player"].toInt() < 3 && alfalfa_num > 0){
         QMessageBox::warning(this," ","your level is too low to have alfalfa :(");
         return;
     }

@@ -11,7 +11,7 @@ silo::silo(QWidget *parent, int _id) :
     ui->setupUi(this);
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
-    ui->capacity->setText(QString::number(5 * pow(2,info["silo_level"].toInt())));
+    ui->capacity->setText(QString::number(5 * pow(2, info["silo_level"].toInt())));
     ui->level->setText(QString::number(info["silo_level"].toInt()));
     ui->wheat->setText(QString::number(info["wheat_count"].toInt()));
     if(info["silo_upgrade_time"] == -1)
@@ -28,7 +28,7 @@ void silo::on_upgrade_clicked()
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this," ","Are you sure?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes){
-        if((info["silo_level"].toInt() + 1 ) >= info["level_palyer"].toInt())
+        if((info["silo_level"].toInt() + 1 ) >= info["level_player"].toInt())
             QMessageBox::warning(this , " " ,"Silo level cannot be higher than it!");
         else{
             if(info["coin"].toInt() < (100 * pow((2 * info["silo_level"].toInt()), 2)))
@@ -39,10 +39,10 @@ void silo::on_upgrade_clicked()
                 QMessageBox::warning(this , " " ,"<b>Shovel</b> needed!");
             else{
                 info["nail_count"] = QJsonValue(info["nail_count"].toInt() - 2 * info["silo_level"].toInt());
-                info["coin"] = QJsonValue( info["coin"].toInt() - (100*pow((2*info["silo_level"].toInt()),2)));
+                info["coin"] = QJsonValue( info["coin"].toInt() - (100*pow((2*info["silo_level"].toInt()), 2)));
                 if(info["silo_level"].toInt() > 2)
-                    info["shovel_count"] = QJsonValue(info["shovel_count"].toInt()-(info["silo_level"].toInt()-2));
-                time_t _time = time(NULL);
+                    info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - (info["silo_level"].toInt() - 2));
+                time_t _time = time(NULL) + info["time"].toInt();
                 info["silo_upgrade_time"] = _time;
                 QJsonArray info_2 = _info["User"].toArray();
                 info_2[id] = QJsonValue(info);

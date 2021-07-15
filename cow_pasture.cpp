@@ -44,7 +44,7 @@ void cow_pasture::increamenter()
 
 void cow_pasture::on_upgrade_clicked()
 {
-    if(info["level_palyer"].toInt() < info["cow_level"].toInt() + 4)
+    if(info["level_player"].toInt() < info["cow_level"].toInt() + 4)
         QMessageBox::warning(this , " " ,"You need to reach <b>level </b>" + QString::number(info["cow_level"].toInt() + 4));
     else if(info["coin"].toInt() < 15)
         QMessageBox::warning(this , " " ,"Coin needed!");
@@ -53,7 +53,7 @@ void cow_pasture::on_upgrade_clicked()
     else{
         info["nail_count"] = info["nail_count"].toInt() - 2 ;
         info["coin"] = info["coin"].toInt() - 15 ;
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["cow_upgrade_time"] = _time;
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
@@ -70,7 +70,7 @@ void cow_pasture::on_feed_clicked()
     }
     else{
         info["alfalfa_count"] = QJsonValue(info["alfalfa_count"].toInt() - 2 * info["cow_count"].toInt());
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["cow_feed_time"] = _time;
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
@@ -83,7 +83,7 @@ void cow_pasture::on_feed_clicked()
 void cow_pasture::on_collect_milk_clicked()
 {
     QJsonArray milk_array = info["milks"].toArray();
-    time_t _time = time(NULL);
+    time_t _time = time(NULL) + info["time"].toInt();
     if(info["cow_feed_time"].toInt() != -1){
         if(_time - info["cow_feed_time"].toInt() <259200  )
             QMessageBox::warning(this , " " ,"Cows are feeding!");
@@ -98,7 +98,7 @@ void cow_pasture::on_collect_milk_clicked()
                     info["cow_count"].toInt())//cow count for added milk number)
                 QMessageBox::warning(this , " " ,"You don't have enough space in barn!");
             else{
-                time_t _time = time(NULL);
+                time_t _time = time(NULL) + info["time"].toInt();
                 for(int i =0 ; i < info["cow_count"].toInt() ; i++)
                     milk_array.push_back(QJsonValue(_time));
                 info["milks"] = milk_array;
@@ -124,7 +124,7 @@ void cow_pasture::on_build_clicked()
         info["nail_count"] = info["nail_count"].toInt() - 3 ;
         info["shovel_count"] = info["shovel_count"].toInt() - 1 ;
         info["coin"] = info["coin"].toInt() - 20 ;
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["cow_upgrade_time"] = _time;
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);

@@ -54,7 +54,6 @@ void chicken_coop::increamenter()
 
 void chicken_coop::on_feed_clicked()
 {
-
     if(info["chicken_feed_time"].toInt() != -1)
         QMessageBox::warning(this , " " ,"Chickens are feeding!");
     else{
@@ -63,7 +62,7 @@ void chicken_coop::on_feed_clicked()
         }
         else{
             info["wheat_count"] = QJsonValue(info["wheat_count"].toInt() - info["chicken_count"].toInt());
-            time_t _time = time(NULL);
+            time_t _time = time(NULL) + info["time"].toInt();
             info["chicken_feed_time"] = _time;
             QJsonArray info_2 = _info["User"].toArray();
             info_2[id] = QJsonValue(info);
@@ -76,7 +75,7 @@ void chicken_coop::on_feed_clicked()
 
 void chicken_coop::on_collect_eggs_clicked()
 {
-    time_t _time = time(NULL);
+    time_t _time = time(NULL) + info["time"].toInt();
     if(_time - info["chicken_feed_time"].toInt() >= 172800){
         if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
                 info["nail_count"].toInt() +
@@ -103,7 +102,7 @@ void chicken_coop::on_collect_eggs_clicked()
 
 void chicken_coop::on_upgrade_clicked()
 {
-    if(info["level_palyer"].toInt() < info["chicken_level"].toInt() + 1)
+    if(info["level_player"].toInt() < info["chicken_level"].toInt() + 1)
         QMessageBox::warning(this , " " ,"You need to reach <b>level </b>" + QString::number(info["chicken_level"].toInt() + 1));
     else if(info["nail_count"].toInt()  < 1)
         QMessageBox::warning(this , " " ,"<b>Nail</b> needed!");
@@ -112,7 +111,7 @@ void chicken_coop::on_upgrade_clicked()
     else{
         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 1 );
         info["coin"] = QJsonValue (info["coin"].toInt() - 10 );
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["chicken_upgrade_time"] = _time;
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
@@ -133,7 +132,7 @@ void chicken_coop::on_build_pushButton_clicked()
     else{
         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 2 );
         info["coin"] = QJsonValue (info["coin"].toInt() - 10 );
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["chicken_upgrade_time"] = _time;
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);

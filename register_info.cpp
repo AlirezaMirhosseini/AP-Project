@@ -48,14 +48,16 @@ void register_info::on_pushButton_clicked()
             else{
                 QJsonObject obj;
                 QJsonArray _milk;
+                time_t now=time(NULL);
                 obj["name"] = ui->lineEdit->text();
                 obj["username"] = ui->lineEdit_2->text();
                 obj["password"] = ui->lineEdit_3->text();
                 obj["email"] = ui->lineEdit_5->text();
                 obj["gender"] = ui->comboBox->currentText();
-                obj["level_palyer"] = 1;
+                obj["level_player"] = 1;
                 obj["coin"] = 20;
                 obj["exp"] = 0;
+                obj["signup_time"] = now;
 
                 obj["sheep_count"] = 0;
                 obj["sheep_level"] = 0;
@@ -116,7 +118,7 @@ void register_info::on_pushButton_clicked()
 
                 obj["milks"] = _milk;
 
-
+                obj["time"] = 0;
 
                 info.push_back(QJsonValue(obj));
                 _info["User"]=info;

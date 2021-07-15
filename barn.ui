@@ -239,6 +239,9 @@ border : none;</string>
    <property name="value">
     <number>24</number>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">

@@ -52,7 +52,7 @@ void sheep_pasture::on_feed_clicked()
         }
         else{
             info["alfalfa_count"] = QJsonValue(info["alfalfa_count"].toInt() - info["sheep_count"].toInt());
-            time_t _time = time(NULL);
+            time_t _time = time(NULL) + info["time"].toInt();
             info["sheep_feed_time"] = _time;
             QJsonArray info_2 = _info["User"].toArray();
             info_2[id] = QJsonValue(info);
@@ -65,7 +65,7 @@ void sheep_pasture::on_feed_clicked()
 
 void sheep_pasture::on_upgrade_clicked()
 {
-    if(info["level_palyer"].toInt() < info["sheep_level"].toInt() + 6)
+    if(info["level_player"].toInt() < info["sheep_level"].toInt() + 6)
         QMessageBox::warning(this , " " ,"You need to reach <b>level </b>" + QString::number(info["sheep_level"].toInt() + 6));
     else if(info["nail_count"].toInt() < 3)
         QMessageBox::warning(this , " " ,"<b>Nail</b> needed!");
@@ -75,7 +75,7 @@ void sheep_pasture::on_upgrade_clicked()
         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 3 );
         info["shovel_count"] = QJsonValue (info["shovel_count"].toInt() - 1 );
         info["coin"] = QJsonValue (info["coin"].toInt() - 50 );
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["sheep_upgrade_time"] = _time;
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
@@ -87,7 +87,7 @@ void sheep_pasture::on_upgrade_clicked()
 
 void sheep_pasture::on_Fleece_Shave_clicked()
 {
-    time_t _time = time(NULL);
+    time_t _time = time(NULL) + info["time"].toInt();
     if(_time -  info["sheep_feed_time"].toInt() >= 864000){
         if(info["coin"].toInt() < info["sheep_count"].toInt()){
             QMessageBox::warning(this , " " ,"<b>Coin</b> needed!");
@@ -132,7 +132,7 @@ void sheep_pasture::on_build_clicked()
         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 4 );
         info["shovel_count"] = QJsonValue (info["shovel_count"].toInt() - 2 );
         info["coin"] = QJsonValue (info["coin"].toInt() - 50 );
-        time_t _time = time(NULL);
+        time_t _time = time(NULL) + info["time"].toInt();
         info["sheep_upgrade_time"] = _time;
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
