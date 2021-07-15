@@ -66,7 +66,7 @@
     <string>%p%</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="lbl_level">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -82,7 +82,7 @@
     <string> Level :</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="lbl_area">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -98,7 +98,7 @@
     <string>Area :</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="lbl_area_value">
    <property name="geometry">
     <rect>
      <x>250</x>
@@ -114,7 +114,7 @@
     <string>ar</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="lbl_level_value">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -163,7 +163,7 @@ border : none;</string>
     </size>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="lbl_cultivated_area">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -179,7 +179,7 @@ border : none;</string>
     <string>Cultivated :</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="lbl_cultivated_area_value">
    <property name="geometry">
     <rect>
      <x>430</x>
@@ -354,7 +354,7 @@ border : none;</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
+  <widget class="QLabel" name="lbl_cultivated_area_container">
    <property name="geometry">
     <rect>
      <x>320</x>
@@ -373,7 +373,7 @@ border : none;</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="label_10">
+  <widget class="QLabel" name="lbl_area_container">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -392,7 +392,7 @@ border : none;</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="label_11">
+  <widget class="QLabel" name="lbl_level_container">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -415,19 +415,19 @@ border : none;</string>
   <zorder>label_9</zorder>
   <zorder>Harvesting</zorder>
   <zorder>upgrade</zorder>
-  <zorder>label_8</zorder>
-  <zorder>label_10</zorder>
-  <zorder>label_11</zorder>
+  <zorder>lbl_cultivated_area_container</zorder>
+  <zorder>lbl_area_container</zorder>
+  <zorder>lbl_level_container</zorder>
   <zorder>wheat_upgrade_pro</zorder>
   <zorder>seed</zorder>
   <zorder>spinBox</zorder>
   <zorder>seed_progress</zorder>
-  <zorder>label</zorder>
-  <zorder>label_2</zorder>
-  <zorder>label_5</zorder>
-  <zorder>label_4</zorder>
-  <zorder>label_3</zorder>
-  <zorder>label_6</zorder>
+  <zorder>lbl_level</zorder>
+  <zorder>lbl_area</zorder>
+  <zorder>lbl_cultivated_area</zorder>
+  <zorder>lbl_level_value</zorder>
+  <zorder>lbl_area_value</zorder>
+  <zorder>lbl_cultivated_area_value</zorder>
  </widget>
  <resources>
   <include location="game_recources.qrc"/>

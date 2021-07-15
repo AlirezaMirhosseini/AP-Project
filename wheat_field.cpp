@@ -31,15 +31,16 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
         ui->seed_progress->hide();
 
     if(!info["wheat_in_use"].toBool()){
-        ui->label_5->hide();
-        ui->label_6->hide();
+        ui->lbl_cultivated_area->hide();
+        ui->lbl_cultivated_area_value->hide();
+        ui->lbl_cultivated_area_container->hide();
     }
 
 
     ui->spinBox->setMaximum(min1(info["wheat_count"].toInt(),5 * pow(2, info["wheat_level"].toInt() - 1)));
-    ui->label_3->setText(QString::number(5 * pow(2, info["wheat_level"].toInt() - 1)));
-    ui->label_4->setText(QString::number(info["wheat_level"].toInt()));
-    ui->label_6->setText(QString::number( info["wheat_cultivated_area"].toInt()));
+    ui->lbl_area_value->setText(QString::number(5 * pow(2, info["wheat_level"].toInt() - 1)));
+    ui->lbl_level_value->setText(QString::number(info["wheat_level"].toInt()));
+    ui->lbl_cultivated_area_value->setText(QString::number( info["wheat_cultivated_area"].toInt()));
     ui->wheat_upgrade_pro->setValue(info["wheat_upgrade_pro"].toInt());
     ui->seed_progress->setValue(info["wheat_seed_pro"].toInt());
 

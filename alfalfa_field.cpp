@@ -96,9 +96,9 @@ void alfalfa_field::on_btn_upgrade_clicked()
 {
     if(info["level_player"].toInt() < 4)
         QMessageBox::warning(this , " " , "You have not reached <b>level 4</b> yet!!!" );
-    else if(info["coin"].toInt() < 5 *(4 *pow(2, info["alfalfa_level"].toInt() - 1)))
+    else if(info["coin"].toInt() < 5 *(4 * pow(2, info["alfalfa_level"].toInt() - 1)))
         QMessageBox::warning(this , " " , "<b>Coin</b> needed!" );
-    else if(info["shovel_count"].toInt() < 2 * (4 *pow(2, info["alfalfa_level"].toInt() - 1)))
+    else if(info["shovel_count"].toInt() < 2 * (4 * pow(2, info["alfalfa_level"].toInt() - 1)))
         QMessageBox::warning(this , " " , "<b>Shovel</b> needed!" );
     else{
         info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - 2 * (4 * pow(2, info["alfalfa_level"].toInt() - 1)));
@@ -130,7 +130,7 @@ void alfalfa_field::on_btn_seed_clicked()
         info["alfalfa_seed_time"] = QJsonValue(_time);
         info["alfalfa_count"] = QJsonValue(info["alfalfa_count"].toInt() - ui->spinBox->value());
         info["alfalfa_in_use"] = QJsonValue(true);
-        info["exp"] = QJsonValue(info["exp"].toInt() + 4 * pow(2, info["alfalfa_level"].toInt() - 1));
+        info["exp"] = QJsonValue(info["exp"].toInt() + 4 * pow(2 , info["alfalfa_level"].toInt() - 1));
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
@@ -138,7 +138,7 @@ void alfalfa_field::on_btn_seed_clicked()
 
         Sleep(100);
         this->close();
-        alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
+        alfalfa_field* alfalfaField = new alfalfa_field(farm, id);
         alfalfaField->show();
     }
 }
@@ -170,9 +170,9 @@ void alfalfa_field::on_btn_plow_clicked()
     if(info["alfalfa_plowed"].toBool() )
         QMessageBox::warning(this , " " , "You have already plowed!");
     else if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() != -1 )
-        QMessageBox::warning(this , " " , "You cant plow ,  alfalfa isn't ripe!");
+        QMessageBox::warning(this , " " , "You cant plow , alfalfa isn't ripe!");
     else if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() == -1)
-        QMessageBox::warning(this , " " , "you cant plow ,  You havent harvesting yet!");
+        QMessageBox::warning(this , " " , "you cant plow , You havent harvesting yet!");
     else
     {
         time_t _time = time(NULL) + info["time"].toInt();
