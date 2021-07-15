@@ -229,6 +229,9 @@ background-image: url(:/game_backgrounds/pics_project/clipart244133.png);</strin
    <property name="value">
     <number>0</number>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QProgressBar" name="prg_harvesting">
    <property name="geometry">
@@ -246,6 +249,9 @@ background-image: url(:/game_backgrounds/pics_project/clipart244133.png);</strin
    </property>
    <property name="value">
     <number>0</number>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QSpinBox" name="spinBox">

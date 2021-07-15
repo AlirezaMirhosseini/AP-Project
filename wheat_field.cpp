@@ -33,7 +33,7 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     if(!info["wheat_in_use"].toBool()){
         ui->label_5->hide();
         ui->label_6->hide();
-}
+    }
 
 
     ui->spinBox->setMaximum(min1(info["wheat_count"].toInt(),5 * pow(2, info["wheat_level"].toInt() - 1)));
@@ -49,7 +49,6 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     if(info["wheat_upgrade_time"].toInt() != -1)
         timer1->start(1000);
     if(info["wheat_seed_time"].toInt() != -1)
-
         timer2->start(1000);
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
@@ -79,7 +78,6 @@ void wheat_field::increamenter_seed()
 
 void wheat_field::on_upgrade_clicked()
 {
-
     if(info["level_player"].toInt() < 2 )
         QMessageBox::warning(this , " " , "You have not reached <b>level 2</b> yet!!!" );
     else if(info["coin"].toInt() < 5)
@@ -126,13 +124,10 @@ void wheat_field::on_Harvesting_clicked()
 {
     if(!info["wheat_in_use"].toBool())
         QMessageBox::warning(this , " " , "You havent seed yet!");
-
     else if(info["wheat_seed_time"].toInt() != -1 && info["wheat_in_use"].toBool())
         QMessageBox::warning(this , " " , "Wheat isn't ripe");
-
     else if(5 * pow(2,info["silo_level"].toInt())  < info["wheat_count"].toInt() + 2 * info["wheat_cultivated_area"].toInt())
         QMessageBox::warning(this , " " , "You dont have enough space in silo");
-
     else{
         info["wheat_count"] = info["wheat_count"].toInt() + 2 * info["wheat_cultivated_area"].toInt();
         info["wheat_in_use"] = false;

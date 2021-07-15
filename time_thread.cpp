@@ -9,7 +9,6 @@ time_thread::time_thread(QObject *parent) : QThread(parent)
 void time_thread::run()
 {
     forever{
-
         QJsonObject _info  = read_info();
         QJsonArray info_2 ;
 
@@ -17,7 +16,6 @@ void time_thread::run()
             QJsonObject info = _info["User"].toArray()[i].toObject();
 
             time_t _time = time(NULL)  + info["time"].toInt();
-
             // Upgrade & Build
             if(info["chicken_upgrade_time"].toInt() != -1 && _time - info["chicken_upgrade_time"].toInt() >= 259200 ){
                 info["chicken_upgrade_time"] = -1;
@@ -162,7 +160,6 @@ void time_thread::run()
                     break;
                 }
             }
-
             info_2.push_back(QJsonValue(info));
         }
         _info["User"] = info_2;

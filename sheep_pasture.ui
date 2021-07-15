@@ -251,6 +251,9 @@ border : none;
    <property name="value">
     <number>24</number>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QPushButton" name="build">
    <property name="geometry">

@@ -119,7 +119,6 @@ void store::on_sell_pushButton_clicked()
     info["cow_count"] = info["cow_count"].toInt() - cow_num;
     info["chicken_count"] = info["chicken_count"].toInt() - hen_num;
 
-
     ui->coin_label->setText(QString::number(info["coin"].toInt()));
 
     ui->alfalfa_label->setText(QString::number(info["alfalfa_count"].toInt()));

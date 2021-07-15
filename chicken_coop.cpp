@@ -54,7 +54,6 @@ void chicken_coop::increamenter()
 
 void chicken_coop::on_feed_clicked()
 {
-
     if(info["chicken_feed_time"].toInt() != -1)
         QMessageBox::warning(this , " " ,"Chickens are feeding!");
     else{

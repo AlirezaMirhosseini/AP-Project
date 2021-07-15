@@ -11,18 +11,16 @@ login::login(QWidget *parent) :
     ui(new Ui::login)
 {
     ui->setupUi(this);
-
 }
 
 login::~login()
-
 {
     delete ui;
 }
 
 void login::on_pushButton_clicked()
 {
-    if(ui->lineEdit->text().isEmpty()||ui->lineEdit_2->text().isEmpty()){
+    if(ui->lineEdit->text().isEmpty() || ui->lineEdit_2->text().isEmpty()){
         QMessageBox::warning(this," ","username or password is empty please fill both of them");
     }
     else{

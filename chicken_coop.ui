@@ -355,6 +355,9 @@ border : none;</string>
    <property name="value">
     <number>24</number>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <zorder>label_4</zorder>
   <zorder>feed</zorder>
