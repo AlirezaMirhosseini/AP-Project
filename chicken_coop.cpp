@@ -32,7 +32,7 @@ chicken_coop::chicken_coop(QWidget *parent , int _id) :
     ui->chicken_pro->setValue(info["chicken_upgrade_pro"].toInt());
 
     if(info["chicken_upgrade_time"].toInt() != -1)
-        timer->start(2592000);
+        timer->start(100);
 
     connect(timer,SIGNAL(timeout()),this,SLOT(increamenter()));
 

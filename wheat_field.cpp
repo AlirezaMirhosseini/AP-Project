@@ -47,9 +47,9 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     timer2 = new QTimer();
 
     if(info["wheat_upgrade_time"].toInt() != -1)
-        timer1->start(1728000);
+        timer1->start(1000);
     if(info["wheat_seed_time"].toInt() != -1)
-        timer2->start(1728000);
+        timer2->start(1000);
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_seed()));
@@ -93,6 +93,11 @@ void wheat_field::on_upgrade_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
+
+        Sleep(100);
+        this->close();
+        wheat_field* wheatField = new wheat_field( farm , id);
+        wheatField->show();
     }
 }
 
@@ -114,7 +119,6 @@ void wheat_field::on_seed_clicked()
 
         Sleep(100);
         this->close();
-        ;
         wheat_field* wheatField = new wheat_field( farm , id);
         wheatField->show();
     }
