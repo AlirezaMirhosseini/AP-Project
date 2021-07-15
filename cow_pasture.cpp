@@ -25,7 +25,7 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
         ui->feed->setEnabled(false);
 
     if(info["cow_upgrade_time"].toInt() != -1)
-        timer->start(4320000);
+        timer->start(100);
 
     connect(timer,SIGNAL(timeout()),this,SLOT(increamenter()));
 }

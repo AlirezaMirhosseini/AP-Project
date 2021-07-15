@@ -233,7 +233,7 @@ background-image: url(:/game_backgrounds/pics_project/clipart244133.png);</strin
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QProgressBar" name="prg_harvesting">
+  <widget class="QProgressBar" name="seed_pro">
    <property name="geometry">
     <rect>
      <x>230</x>
@@ -271,6 +271,9 @@ background-image: url(:/game_backgrounds/pics_project/clipart244133.png);</strin
    <property name="buttonSymbols">
     <enum>QAbstractSpinBox::PlusMinus</enum>
    </property>
+   <property name="minimum">
+    <number>1</number>
+   </property>
   </widget>
   <widget class="QProgressBar" name="plow_pro">
    <property name="geometry">
@@ -296,7 +299,7 @@ background-image: url(:/game_backgrounds/pics_project/clipart244133.png);</strin
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="btn_pro">
+  <widget class="QPushButton" name="btn_plow">
    <property name="geometry">
     <rect>
      <x>140</x>

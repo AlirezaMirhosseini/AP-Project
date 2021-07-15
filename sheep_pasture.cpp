@@ -23,7 +23,7 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
     ui->sheep_pro->setValue(info["sheep_upgrade_pro"].toInt());
 
     if(info["sheep_upgrade_time"].toInt() != -1)
-        timer->start(7776000);
+        timer->start(100);
 
     connect(timer,SIGNAL(timeout()),this,SLOT(increamenter()));
     ui->label->setText("<b> exist sheep </b>");
@@ -88,7 +88,7 @@ void sheep_pasture::on_upgrade_clicked()
 void sheep_pasture::on_Fleece_Shave_clicked()
 {
     time_t _time = time(NULL) + info["time"].toInt();
-    if(_time -  info["sheep_feed_time"].toInt() >= 864000){
+    if(_time -  info["sheep_feed_time"].toInt() >= 100){
         if(info["coin"].toInt() < info["sheep_count"].toInt()){
             QMessageBox::warning(this , " " ,"<b>Coin</b> needed!");
         }
