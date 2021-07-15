@@ -120,6 +120,13 @@ void register_info::on_pushButton_clicked()
 
                 obj["time"] = 0;
 
+                obj["store_lock"] = true;
+                obj["sheep_lock"] = true;
+                obj["cow_lock"] = true;
+                obj["chicken_lock"] = true;
+                obj["alfalfa_lock"] = true;
+
+
                 info.push_back(QJsonValue(obj));
                 _info["User"]=info;
                 write_info(_info);

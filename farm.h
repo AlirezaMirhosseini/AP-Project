@@ -22,7 +22,7 @@ class farm : public QDialog
 
 
 public:
-    explicit farm(QWidget *parent = nullptr, int _id = 0);
+    explicit farm(int _id = 0);
     ~farm();
 
 
@@ -49,6 +49,16 @@ private slots:
     void on_next_day_clicked();
 
     void on_back_clicked();
+
+    void on_store_lock_clicked();
+
+    void on_cow_lock_clicked();
+
+    void on_sheep_lock_clicked();
+
+    void on_chicken_lock_clicked();
+
+    void on_alfalfa_lock_clicked();
 
 private:
 
