@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <time.h>
 #include <windows.h>
+
 int min2(int a ,int b){return a > b ? b : a ; }
 
 alfalfa_field::alfalfa_field(QWidget *parent, int _id):
@@ -22,7 +23,6 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
         ui->lbl_cultivated_area_value->hide();
     }
 
-
     if(info["alfalfa_upgrade_time"].toInt() == -1)
         ui->alfalfa_upgrade_pro->hide();
     else
@@ -37,9 +37,6 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
         ui->seed_pro->hide();
     else
         ui->btn_seed->setEnabled(false);
-
-
-
 
     ui->spinBox->setMaximum(min2(info["alfalfa_count"].toInt(),4 * pow(2, info["alfalfa_level"].toInt() - 1)));
     ui->lbl_area_value->setText(QString::number(4 * pow(2, info["alfalfa_level"].toInt() - 1)));
@@ -171,7 +168,7 @@ void alfalfa_field::on_btn_harvesting_clicked()
 void alfalfa_field::on_btn_plow_clicked()
 {
     if(info["alfalfa_plowed"].toBool() )
-        QMessageBox::warning(this , " " , "You have already plowed");
+        QMessageBox::warning(this , " " , "You have already plowed!");
     else if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() != -1 )
         QMessageBox::warning(this , " " , "You cant plow ,  alfalfa isn't ripe!");
     else if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() == -1)
