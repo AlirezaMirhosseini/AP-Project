@@ -2,6 +2,7 @@
 #include "ui_silo.h"
 #include "information.h"
 #include <QMessageBox>
+#include<QThread>
 
 silo::silo(QWidget *parent, int _id) :
     QDialog(parent),
@@ -9,6 +10,8 @@ silo::silo(QWidget *parent, int _id) :
 {
     id = _id;
     ui->setupUi(this);
+    farm  = new QWidget;
+    farm = parent;
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
     ui->capacity->setText(QString::number(5 * pow(2, info["silo_level"].toInt())));
@@ -48,6 +51,11 @@ void silo::on_upgrade_clicked()
                 info_2[id] = QJsonValue(info);
                 _info["User"] = info_2;
                 write_info(_info);
+
+                QThread::msleep(100);
+                this->close();
+                silo *w = new silo(farm , id);
+                w->show();
             }
         }
     }

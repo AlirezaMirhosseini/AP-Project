@@ -41,6 +41,7 @@ private:
     int id ;
     QTimer *timer;
     QJsonObject info ,_info ;
+    QWidget *farm;
 
 };
 

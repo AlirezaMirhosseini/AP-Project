@@ -37,7 +37,7 @@ public:
     int id ;
     QTimer *timer;
     QJsonObject info ,_info ;
-
+     QWidget *farm;
 };
 
 #endif // CHECKEN_COOP_H

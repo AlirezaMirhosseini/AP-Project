@@ -37,6 +37,7 @@ private:
 
     QTimer *timer;
     QJsonObject info ,_info ;
+    QWidget *farm;
 };
 
 #endif // SHEEP_PASTURE_H
