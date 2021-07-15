@@ -148,7 +148,7 @@ void farm::on_store_lock_clicked()
     QJsonObject _info = read_info();
     QJsonObject  info = (_info["User"].toArray())[id].toObject();
     if(info["store_lock"].toBool())
-        QMessageBox::warning(this," " , " ");
+        QMessageBox::warning(this," " , "Store unlocks at <b>level 2</b>");
     else{
         this->close();
         farm *w = new farm(id);
@@ -162,7 +162,7 @@ void farm::on_cow_lock_clicked()
     QJsonObject _info = read_info();
     QJsonObject  info = (_info["User"].toArray())[id].toObject();
     if(info["cow_lock"].toBool())
-        QMessageBox::warning(this," " , " ");
+        QMessageBox::warning(this," " , "Cow Pasture unlocks at <b>level 4</b>");
     else{
         this->close();
         farm *w = new farm(id);
@@ -177,7 +177,7 @@ void farm::on_sheep_lock_clicked()
     QJsonObject _info = read_info();
     QJsonObject  info = (_info["User"].toArray())[id].toObject();
     if(info["sheep_lock"].toBool())
-        QMessageBox::warning(this," " , " ");
+        QMessageBox::warning(this," " , "Sheep Pasture unlocks at <b>level 6</b>");
     else{
         this->close();
         farm *w = new farm(id);
@@ -192,7 +192,7 @@ void farm::on_chicken_lock_clicked()
     QJsonObject _info = read_info();
     QJsonObject  info = (_info["User"].toArray())[id].toObject();
     if(info["chicken_lock"].toBool())
-        QMessageBox::warning(this," " , " ");
+        QMessageBox::warning(this," " , "Chicken Coop unlocks at <b>level 2</b>");
     else{
         this->close();
         farm *w = new farm(id);
@@ -207,7 +207,7 @@ void farm::on_alfalfa_lock_clicked()
     QJsonObject _info = read_info();
     QJsonObject  info = (_info["User"].toArray())[id].toObject();
     if(info["alfalfa_lock"].toBool())
-        QMessageBox::warning(this," " , " ");
+        QMessageBox::warning(this," " , "Alfalfa Field unlocks at <b>level 3</b>");
     else{
         this->close();
         farm *w = new farm(id);
