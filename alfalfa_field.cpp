@@ -29,11 +29,11 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
     timer3 = new QTimer();
 
     if(info["alfalfa_upgrade_time"].toInt() != -1)
-        timer1->start(2592000);
+        timer1->start(1000);
     if(info["alfalfa_plow_time"].toInt() != -1)
-        timer2->start(864000);
+        timer2->start(1000);
     if(info["alfalfa_seed_time"].toInt() != -1)
-        timer3->start(3456000);
+        timer3->start(1000);
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_plow()));
