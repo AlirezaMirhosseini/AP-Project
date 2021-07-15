@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>371</width>
-    <height>372</height>
+    <width>487</width>
+    <height>362</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,13 +21,13 @@
     <normaloff>:/game_backgrounds/pics_project/wheat_icon.jfif</normaloff>:/game_backgrounds/pics_project/wheat_icon.jfif</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/game_backgrounds/pics_project/qqqq.jpg);</string>
+   <string notr="true"/>
   </property>
   <widget class="QProgressBar" name="seed_progress">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>342</y>
+     <x>230</x>
+     <y>330</y>
      <width>141</width>
      <height>21</height>
     </rect>
@@ -156,7 +156,7 @@ border-bottom-left-radius:20px;</string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>100</x>
      <y>130</y>
      <width>161</width>
      <height>31</height>
@@ -273,29 +273,65 @@ background-image: url(:/game_backgrounds/pics_project/clipart244133.png);</strin
   <widget class="QPushButton" name="Harvesting">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>300</y>
-     <width>81</width>
-     <height>41</height>
+     <x>290</x>
+     <y>190</y>
+     <width>211</width>
+     <height>141</height>
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>OpenHandCursor</cursorShape>
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 255, 0);
-color: rgb(0, 0, 127);
-font: 9pt &quot;MS Shell Dlg 2&quot;;
-background-image: url(:/game_backgrounds/pics_project/clipart244133.png);
-border-top-left-radius:20px; 
-border-bottom-right-radius:20px;
-border-top-right-radius:20px; 
-border-bottom-left-radius:20px;</string>
+    <string notr="true">alternate-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:1 rgba(0, 0, 0, 0));
+border : none;</string>
    </property>
    <property name="text">
-    <string>Harvesting</string>
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/collector.png</normaloff>:/game_backgrounds/pics_project/collector.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>220</width>
+     <height>220</height>
+    </size>
    </property>
   </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-10</y>
+     <width>491</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/login_background_2.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>label_7</zorder>
+  <zorder>seed_progress</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>upgrade</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>seed</zorder>
+  <zorder>spinBox</zorder>
+  <zorder>wheat_upgrade_pro</zorder>
+  <zorder>Harvesting</zorder>
  </widget>
  <resources>
   <include location="game_recources.qrc"/>
