@@ -167,7 +167,7 @@ void time_thread::run()
         }
         _info["User"] = info_2;
         write_info(_info);
-        this->msleep(500);
+        this->msleep(100);
     }
 
 }

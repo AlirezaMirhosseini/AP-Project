@@ -4,6 +4,8 @@
 #include "cmath"
 #include <QMessageBox>
 #include <time.h>
+#include<windows.h>
+#include "farm.h"
 
 int min1(int a , int b){return a > b ? b : a ;}
 
@@ -14,6 +16,8 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     ui(new Ui::wheat_field)
 {
     ui->setupUi(this);
+    farm = new QWidget;
+    farm = parent;
     id = _id;
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
@@ -109,6 +113,12 @@ void wheat_field::on_seed_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
+
+        Sleep(100);
+        this->close();
+        ;
+        wheat_field* wheatField = new wheat_field( farm , id);
+        wheatField->show();
     }
 }
 
@@ -131,5 +141,10 @@ void wheat_field::on_Harvesting_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
+
+        Sleep(100);
+        this->close();
+        wheat_field* wheatField = new wheat_field(farm, id);
+        wheatField->show();
     }
 }

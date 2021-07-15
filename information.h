@@ -9,6 +9,7 @@
 #include <math.h>
 
 static QJsonObject read_info(){
+
     QFile file_info("../AP-Project/file.json");
     file_info.open(QIODevice::ReadOnly);
     QByteArray byte = file_info.readAll();
@@ -19,6 +20,7 @@ static QJsonObject read_info(){
 }
 
 static void write_info(QJsonObject j){
+
     QJsonDocument doc(j);
     QFile file_info("../AP-Project/file.json");
     file_info.open(QIODevice::WriteOnly);
