@@ -103,8 +103,13 @@ void alfalfa_field::on_btn_upgrade_clicked()
             QMessageBox::warning(this , "Supply needed !" , "You need " +
                                  QString::number(5 *(4 * pow(2, info["alfalfa_level"].toInt() - 1)) - info["coin"].toInt()) + " more coins !");
     }
-    else if(info["shovel_count"].toInt() < 2 * (4 * pow(2, info["alfalfa_level"].toInt() - 1)))
-        QMessageBox::warning(this , "Supply needed !" , "<b>Shovel</b> needed !" );
+    else if(info["shovel_count"].toInt() < 2 * (4 * pow(2, info["alfalfa_level"].toInt() - 1))){
+        if(2 * (4 * pow(2, info["alfalfa_level"].toInt() - 1)) - info["shovel_count"].toInt() == 1)
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more shovel !");
+        else
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                 QString::number(2 * (4 * pow(2, info["alfalfa_level"].toInt() - 1)) - info["shovel_count"].toInt()) + " more shovels !");
+    }
     else{
         info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - 2 * (4 * pow(2, info["alfalfa_level"].toInt() - 1)));
         info["coin"] = QJsonValue(info["coin"].toInt() - 5 * (4 * pow(2, info["alfalfa_level"].toInt() - 1)));
@@ -123,7 +128,6 @@ void alfalfa_field::on_btn_upgrade_clicked()
 
 void alfalfa_field::on_btn_seed_clicked()
 {
-
     if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() == -1)
         QMessageBox::warning(this , "Alfalfa is ready!" , "After harvesting, you can seed !");
     else if(!info["alfalfa_plowed"].toBool())
@@ -150,11 +154,29 @@ void alfalfa_field::on_btn_seed_clicked()
 
 void alfalfa_field::on_btn_harvesting_clicked()
 {
-
     if(!info["alfalfa_in_use"].toBool())
         QMessageBox::warning(this , "Seed first!" , "You havent seed yet !");
-    else if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() != -1 )
-        QMessageBox::warning(this , "Come later!" , "Alfalfa isn't ripe");
+    else if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() != -1 ){
+        int sec = ui->seed_pro->value() * 100 / 100; // after multiply
+        int remain_hour = 0, remain_min = 0;
+        while (sec > 3600) {
+            remain_hour++;
+            sec -= 3600;
+        }
+        while (sec > 60) {
+            remain_min++;
+            sec -= 60;
+        }
+        QString hstr = "hour";
+        QString mstr = "minute";
+        if(remain_hour > 1)
+            hstr.append('s');
+        if(remain_min > 1)
+            mstr.append('s');
+        QMessageBox::warning(this , "Alfalfa isn't ripe!" ,
+                             "Alfalfa will be ready in " + QString::number(remain_hour) + hstr + " and " +
+                             QString::number(remain_min) + mstr + " !");
+    }
     else{
         info["alfalfa_count"] = QJsonValue(info["alfalfa_count"].toInt() + 2 * info["alfalfa_cultivated_area"].toInt());
         info["alfalfa_in_use"] = QJsonValue(false);
@@ -197,8 +219,13 @@ void alfalfa_field::on_build_clicked()
 {
     if(info["level_player"].toInt() < 3)
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level 3</b> !");
-    else if(info["nail_count"].toInt() < 1)
-        QMessageBox::warning(this , "Supply needed !" , "<b>Nail</b> needed !" );
+    else if(info["nail_count"].toInt() < 1){
+        if(1 - info["nail_count"].toInt() == 1)
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more nail !");
+        else
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                 QString::number(1 - info["nail_count"].toInt()) + " more nails !");
+    }
     else if(info["coin"].toInt() < 15){
         if(15 - info["coin"].toInt() == 1)
             QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
@@ -206,8 +233,13 @@ void alfalfa_field::on_build_clicked()
             QMessageBox::warning(this , "Supply needed !" , "You need " +
                                  QString::number(15 - info["coin"].toInt()) + " more coins !");
     }
-    else if(info["shovel_count"].toInt() < 1 )
-        QMessageBox::warning(this , "Supply needed !" , "<b>Shovel</b> needed !" );
+    else if(info["shovel_count"].toInt() < 1 ){
+        if(1 - info["shovel_count"].toInt() == 1)
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more shovel !");
+        else
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                 QString::number(1 - info["shovel_count"].toInt()) + " more shovels !");
+    }
     else{
         info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - 1);
         info["nail_count"] = QJsonValue(info["nail_count"].toInt() - 1);
