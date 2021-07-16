@@ -18,46 +18,47 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
     info = (_info["User"].toArray())[id].toObject();
     farm = parent;
 
-    if(!info["alfalfa_in_use"].toBool()){
-        ui->lbl_cultivated_area->hide();
-        ui->lbl_cultivated_area_value->hide();
-    }
-
-    if(info["alfalfa_upgrade_time"].toInt() == -1)
-        ui->alfalfa_upgrade_pro->hide();
-    else
-        ui->btn_upgrade->setEnabled(false);
-
-    if(info["alfalfa_plow_time"].toInt() == -1)
-        ui->plow_pro->hide();
-    else
-        ui->btn_plow->setEnabled(false);
-
-    if(info["alfalfa_seed_time"].toInt() == -1)
-        ui->seed_pro->hide();
-    else
-        ui->btn_seed->setEnabled(false);
-
-    ui->spinBox->setMaximum(min2(info["alfalfa_count"].toInt(),4 * pow(2, info["alfalfa_level"].toInt() - 1)));
-    ui->lbl_area_value->setText(QString::number(4 * pow(2, info["alfalfa_level"].toInt() - 1)));
-    ui->lbl_level_value->setText(QString::number(info["alfalfa_level"].toInt()));
-    ui->lbl_cultivated_area_value->setText(QString::number(info["alfalfa_cultivated_area"].toInt()));
-    ui->alfalfa_upgrade_pro->setValue(info["alfalfa_upgrade_pro"].toInt());
-
-    ui->plow_pro->setValue(info["alfalfa_plow_pro"].toInt());
-
-    ui->seed_pro->setValue(info["alfalfa_seed_pro"].toInt());
-
     timer1 = new QTimer();
     timer2 = new QTimer();
     timer3 = new QTimer();
 
-    if(info["alfalfa_upgrade_time"].toInt() != -1)
-        timer1->start(1000);
-    if(info["alfalfa_plow_time"].toInt() != -1)
-        timer2->start(1000);
-    if(info["alfalfa_seed_time"].toInt() != -1)
-        timer3->start(1000);
+    if(!info["alfalfa_in_use"].toBool()){
+        ui->lbl_cultivated_area->hide();
+        ui->lbl_cultivated_area_value->hide();
+        ui->lbl_level_container_3->hide();
+    }
+
+
+        if(info["alfalfa_upgrade_time"].toInt() == -1)
+            ui->alfalfa_upgrade_pro->hide();
+        else{
+            ui->btn_upgrade->setEnabled(false);
+            ui->alfalfa_upgrade_pro->setValue(info["alfalfa_upgrade_pro"].toInt());
+            timer1->start(1000);
+             }
+
+
+        if(info["alfalfa_plow_time"].toInt() == -1)
+            ui->plow_pro->hide();
+        else{
+            ui->btn_plow->setEnabled(false);
+             ui->plow_pro->setValue(info["alfalfa_plow_pro"].toInt());
+            timer2->start(1000);
+             }
+
+        if(info["alfalfa_seed_time"].toInt() == -1)
+            ui->seed_pro->hide();
+        else{
+            ui->btn_seed->setEnabled(false);
+            ui->seed_pro->setValue(info["alfalfa_seed_pro"].toInt());
+            timer3->start(1000);
+             }
+    ui->spinBox->setMaximum(min2(info["alfalfa_count"].toInt(),4 * pow(2, info["alfalfa_level"].toInt() - 1)));
+    ui->lbl_area_value->setText(QString::number(4 * pow(2, info["alfalfa_level"].toInt() - 1)));
+    ui->lbl_level_value->setText(QString::number(info["alfalfa_level"].toInt()));
+    ui->lbl_cultivated_area_value->setText(QString::number(info["alfalfa_cultivated_area"].toInt()));
+
+
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_plow()));
@@ -92,6 +93,14 @@ void alfalfa_field::increamenter_seed(){
     ui->seed_pro->setValue(aux3);
 }
 
+void alfalfa_field::Refresh()
+{
+    QThread::msleep(100);
+    this->close();
+    alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
+    alfalfaField->show();
+}
+
 void alfalfa_field::on_btn_upgrade_clicked()
 {
     if(info["level_player"].toInt() < 4)
@@ -119,10 +128,7 @@ void alfalfa_field::on_btn_upgrade_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
-        alfalfaField->show();
+      Refresh();
     }
 }
 
@@ -145,10 +151,7 @@ void alfalfa_field::on_btn_seed_clicked()
         _info["User"] = info_2;
         write_info(_info);
 
-        QThread::msleep(100);
-        this->close();
-        alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
-        alfalfaField->show();
+        Refresh();
     }
 }
 
@@ -185,10 +188,7 @@ void alfalfa_field::on_btn_harvesting_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
-        alfalfaField->show();
+        Refresh();
     }
 }
 
@@ -208,10 +208,7 @@ void alfalfa_field::on_btn_plow_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
-        alfalfaField->show();
+        Refresh();
     }
 }
 
@@ -250,10 +247,7 @@ void alfalfa_field::on_build_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        alfalfa_field*  alfalfaField = new alfalfa_field(farm, id);
-        alfalfaField->show();
+       Refresh();
     }
 }
 

@@ -13,6 +13,8 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
     id=_id;
     farm = new QWidget;
     farm = parent;
+    timer1 = new QTimer();
+    timer2 = new QTimer();
 
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
@@ -58,8 +60,7 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
         ui->feed->setEnabled(false);
 
 
-    timer1 = new QTimer();
-    timer2 = new QTimer();
+
 
     ui->sheep_pro->setValue(info["sheep_upgrade_pro"].toInt());
 
@@ -142,10 +143,7 @@ void sheep_pasture::on_feed_clicked()
         _info["User"] = info_2;
         write_info(_info);
 
-        QThread::msleep(100);
-        this->close();
-        sheep_pasture *w = new sheep_pasture(farm , id);
-        w->show();
+          Refresh();
 
     }
 }
@@ -186,10 +184,7 @@ void sheep_pasture::on_upgrade_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        sheep_pasture *w = new sheep_pasture(farm , id);
-        w->show();
+          Refresh();
     }
 }
 
@@ -251,10 +246,7 @@ void sheep_pasture::on_Fleece_Shave_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        sheep_pasture *w = new sheep_pasture(farm , id);
-        w->show();
+           Refresh();
     }
 }
 
@@ -295,9 +287,14 @@ void sheep_pasture::on_build_clicked()
         _info["User"] = info_2;
         write_info(_info);
 
-        QThread::msleep(100);
-        this->close();
-        sheep_pasture *w = new sheep_pasture(farm , id);
-        w->show();
+         Refresh();
     }
+}
+
+void sheep_pasture::Refresh()
+{
+    QThread::msleep(100);
+    this->close();
+    sheep_pasture *w = new sheep_pasture(farm , id);
+    w->show();
 }

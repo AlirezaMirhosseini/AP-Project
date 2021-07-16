@@ -17,8 +17,17 @@ silo::silo(QWidget *parent, int _id) :
     ui->capacity->setText(QString::number(5 * pow(2, info["silo_level"].toInt())));
     ui->level->setText(QString::number(info["silo_level"].toInt()));
     ui->wheat->setText(QString::number(info["wheat_count"].toInt()));
-    if(info["silo_upgrade_time"] == -1)
-        ui->silo_pro->hide();
+
+     timer = new QTimer;
+
+     if(info["silo_upgrade_time"].toInt() != -1){
+        ui->silo_pro->setValue(info["silo_upgrade_pro"].toInt());
+         timer->start(1000);
+     }
+     else
+         ui->silo_pro->hide();
+
+     connect(timer,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
 }
 
 silo::~silo()
@@ -64,4 +73,11 @@ void silo::on_upgrade_clicked()
             }
         }
     }
+}
+void silo::increamenter_upgrade()
+{
+    int aux = 0;
+    aux = ui->silo_pro->value();
+    aux++;
+    ui->silo_pro->setValue(aux);
 }

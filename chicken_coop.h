@@ -32,6 +32,8 @@ private slots:
 
     void on_collecteggs_clicked();
 
+    void Refresh();
+
 public:
 
 

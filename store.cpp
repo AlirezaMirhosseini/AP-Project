@@ -86,7 +86,7 @@ void store::on_sell_pushButton_clicked()
     }
 
     shovel_num = ui->shovel_spinBox->text().toInt();
-    if(shovel_num > info["shovel_counter"].toInt()){
+    if(shovel_num > info["shovel_count"].toInt()){
         QMessageBox::warning(this,"Supply needed !","you don't have enough shovel to sell :(");
         return;
     }

@@ -24,6 +24,9 @@ chicken_coop::chicken_coop(QWidget *parent , int _id) :
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
 
+    timer1 = new QTimer();
+    timer2 = new QTimer();
+
 
     if(info["chicken_level"].toInt() == 0){
 
@@ -38,45 +41,34 @@ chicken_coop::chicken_coop(QWidget *parent , int _id) :
         ui->capacity->hide();
         ui->count->hide();
         ui->level->hide();
+        if(info["chicken_upgrade_time"].toInt() != -1)
+            ui->build_pushButton->setEnabled(false);
     }
     else
         ui->build_pushButton->hide();
 
+
+
     if(info["chicken_upgrade_time"].toInt() == -1)
         ui->chicken_pro->hide();
-    else
+    else{
         ui->chicken_pro->setValue(info["chicken_upgrade_pro"].toInt());
-
+         timer1->start(1000);
+         ui->upgrade->setEnabled(false);
+      }
 
     if(info["chicken_feed_time"].toInt() == -1)
         ui->eggs_pro->hide();
-    else
+    else{
         ui->eggs_pro->setValue(info["chicken_eggs_pro"].toInt());
-
-
+            timer2->start(1000);
+            ui->feed->setEnabled(false);
+     }
 
     ui->count->setText(QString::number(info["chicken_count"].toInt()));
     ui->capacity->setText(QString::number( pow(2,info["chicken_level"].toInt())));
     ui->level->setText(QString::number(info["chicken_level"].toInt()));
 
-
-    if(info["chicken_upgrade_time"].toInt() == -1)
-        ui->chicken_pro->hide();
-
-    if(info["chicken_feed_time"] != -1)
-        ui->feed->setEnabled(false);
-
-
-    timer1 = new QTimer();
-    timer2 = new QTimer();
-
-    ui->chicken_pro->setValue(info["chicken_upgrade_pro"].toInt());
-
-    if(info["chicken_upgrade_time"].toInt() != -1)
-        timer1->start(1000);
-
-    if(info["chicken_feed_time"].toInt() != -1)
-        timer2->start(1000);
 
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
@@ -148,10 +140,7 @@ void chicken_coop::on_feed_clicked()
             info_2[id] = QJsonValue(info);
             _info["User"] = info_2;
             write_info(_info);
-            QThread::msleep(100);
-            this->close();
-            chicken_coop *w = new chicken_coop(farm , id);
-            w->show();
+            Refresh();
         }
     }
 }
@@ -184,10 +173,7 @@ void chicken_coop::on_upgrade_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        chicken_coop *w = new chicken_coop(farm , id);
-        w->show();
+        Refresh();
     }
 }
 
@@ -220,7 +206,6 @@ void chicken_coop::on_build_pushButton_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-
         QThread::msleep(100);
         this->close();
         chicken_coop *w = new chicken_coop(farm , id);
@@ -273,11 +258,16 @@ void chicken_coop::on_collecteggs_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        chicken_coop *w = new chicken_coop(farm , id);
-        w->show();
+        Refresh();
     }
 
+}
+
+void chicken_coop::Refresh()
+{
+    QThread::msleep(100);
+    this->close();
+    chicken_coop *w = new chicken_coop(farm , id);
+    w->show();
 }
 
