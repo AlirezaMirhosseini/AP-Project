@@ -13,6 +13,8 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
     id=_id;
     farm = new QWidget;
     farm = parent;
+    timer1 = new QTimer();
+    timer2 = new QTimer();
 
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
@@ -57,10 +59,6 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
     if(info["sheep_feed_time"] != -1)
         ui->feed->setEnabled(false);
 
-
-    timer1 = new QTimer();
-    timer2 = new QTimer();
-
     ui->sheep_pro->setValue(info["sheep_upgrade_pro"].toInt());
 
     if(info["sheep_upgrade_time"].toInt() != -1)
@@ -93,20 +91,16 @@ void sheep_pasture::increamenter_collect()
     aux = ui->fleece_pro->value();
     aux++;
     ui->fleece_pro->setValue(aux);
-
 }
 
 void sheep_pasture::on_feed_clicked()
 {
-
     if(info["sheep_count"].toInt() == 0)
         QMessageBox::warning(this , "You havent Sheep!" ,"You have to buy a Sheep!");
-
     else if(info["sheep_feeded"].toBool())
         QMessageBox::warning(this , "Already done!" ,"Sheeps already feeded !");
-
     else  if(info["sheep_feed_time"].toInt() != -1){
-        int sec = ui->fleece_pro->value() * 100 / 100; // after multiply
+        int sec = (100 - ui->fleece_pro->value()) * 100 / 100; // after multiply
         int remain_hour = 0, remain_min = 0;
         while (sec > 3600) {
             remain_hour++;
@@ -123,8 +117,8 @@ void sheep_pasture::on_feed_clicked()
         if(remain_min > 1)
             mstr.append('s');
         QMessageBox::warning(this , "Come later!" ,
-                             "You can feed " + QString::number(remain_hour) + hstr + " and " +
-                             QString::number(remain_min) + mstr + " later !");
+                             "You can feed " + QString::number(remain_hour) + " " + hstr + " and " +
+                             QString::number(remain_min) + " " + mstr + " later !");
     }
     else  if(info["alfalfa_count"].toInt() < info["sheep_count"].toInt()){
         if(info["sheep_count"].toInt() - info["alfalfa_count"].toInt() == 1)
@@ -142,14 +136,9 @@ void sheep_pasture::on_feed_clicked()
         _info["User"] = info_2;
         write_info(_info);
 
-        QThread::msleep(100);
-        this->close();
-        sheep_pasture *w = new sheep_pasture(farm , id);
-        w->show();
-
+        Refresh();
     }
 }
-
 
 void sheep_pasture::on_upgrade_clicked()
 {
@@ -186,19 +175,15 @@ void sheep_pasture::on_upgrade_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        sheep_pasture *w = new sheep_pasture(farm , id);
-        w->show();
+        Refresh();
     }
 }
-
 
 void sheep_pasture::on_Fleece_Shave_clicked()
 {
     time_t _time = time(NULL) + info["time"].toInt();
     if(info["sheep_feed_time"].toInt() != -1 && _time -  info["sheep_feed_time"].toInt() < 100){
-        int sec = ui->fleece_pro->value() * 100 / 100; // after multiply
+        int sec = (100 - ui->fleece_pro->value()) * 100 / 100; // after multiply
         int remain_hour = 0, remain_min = 0;
         while (sec > 3600) {
             remain_hour++;
@@ -215,8 +200,8 @@ void sheep_pasture::on_Fleece_Shave_clicked()
         if(remain_min > 1)
             mstr.append('s');
         QMessageBox::warning(this , "Come later!" ,
-                             "You can Shave " + QString::number(remain_hour) + hstr + " and " +
-                             QString::number(remain_min) + mstr + " later !");
+                             "You can Shave " + QString::number(remain_hour) + " " + hstr + " and " +
+                             QString::number(remain_min) + " " + mstr + " later !");
     }
 
     else if(!info["sheep_feeded"].toBool())
@@ -229,8 +214,6 @@ void sheep_pasture::on_Fleece_Shave_clicked()
             QMessageBox::warning(this , "Supply needed !" , "You need " +
                                  QString::number(info["sheep_count"].toInt() - info["coin"].toInt()) + " more coins !");
     }
-
-
     else if(ceil(5 * pow(1.5, info["barn_level"].toInt() -1 )) <
             info["nail_count"].toInt() +
             info["shovel_count"].toInt() +
@@ -240,9 +223,7 @@ void sheep_pasture::on_Fleece_Shave_clicked()
             info["fleece_count"].toInt() +
             info["sheep_count"].toInt())//sheep count for added fleece number
         QMessageBox::warning(this , "Space needed !" ,"You don't have enough space in barn !");
-
     else{
-
         info["sheep_feeded"] = false;
 
         info["fleece_count"] = QJsonValue(info["fleece_count"] .toInt() + info["sheep_count"].toInt());
@@ -251,13 +232,9 @@ void sheep_pasture::on_Fleece_Shave_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        sheep_pasture *w = new sheep_pasture(farm , id);
-        w->show();
+        Refresh();
     }
 }
-
 
 void sheep_pasture::on_build_clicked()
 {
@@ -295,9 +272,14 @@ void sheep_pasture::on_build_clicked()
         _info["User"] = info_2;
         write_info(_info);
 
-        QThread::msleep(100);
-        this->close();
-        sheep_pasture *w = new sheep_pasture(farm , id);
-        w->show();
+        Refresh();
     }
+}
+
+void sheep_pasture::Refresh()
+{
+    QThread::msleep(100);
+    this->close();
+    sheep_pasture *w = new sheep_pasture(farm , id);
+    w->show();
 }

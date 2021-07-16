@@ -13,7 +13,7 @@ class profile : public QDialog
     int id;
 
 public:
-    explicit profile(QWidget *parent = nullptr, int i=0);
+    explicit profile(QWidget *parent = nullptr, int i=0,QByteArray ranks = 0);
     ~profile();
 
 private:

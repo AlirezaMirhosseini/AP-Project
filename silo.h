@@ -6,6 +6,7 @@
 #include <QDialog>
 #include <QJsonObject>
 #include <QJsonArray>
+#include<QTimer>
 
 namespace Ui {class silo;}
 
@@ -22,6 +23,7 @@ public:
 
 private slots:
     void on_upgrade_clicked();
+    void increamenter_upgrade();
 
 private:
 
@@ -29,6 +31,7 @@ private:
     int id;
     QJsonObject info ,_info ;
     QWidget *farm;
+    QTimer *timer;
 
 };
 
