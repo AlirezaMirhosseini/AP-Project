@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>671</width>
-    <height>560</height>
+    <width>700</width>
+    <height>451</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,33 +17,17 @@
    <iconset resource="game_recources.qrc">
     <normaloff>:/game_backgrounds/pics_project/pngwing.com.png</normaloff>:/game_backgrounds/pics_project/pngwing.com.png</iconset>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>-40</y>
-     <width>671</width>
-     <height>641</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">image: url(:/game_backgrounds/pics_project/login_background_2.jpg);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>230</y>
-     <width>71</width>
-     <height>21</height>
+     <x>70</x>
+     <y>130</y>
+     <width>151</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+    <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;
 background-color:rgb(59, 59, 59);
 border-top-left-radius:5px; 
 border-bottom-left-radius:5px; 
@@ -57,14 +41,14 @@ color:rgb(255, 255, 255);
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>270</y>
-     <width>111</width>
+     <x>70</x>
+     <y>160</y>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+    <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;
 background-color:rgb(59, 59, 59);
 border-top-left-radius:5px; 
 border-bottom-left-radius:5px; 
@@ -77,14 +61,14 @@ color:rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>310</y>
-     <width>101</width>
+     <x>70</x>
+     <y>190</y>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+    <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;
 background-color:rgb(59, 59, 59);
 border-top-left-radius:5px; 
 border-bottom-left-radius:5px; 
@@ -97,14 +81,14 @@ color:rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>350</y>
-     <width>181</width>
+     <x>70</x>
+     <y>220</y>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+    <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;
 background-color:rgb(59, 59, 59);
 border-top-left-radius:5px; 
 border-bottom-left-radius:5px; 
@@ -117,34 +101,34 @@ color:rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>390</y>
-     <width>71</width>
+     <x>70</x>
+     <y>250</y>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+    <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;
 background-color:rgb(59, 59, 59);
 border-top-left-radius:5px; 
 border-bottom-left-radius:5px; 
 color:rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>  Email  </string>
+    <string> Email  </string>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>430</y>
-     <width>81</width>
+     <x>70</x>
+     <y>280</y>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+    <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;
 background-color:rgb(59, 59, 59);
 border-top-left-radius:5px; 
 border-bottom-left-radius:5px; 
@@ -157,8 +141,8 @@ color:rgb(255, 255, 255);</string>
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>430</y>
+     <x>270</x>
+     <y>280</y>
      <width>111</width>
      <height>22</height>
     </rect>
@@ -187,15 +171,15 @@ color:rgb(255, 255, 255);
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>230</y>
+     <x>270</x>
+     <y>130</y>
      <width>113</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color:rgb(50, 50, 50);
-font: 12pt &quot;MS Shell Dlg 2&quot;;
+font: 11pt &quot;MS Shell Dlg 2&quot;;
 border-top-right-radius:5px; 
 border-bottom-right-radius:5px; 
 color:rgb(255, 255, 255);</string>
@@ -207,15 +191,15 @@ color:rgb(255, 255, 255);</string>
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>270</y>
+     <x>270</x>
+     <y>160</y>
      <width>113</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color:rgb(50, 50, 50);
-font: 12pt &quot;MS Shell Dlg 2&quot;;
+font: 11pt &quot;MS Shell Dlg 2&quot;;
 border-top-right-radius:5px; 
 border-bottom-right-radius:5px; 
 color:rgb(255, 255, 255);</string>
@@ -227,15 +211,15 @@ color:rgb(255, 255, 255);</string>
   <widget class="QLineEdit" name="lineEdit_3">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>310</y>
+     <x>270</x>
+     <y>190</y>
      <width>113</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color:rgb(50, 50, 50);
-font: 12pt &quot;MS Shell Dlg 2&quot;;
+font: 11pt &quot;MS Shell Dlg 2&quot;;
 border-top-right-radius:5px; 
 border-bottom-right-radius:5px; 
 color:rgb(255, 255, 255);</string>
@@ -247,15 +231,15 @@ color:rgb(255, 255, 255);</string>
   <widget class="QLineEdit" name="lineEdit_4">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>350</y>
+     <x>270</x>
+     <y>220</y>
      <width>113</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color:rgb(50, 50, 50);
-font: 12pt &quot;MS Shell Dlg 2&quot;;
+font: 11pt &quot;MS Shell Dlg 2&quot;;
 border-top-right-radius:5px; 
 border-bottom-right-radius:5px; 
 color:rgb(255, 255, 255);</string>
@@ -267,15 +251,15 @@ color:rgb(255, 255, 255);</string>
   <widget class="QLineEdit" name="lineEdit_5">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>390</y>
+     <x>270</x>
+     <y>250</y>
      <width>113</width>
      <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color:rgb(50, 50, 50);
-font: 12pt &quot;MS Shell Dlg 2&quot;;
+font: 11pt &quot;MS Shell Dlg 2&quot;;
 border-top-right-radius:5px; 
 border-bottom-right-radius:5px; 
 color:rgb(255, 255, 255);</string>
@@ -287,9 +271,9 @@ color:rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>470</y>
-     <width>111</width>
+     <x>150</x>
+     <y>320</y>
+     <width>91</width>
      <height>21</height>
     </rect>
    </property>
@@ -309,9 +293,9 @@ color:rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>470</y>
-     <width>111</width>
+     <x>250</x>
+     <y>320</y>
+     <width>91</width>
      <height>21</height>
     </rect>
    </property>
@@ -328,6 +312,60 @@ color:rgb(255, 255, 255);</string>
     <string>Back</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>0</y>
+     <width>131</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/sign.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-10</y>
+     <width>701</width>
+     <height>461</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/sign up.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>label_8</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>label_7</zorder>
+  <zorder>comboBox</zorder>
+  <zorder>lineEdit</zorder>
+  <zorder>lineEdit_2</zorder>
+  <zorder>lineEdit_3</zorder>
+  <zorder>lineEdit_4</zorder>
+  <zorder>lineEdit_5</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>pushButton_2</zorder>
  </widget>
  <resources>
   <include location="game_recources.qrc"/>
