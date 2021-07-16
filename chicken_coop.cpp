@@ -110,14 +110,35 @@ void chicken_coop::on_feed_clicked()
     if(info["chicken_count"].toInt() == 0)
         QMessageBox::warning(this , "No Chicken" ,"You have to buy a chicken!");
     else if(info["chicken_feeded"].toBool())
-        QMessageBox::warning(this , " !" ,"khordan !");
-
-
-    else if(info["chicken_feed_time"].toInt() != -1)
-        QMessageBox::warning(this , "Come later!" ,"Chickens are feeding !");
+        QMessageBox::warning(this , "Already done!" ,"Chickens already feeded !");
+    else if(info["chicken_feed_time"].toInt() != -1){
+        int sec = ui->eggs_pro->value() * 100 / 100; // after multiply
+        int remain_hour = 0, remain_min = 0;
+        while (sec > 3600) {
+            remain_hour++;
+            sec -= 3600;
+        }
+        while (sec > 60) {
+            remain_min++;
+            sec -= 60;
+        }
+        QString hstr = "hour";
+        QString mstr = "minute";
+        if(remain_hour > 1)
+            hstr.append('s');
+        if(remain_min > 1)
+            mstr.append('s');
+        QMessageBox::warning(this , "Come later!" ,
+                             "You can feed " + QString::number(remain_hour) + hstr + " and " +
+                             QString::number(remain_min) + mstr + " later !");
+    }
     else{
         if(info["wheat_count"].toInt() < info["chicken_count"].toInt()){
-            QMessageBox::warning(this , "Supply needed !" ,"<b>Wheat</b> needed !");
+            if(info["chicken_count"].toInt() - info["wheat_count"].toInt() == 1)
+                QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more wheat !");
+            else
+                QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                     QString::number(info["chicken_count"].toInt() - info["wheat_count"].toInt()) + " more wheats !");
         }
         else{
             info["wheat_count"] = QJsonValue(info["wheat_count"].toInt() - info["chicken_count"].toInt());
@@ -135,15 +156,18 @@ void chicken_coop::on_feed_clicked()
     }
 }
 
-
-
 void chicken_coop::on_upgrade_clicked()
 {
 
     if(info["level_player"].toInt() < info["chicken_level"].toInt() + 1)
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level </b>" + QString::number(info["chicken_level"].toInt() + 1) + " !");
-    else if(info["nail_count"].toInt()  < 1)
-        QMessageBox::warning(this , " " ,"<b>Nail</b> needed !");
+    else if(info["nail_count"].toInt()  < 1){
+        if(1 - info["nail_count"].toInt() == 1)
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more nail !");
+        else
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                 QString::number(1 - info["nail_count"].toInt()) + " more nails !");
+    }
     else if(info["coin"].toInt() < 10){
         if(10 - info["coin"].toInt() == 1)
             QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
@@ -173,8 +197,13 @@ void chicken_coop::on_build_pushButton_clicked()
 {
     if(info["level_player"].toInt() < 2)
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level 2</b>");
-    else if(info["nail_count"].toInt()  < 2)
-        QMessageBox::warning(this , "Supply needed !" ,"<b>Nail</b> needed !");
+    else if(info["nail_count"].toInt()  < 2){
+        if(2 - info["nail_count"].toInt() == 1)
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more nail !");
+        else
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                 QString::number(2 - info["nail_count"].toInt()) + " more nails !");
+    }
     else if(info["coin"].toInt() < 10){
         if(10 - info["coin"].toInt() == 1)
             QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
@@ -204,10 +233,29 @@ void chicken_coop::on_collecteggs_clicked()
 {
 
     time_t _time = time(NULL) + info["time"].toInt();
-    if(info["chicken_feed_time"].toInt() != -1 && _time - info["chicken_feed_time"].toInt() < 100)
-        QMessageBox::warning(this , "Come later!" ,"Chickens are feeding !");
+    if(info["chicken_feed_time"].toInt() != -1 && _time - info["chicken_feed_time"].toInt() < 100){
+        int sec = ui->eggs_pro->value() * 100 / 100; // after multiply
+        int remain_hour = 0, remain_min = 0;
+        while (sec > 3600) {
+            remain_hour++;
+            sec -= 3600;
+        }
+        while (sec > 60) {
+            remain_min++;
+            sec -= 60;
+        }
+        QString hstr = "hour";
+        QString mstr = "minute";
+        if(remain_hour > 1)
+            hstr.append('s');
+        if(remain_min > 1)
+            mstr.append('s');
+        QMessageBox::warning(this , "Come later!" ,
+                             "You can collect " + QString::number(remain_hour) + hstr + " and " +
+                             QString::number(remain_min) + mstr + " later !");
+    }
     else if(!info["chicken_feeded"].toBool())
-        QMessageBox::warning(this , "Come later!" ,"nakhordan!");
+        QMessageBox::warning(this , "Come later!" ,"You have to feed first!");
     else if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
             info["nail_count"].toInt() +
             info["shovel_count"].toInt() +
@@ -215,8 +263,8 @@ void chicken_coop::on_collecteggs_clicked()
             info["eggs_count"].toInt() +
             info["milk_count"].toInt() +
             info["fleece_count"].toInt() +
-            info["chicken_count"].toInt())//chicken count for added eggs number)
-        QMessageBox::warning(this , " " ,"You don't have enough space in barn !");
+            info["chicken_count"].toInt()) //chicken count for added eggs number)
+        QMessageBox::warning(this , "Space needed" ,"You don't have enough space in barn !");
     else{
         info["chicken_feeded"] = false;
         info["eggs_count"] = QJsonValue(info["eggs_count"] .toInt() + info["chicken_count"].toInt());
