@@ -84,5 +84,10 @@
         <file>pics_project/wheat-removebg-preview.png</file>
         <file>pics_project/seeding.png</file>
         <file>pics_project/buildicon.png</file>
+        <file>pics_project/alfalfaseed.png</file>
+        <file>pics_project/alfalfa_field.jpg</file>
+        <file>pics_project/alfa.png</file>
+        <file>pics_project/alfalfa_field-removebg-preview.png</file>
+        <file>pics_project/plow.png</file>
     </qresource>
 </RCC>
