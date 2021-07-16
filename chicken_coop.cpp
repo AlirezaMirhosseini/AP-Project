@@ -108,12 +108,12 @@ void chicken_coop::increamenter_collect()
 void chicken_coop::on_feed_clicked()
 {
     if(info["chicken_count"].toInt() == 0)
-           QMessageBox::warning(this , " !" ,"0 chicken !");
+        QMessageBox::warning(this , "No Chicken" ,"You have to buy a chicken!");
     else if(info["chicken_feeded"].toBool())
         QMessageBox::warning(this , " !" ,"khordan !");
 
 
-   else if(info["chicken_feed_time"].toInt() != -1)
+    else if(info["chicken_feed_time"].toInt() != -1)
         QMessageBox::warning(this , "Come later!" ,"Chickens are feeding !");
     else{
         if(info["wheat_count"].toInt() < info["chicken_count"].toInt()){
@@ -205,31 +205,31 @@ void chicken_coop::on_collecteggs_clicked()
 
     time_t _time = time(NULL) + info["time"].toInt();
     if(info["chicken_feed_time"].toInt() != -1 && _time - info["chicken_feed_time"].toInt() < 100)
-         QMessageBox::warning(this , "Come later!" ,"Chickens are feeding !");
-     else if(!info["chicken_feeded"].toBool())
+        QMessageBox::warning(this , "Come later!" ,"Chickens are feeding !");
+    else if(!info["chicken_feeded"].toBool())
         QMessageBox::warning(this , "Come later!" ,"nakhordan!");
     else if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
-                info["nail_count"].toInt() +
-                info["shovel_count"].toInt() +
-                info["alfalfa_count"].toInt() +
-                info["eggs_count"].toInt() +
-                info["milk_count"].toInt() +
-                info["fleece_count"].toInt() +
-                info["chicken_count"].toInt())//chicken count for added eggs number)
-            QMessageBox::warning(this , " " ,"You don't have enough space in barn !");
-        else{
-            info["chicken_feeded"] = false;
-            info["eggs_count"] = QJsonValue(info["eggs_count"] .toInt() + info["chicken_count"].toInt());
-            info["chicken_feed_time"] = -1;
-            QJsonArray info_2 = _info["User"].toArray();
-            info_2[id] = QJsonValue(info);
-            _info["User"] = info_2;
-            write_info(_info);
-            QThread::msleep(100);
-            this->close();
-            chicken_coop *w = new chicken_coop(farm , id);
-            w->show();
-        }
+            info["nail_count"].toInt() +
+            info["shovel_count"].toInt() +
+            info["alfalfa_count"].toInt() +
+            info["eggs_count"].toInt() +
+            info["milk_count"].toInt() +
+            info["fleece_count"].toInt() +
+            info["chicken_count"].toInt())//chicken count for added eggs number)
+        QMessageBox::warning(this , " " ,"You don't have enough space in barn !");
+    else{
+        info["chicken_feeded"] = false;
+        info["eggs_count"] = QJsonValue(info["eggs_count"] .toInt() + info["chicken_count"].toInt());
+        info["chicken_feed_time"] = -1;
+        QJsonArray info_2 = _info["User"].toArray();
+        info_2[id] = QJsonValue(info);
+        _info["User"] = info_2;
+        write_info(_info);
+        QThread::msleep(100);
+        this->close();
+        chicken_coop *w = new chicken_coop(farm , id);
+        w->show();
+    }
 
 }
 
