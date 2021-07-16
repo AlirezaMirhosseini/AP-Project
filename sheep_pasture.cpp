@@ -32,6 +32,19 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
         ui->capacity->hide();
         ui->level->hide();
     }
+    else
+        ui->build->hide();
+
+    if(info["sheep_upgrade_time"].toInt() == -1)
+        ui->sheep_pro->hide();
+    else
+        ui->sheep_pro->setValue(info["sheep_upgrade_pro"].toInt());
+
+
+    if(info["sheep_feed_time"].toInt() == -1)
+        ui->fleece_pro->hide();
+    else
+        ui->fleece_pro->setValue(info["sheep_fleece_pro"].toInt());
 
 
     ui->count->setText(QString::number(info["sheep_count"].toInt()));
@@ -41,14 +54,24 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
     if(info["sheep_upgrade_time"].toInt() == -1)
         ui->sheep_pro->hide();
 
-    timer = new QTimer();
+    if(info["sheep_feed_time"] != -1)
+        ui->feed->setEnabled(false);
+
+
+    timer1 = new QTimer();
+    timer2 = new QTimer();
+
     ui->sheep_pro->setValue(info["sheep_upgrade_pro"].toInt());
 
     if(info["sheep_upgrade_time"].toInt() != -1)
-        timer->start(100);
+        timer1->start(1000);
 
-    connect(timer,SIGNAL(timeout()),this,SLOT(increamenter()));
-    ui->label->setText("<b> exist sheep </b>");
+    if(info["sheep_feed_time"].toInt() != -1)
+        timer2->start(1000);
+
+
+    connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_collect()));
 }
 
 sheep_pasture::~sheep_pasture()
@@ -56,7 +79,7 @@ sheep_pasture::~sheep_pasture()
     delete ui;
 }
 
-void sheep_pasture::increamenter()
+void sheep_pasture::increamenter_upgrade()
 {
     int aux = 0;
     aux = ui->sheep_pro->value();
@@ -64,14 +87,29 @@ void sheep_pasture::increamenter()
     ui->sheep_pro->setValue(aux);
 }
 
+void sheep_pasture::increamenter_collect()
+{
+    int aux = 0;
+    aux = ui->fleece_pro->value();
+    aux++;
+    ui->fleece_pro->setValue(aux);
+
+}
+
 void sheep_pasture::on_feed_clicked()
 {
-    if(info["sheep_feed_time"].toInt() != -1)
+
+    if(info["sheep_count"].toInt() == 0)
+           QMessageBox::warning(this , " !" ,"0 sheep !");
+
+    else if(info["sheep_feeded"].toBool())
+        QMessageBox::warning(this , " !" ,"khordan !");
+
+   else  if(info["sheep_feed_time"].toInt() != -1)
         QMessageBox::warning(this , "Come later!" ,"Sheeps are feeding !");
-    else{
-        if(info["alfalfa_count"].toInt() < info["sheep_count"].toInt()){
+
+    else  if(info["alfalfa_count"].toInt() < info["sheep_count"].toInt())
             QMessageBox::warning(this , "Supply needed !" ,"<b>Alfalfa</b> needed !");
-        }
         else{
             info["alfalfa_count"] = QJsonValue(info["alfalfa_count"].toInt() - info["sheep_count"].toInt());
             time_t _time = time(NULL) + info["time"].toInt();
@@ -87,7 +125,6 @@ void sheep_pasture::on_feed_clicked()
             w->show();
 
         }
-    }
 }
 
 

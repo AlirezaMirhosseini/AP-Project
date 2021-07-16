@@ -24,7 +24,7 @@ store::store(QWidget *parent, int _id) :
     ui->shovel_label->setText(QString::number(info["shovel_count"].toInt()));
     ui->wool_label->setText(QString::number(info["fleece_count"].toInt()));
     ui->milk_label->setText(QString::number(info["milk_count"].toInt()));
-    ui->egg_label->setText(QString::number(info["egg_count"].toInt()));
+    ui->egg_label->setText(QString::number(info["eggs_count"].toInt()));
 
 }
 
@@ -131,7 +131,7 @@ void store::on_sell_pushButton_clicked()
     ui->shovel_label->setText(QString::number(info["shovel_count"].toInt()));
     ui->wool_label->setText(QString::number(info["fleece_count"].toInt()));
     ui->milk_label->setText(QString::number(info["milk_count"].toInt()));
-    ui->egg_label->setText(QString::number(info["egg_count"].toInt()));
+    ui->egg_label->setText(QString::number(info["eggs_count"].toInt()));
 
 
     ui->alfala_spinBox->setValue(0);
@@ -221,7 +221,7 @@ void store::on_buy_pushButton_clicked()
         return;
     }
     int barn_input_num = info["fleece_count"].toInt() +
-            info["egg_count"].toInt() +
+            info["eggs_count"].toInt() +
             info["alfalfa_count"].toInt() +
             info["milk_count"].toInt() +
             info["shovel_count"].toInt() +
@@ -278,7 +278,7 @@ void store::on_buy_pushButton_clicked()
     ui->shovel_label->setText(QString::number(info["shovel_count"].toInt()));
     ui->wool_label->setText(QString::number(info["fleece_count"].toInt()));
     ui->milk_label->setText(QString::number(info["milk_count"].toInt()));
-    ui->egg_label->setText(QString::number(info["egg_count"].toInt()));
+    ui->egg_label->setText(QString::number(info["eggs_count"].toInt()));
 
 
     ui->alfala_spinBox->setValue(0);

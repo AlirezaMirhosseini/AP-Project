@@ -16,6 +16,37 @@ void time_thread::run()
             QJsonObject info = _info["User"].toArray()[i].toObject();
 
             time_t _time = time(NULL)  + info["time"].toInt();
+            if(info["chicken_feed_time"].toInt() != -1 &&  _time - info["chicken_feed_time"].toInt() >= 100 )
+              {
+                info["chicken_feed_time"] = -1;
+                info["chicken_feeded"] = true;
+            }
+            else if(info["chicken_feed_time"].toInt() != -1){
+                int dif_time = _time - info["chicken_feed_time"].toInt();
+                info["chicken_eggs_pro"] = (dif_time * 100 /100);
+            }
+
+            if(info["sheep_feed_time"].toInt() != -1 &&  _time - info["sheep_feed_time"].toInt() >= 100 )
+            {
+                info["sheep_feed_time"] = -1;
+                info["sheep_feeded"] = true;
+            }
+            else if(info["sheep_feed_time"].toInt() != -1){
+                int dif_time = _time - info["sheep_feed_time"].toInt();
+                info["sheep_fleece_pro"] = (dif_time * 100 /100);
+            }
+
+            if(info["cow_feed_time"].toInt() != -1 &&  _time - info["cow_feed_time"].toInt() >= 100 )
+            {
+                  info["cow_feed_time"] = -1;
+                  info["cow_feeded"] = true;
+            }
+
+            else if(info["cow_feed_time"].toInt() != -1){
+                int dif_time = _time - info["cow_feed_time"].toInt();
+                info["cow_milk_pro"] = (dif_time * 100 /100);
+            }
+
             // Upgrade & Build
             if(info["chicken_upgrade_time"].toInt() != -1 && _time - info["chicken_upgrade_time"].toInt() >= 100 ){
                 info["chicken_upgrade_time"] = -1;
