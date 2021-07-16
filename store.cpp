@@ -210,7 +210,7 @@ void store::on_buy_pushButton_clicked()
         QMessageBox::warning(this," ","you can't buy egg :(");
         return;
     }
-    wool_num=ui->wool_spinBox->text().toInt();
+    wool_num = ui->wool_spinBox->text().toInt();
     if(wool_num > 0){
         QMessageBox::warning(this," ","you can't buy fleece :(");
         return;

@@ -15,6 +15,9 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
 
+    timer1 = new QTimer();
+    timer2 = new QTimer();
+
     if(info["cow_level"].toInt() == 0){
         ui->feed->setEnabled(false);
         ui->collect_milk->setEnabled(false);
@@ -48,10 +51,6 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
     else
         ui->milk_pro->setValue(info["cow_milk_pro"].toInt());
 
-
-    timer1 = new QTimer();
-    timer2 = new QTimer();
-
     if(info["cow_feed_time"] != -1)
         ui->feed->setEnabled(false);
 
@@ -62,7 +61,6 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
 
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
-
     connect(timer2 , SIGNAL(timeout()),this,SLOT(increamenter_collect()));
 }
 cow_pasture::~cow_pasture()
@@ -113,15 +111,10 @@ void cow_pasture::on_upgrade_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
 
-        this->close();
-        cow_pasture *w = new cow_pasture(farm , id);
-        w->show();
-
+        Refresh();
     }
 }
-
 
 void cow_pasture::on_feed_clicked()
 {
@@ -144,11 +137,7 @@ void cow_pasture::on_feed_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-
-        this->close();
-        cow_pasture *w = new cow_pasture(farm , id);
-        w->show();
+        Refresh();
     }
 }
 
@@ -158,7 +147,7 @@ void cow_pasture::on_collect_milk_clicked()
     time_t _time = time(NULL) + info["time"].toInt();
 
     if(info["cow_feed_time"].toInt() != -1 && _time - info["cow_feed_time"].toInt() < 100){
-        int sec = ui->milk_pro->value() * 100 / 100; // after multiply
+        int sec = (100 - ui->milk_pro->value()) * 100 / 100; // after multiply
         int remain_hour = 0, remain_min = 0;
         while (sec > 3600) {
             remain_hour++;
@@ -175,13 +164,11 @@ void cow_pasture::on_collect_milk_clicked()
         if(remain_min > 1)
             mstr.append('s');
         QMessageBox::warning(this , "Come later!" ,
-                             "You can collect milk " + QString::number(remain_hour) + hstr + " and " +
-                             QString::number(remain_min) + mstr + " later !");
+                             "You can collect milk " + QString::number(remain_hour) + " " + hstr + " and " +
+                             QString::number(remain_min) + " " + mstr + " later !");
     }
-
     else if(!info["cow_feeded"].toBool())
         QMessageBox::warning(this , "Come later!" ,"You heve to feed first!");
-
     else if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
             info["nail_count"].toInt() +
             info["shovel_count"].toInt() +
@@ -195,16 +182,14 @@ void cow_pasture::on_collect_milk_clicked()
         info["cow_feeded"] = false;
         time_t _time = time(NULL) + info["time"].toInt();
         for(int i =0 ; i < info["cow_count"].toInt() ; i++)
-            milk_array.push_back(QJsonValue(_time));
+        milk_array.push_back(QJsonValue(_time));
         info["milks"] = milk_array;
+        info["milk_count"] = milk_array.size();
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        cow_pasture *w = new cow_pasture(farm , id);
-        w->show();
+        Refresh();
     }
 }
 void cow_pasture::on_build_clicked()
@@ -242,11 +227,16 @@ void cow_pasture::on_build_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
 
-        this->close();
-        cow_pasture *w = new cow_pasture(farm , id);
-        w->show();
+        Refresh();
     }
+}
+
+void cow_pasture::Refresh()
+{
+    QThread::msleep(100);
+    this->close();
+    cow_pasture *w = new cow_pasture(farm , id);
+    w->show();
 }
 

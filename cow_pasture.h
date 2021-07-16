@@ -36,6 +36,8 @@ private slots:
 
     void on_build_clicked();
 
+    void Refresh();
+
 private:
 
     Ui::cow_pasture *ui;
