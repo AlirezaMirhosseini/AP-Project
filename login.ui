@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>413</height>
+    <width>596</width>
+    <height>362</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>800</width>
-    <height>413</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -35,9 +35,9 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>280</y>
-     <width>111</width>
+     <x>10</x>
+     <y>10</y>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -56,9 +56,9 @@ color:rgb(255, 255, 255);
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>320</y>
-     <width>111</width>
+     <x>10</x>
+     <y>50</y>
+     <width>141</width>
      <height>31</height>
     </rect>
    </property>
@@ -73,28 +73,11 @@ color:rgb(255, 255, 255);</string>
     <string> password</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>60</y>
-     <width>91</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color:rgb(56, 160, 162);
-font: 25pt &quot;MS Shell Dlg 2&quot;;</string>
-   </property>
-   <property name="text">
-    <string>login</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>320</y>
+     <x>350</x>
+     <y>280</y>
      <width>231</width>
      <height>31</height>
     </rect>
@@ -122,8 +105,8 @@ color:rgb(255, 255, 255);</string>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>280</y>
+     <x>160</x>
+     <y>10</y>
      <width>113</width>
      <height>31</height>
     </rect>
@@ -142,8 +125,8 @@ color:rgb(255, 255, 255);</string>
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>320</y>
+     <x>160</x>
+     <y>50</y>
      <width>113</width>
      <height>31</height>
     </rect>
@@ -165,8 +148,8 @@ color:rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>360</y>
+     <x>160</x>
+     <y>90</y>
      <width>111</width>
      <height>31</height>
     </rect>
@@ -187,8 +170,8 @@ color:rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>639</x>
-     <y>360</y>
+     <x>480</x>
+     <y>320</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -209,10 +192,10 @@ color:rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>10</y>
-     <width>161</width>
-     <height>61</height>
+     <x>350</x>
+     <y>-10</y>
+     <width>241</width>
+     <height>161</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -221,10 +204,13 @@ color: rgb(85, 3, 81);
 </string>
    </property>
    <property name="text">
-    <string>welcome</string>
+    <string/>
    </property>
    <property name="textFormat">
     <enum>Qt::AutoText</enum>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/welcome.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -237,33 +223,33 @@ color: rgb(85, 3, 81);
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-30</y>
-     <width>801</width>
-     <height>471</height>
+     <y>0</y>
+     <width>601</width>
+     <height>391</height>
     </rect>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">image: url(:/new/prefix1/esqa_3xad_161204.jpg);</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/log in (2).jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
   <zorder>label_6</zorder>
   <zorder>label</zorder>
   <zorder>label_2</zorder>
-  <zorder>label_3</zorder>
   <zorder>label_4</zorder>
-  <zorder>lineEdit</zorder>
-  <zorder>lineEdit_2</zorder>
   <zorder>pushButton</zorder>
   <zorder>pushButton_2</zorder>
   <zorder>label_5</zorder>
+  <zorder>lineEdit_2</zorder>
+  <zorder>lineEdit</zorder>
  </widget>
  <resources>
+  <include location="game_recources.qrc"/>
   <include location="image.qrc"/>
  </resources>
  <connections/>

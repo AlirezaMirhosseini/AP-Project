@@ -1,7 +1,8 @@
 #ifndef PROFILE_H
 #define PROFILE_H
 #include <QDialog>
-
+#include <farm.h>
+#include "information.h"
 namespace Ui {
 class profile;
 }
