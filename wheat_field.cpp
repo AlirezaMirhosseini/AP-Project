@@ -83,9 +83,9 @@ void wheat_field::on_upgrade_clicked()
         QMessageBox::warning(this , "You must level up!" , "You need to reach <b>level 2</b> !" );
     else if(info["coin"].toInt() < 5){
         if(5 - info["coin"].toInt() == 1)
-            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
         else
-            QMessageBox::warning(this , " " , "You need " +
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
                                  QString::number(5 - info["coin"].toInt()) + " more coins !");
     }
     else if(info["shovel_count"].toInt() < 1)
@@ -110,7 +110,7 @@ void wheat_field::on_upgrade_clicked()
 void wheat_field::on_seed_clicked()
 {
     if(info["wheat_in_use"].toBool())
-        QMessageBox::warning(this , " " , "After harvesting, you can seed !");
+        QMessageBox::warning(this , "Wheat is ready!" , "After harvesting, you can seed !");
     else{
         time_t _time = time(NULL) + info["time"].toInt();
         info["wheat_cultivated_area"] = ui->spinBox->value();
@@ -133,11 +133,11 @@ void wheat_field::on_seed_clicked()
 void wheat_field::on_Harvesting_clicked()
 {
     if(!info["wheat_in_use"].toBool())
-        QMessageBox::warning(this , " " , "You havent seed yet !");
+        QMessageBox::warning(this , "Seed first!" , "You havent seed yet !");
     else if(info["wheat_seed_time"].toInt() != -1 && info["wheat_in_use"].toBool())
-        QMessageBox::warning(this , " " , "Wheat isn't ripe");
+        QMessageBox::warning(this , "Come later!" , "Wheat isn't ripe");
     else if(5 * pow(2,info["silo_level"].toInt())  < info["wheat_count"].toInt() + 2 * info["wheat_cultivated_area"].toInt())
-        QMessageBox::warning(this , " " , "You dont have enough space in silo !");
+        QMessageBox::warning(this , "Space needed !" , "You dont have enough space in silo !");
     else{
         info["wheat_count"] = info["wheat_count"].toInt() + 2 * info["wheat_cultivated_area"].toInt();
         info["wheat_in_use"] = false;

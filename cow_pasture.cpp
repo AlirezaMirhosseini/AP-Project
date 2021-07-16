@@ -68,13 +68,13 @@ void cow_pasture::on_upgrade_clicked()
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level </b>" + QString::number(info["cow_level"].toInt() + 4) + " !");
     else if(info["coin"].toInt() < 15){
         if(15 - info["coin"].toInt() == 1)
-            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
         else
-            QMessageBox::warning(this , " " , "You need " +
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
                                  QString::number(15 - info["coin"].toInt()) + " more coins !");
     }
     else if(info["nail_count"].toInt()  < 2)
-        QMessageBox::warning(this , " " ,"Nail needed!");
+        QMessageBox::warning(this , "Supply needed !" ,"Nail needed!");
     else{
         info["nail_count"] = info["nail_count"].toInt() - 2 ;
         info["coin"] = info["coin"].toInt() - 15 ;
@@ -97,7 +97,7 @@ void cow_pasture::on_upgrade_clicked()
 void cow_pasture::on_feed_clicked()
 {
     if(info["alfalfa_count"].toInt()  < 2 * info["cow_count"].toInt()){
-        QMessageBox::warning(this , " " ,"Alfalfa needed !");
+        QMessageBox::warning(this , "Supply needed !" ,"Alfalfa needed !");
     }
     else{
         info["alfalfa_count"] = QJsonValue(info["alfalfa_count"].toInt() - 2 * info["cow_count"].toInt());
@@ -122,7 +122,7 @@ void cow_pasture::on_collect_milk_clicked()
     time_t _time = time(NULL) + info["time"].toInt();
     if(info["cow_feed_time"].toInt() != -1){
         if(_time - info["cow_feed_time"].toInt() <259200  )
-            QMessageBox::warning(this , " " ,"Cows are feeding !");
+            QMessageBox::warning(this , "Come later!" ,"Cows are feeding !");
         else{
             if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
                     info["nail_count"].toInt() +
@@ -132,7 +132,7 @@ void cow_pasture::on_collect_milk_clicked()
                     info["milk_count"].toInt() +
                     info["fleece_count"].toInt() +
                     info["cow_count"].toInt())//cow count for added milk number)
-                QMessageBox::warning(this , " " ,"You don't have enough space in barn !");
+                QMessageBox::warning(this , "Space needed !" ,"You don't have enough space in barn !");
             else{
                 time_t _time = time(NULL) + info["time"].toInt();
                 for(int i =0 ; i < info["cow_count"].toInt() ; i++)
@@ -154,18 +154,18 @@ void cow_pasture::on_collect_milk_clicked()
 void cow_pasture::on_build_clicked()
 {
     if(info["level_player"].toInt() < 4)
-        QMessageBox::warning(this , " " ,"You need to reach <b>level 4</b> !");
+        QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level 4</b> !");
     else if(info["nail_count"].toInt())
-        QMessageBox::warning(this , " " ,"Nail needed !");
+        QMessageBox::warning(this , "Supply needed !" ,"Nail needed !");
     else if(info["coin"].toInt() < 20){
         if(20 - info["coin"].toInt() == 1)
-            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
         else
-            QMessageBox::warning(this , " " , "You need " +
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
                                  QString::number(20 - info["coin"].toInt()) + " more coins !");
     }
     else if(info["shovel_count"].toInt() < 1)
-        QMessageBox::warning(this , " " ,"Shovel needed !");
+        QMessageBox::warning(this , "Supply needed !" ,"Shovel needed !");
     else{
         info["nail_count"] = info["nail_count"].toInt() - 3 ;
         info["shovel_count"] = info["shovel_count"].toInt() - 1 ;

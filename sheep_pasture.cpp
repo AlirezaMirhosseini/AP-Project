@@ -67,10 +67,10 @@ void sheep_pasture::increamenter()
 void sheep_pasture::on_feed_clicked()
 {
     if(info["sheep_feed_time"].toInt() != -1)
-        QMessageBox::warning(this , " " ,"Sheeps are feeding !");
+        QMessageBox::warning(this , "Come later!" ,"Sheeps are feeding !");
     else{
         if(info["alfalfa_count"].toInt() < info["sheep_count"].toInt()){
-            QMessageBox::warning(this , " " ,"<b>Alfalfa</b> needed !");
+            QMessageBox::warning(this , "Supply needed !" ,"<b>Alfalfa</b> needed !");
         }
         else{
             info["alfalfa_count"] = QJsonValue(info["alfalfa_count"].toInt() - info["sheep_count"].toInt());
@@ -96,14 +96,14 @@ void sheep_pasture::on_upgrade_clicked()
     if(info["level_player"].toInt() < info["sheep_level"].toInt() + 6)
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level </b>" + QString::number(info["sheep_level"].toInt() + 6) + " !");
     else if(info["nail_count"].toInt() < 3)
-        QMessageBox::warning(this , " " ,"<b>Nail</b> needed !");
+        QMessageBox::warning(this , "Supply needed !" ,"<b>Nail</b> needed !");
     else if(info["shovel_count"].toInt() < 1)
-        QMessageBox::warning(this , " " ,"<b>Shovel</b> needed !");
+        QMessageBox::warning(this , "Supply needed !" ,"<b>Shovel</b> needed !");
     else if(info["coin"].toInt() < 50){
         if(50 - info["coin"].toInt() == 1)
-            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
         else
-            QMessageBox::warning(this , " " , "You need " +
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
                                  QString::number(50 - info["coin"].toInt()) + " more coins !");
     }
     else{
@@ -130,9 +130,9 @@ void sheep_pasture::on_Fleece_Shave_clicked()
     if(_time -  info["sheep_feed_time"].toInt() >= 100){
         if(info["coin"].toInt() < info["sheep_count"].toInt()){
             if(info["sheep_count"].toInt() - info["coin"].toInt() == 1)
-                QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+                QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
             else
-                QMessageBox::warning(this , " " , "You need " +
+                QMessageBox::warning(this , "Supply needed !" , "You need " +
                                      QString::number(info["sheep_count"].toInt() - info["coin"].toInt()) + " more coins !");
         }
         else{
@@ -144,7 +144,7 @@ void sheep_pasture::on_Fleece_Shave_clicked()
                     info["milk_count"].toInt() +
                     info["fleece_count"].toInt() +
                     info["sheep_count"].toInt()){//sheep count for added fleece number
-                QMessageBox::warning(this , " " ,"You don't have enough space in barn !");
+                QMessageBox::warning(this , "Space needed !" ,"You don't have enough space in barn !");
             }
             else{
                 info["fleece_count"] = QJsonValue(info["fleece_count"] .toInt() + info["sheep_count"].toInt());
@@ -161,7 +161,7 @@ void sheep_pasture::on_Fleece_Shave_clicked()
         }
     }
     else
-        QMessageBox::warning(this , " " ,"Sheeps are feeding !");
+        QMessageBox::warning(this , "Come later!" ,"Sheeps are feeding !");
 }
 
 
@@ -170,14 +170,14 @@ void sheep_pasture::on_build_clicked()
     if(info["level_player"].toInt() < 6)
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level 6</b> !");
     else if(info["nail_count"].toInt()  < 4)
-        QMessageBox::warning(this , " " ,"<b>Nail</b> needed !");
+        QMessageBox::warning(this , "Supply needed !" ,"<b>Nail</b> needed !");
     else if(info["shovel_count"].toInt()  < 2)
-        QMessageBox::warning(this , " " ,"<b>Shovel</b> needed !");
+        QMessageBox::warning(this , "Supply needed !" ,"<b>Shovel</b> needed !");
     else if(info["coin"].toInt() < 50){
         if(50 - info["coin"].toInt() == 1)
-            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
         else
-            QMessageBox::warning(this , " " , "You need " +
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
                                  QString::number(50 - info["coin"].toInt()) + " more coins !");
     }
     else{

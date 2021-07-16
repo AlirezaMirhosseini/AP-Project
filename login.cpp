@@ -21,7 +21,7 @@ login::~login()
 void login::on_pushButton_clicked()
 {
     if(ui->lineEdit->text().isEmpty() || ui->lineEdit_2->text().isEmpty()){
-        QMessageBox::warning(this," ","username or password is empty please fill both of them !");
+        QMessageBox::warning(this,"Fill the blanks!","username or password is empty please fill both of them !");
     }
     else{
         bool temp=1;
@@ -37,7 +37,7 @@ void login::on_pushButton_clicked()
             }
         }
         if(temp){
-            QMessageBox::warning(this," ","there is no any account with these username and password !");
+            QMessageBox::warning(this,"Not found !","there is no any account with these username and password !");
         }
     }
 }
