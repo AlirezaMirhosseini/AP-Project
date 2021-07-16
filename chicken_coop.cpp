@@ -139,6 +139,7 @@ void chicken_coop::on_feed_clicked()
 
 void chicken_coop::on_upgrade_clicked()
 {
+
     if(info["level_player"].toInt() < info["chicken_level"].toInt() + 1)
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level </b>" + QString::number(info["chicken_level"].toInt() + 1) + " !");
     else if(info["nail_count"].toInt()  < 1)
@@ -201,10 +202,13 @@ void chicken_coop::on_build_pushButton_clicked()
 
 void chicken_coop::on_collecteggs_clicked()
 {
+
     time_t _time = time(NULL) + info["time"].toInt();
-    if(_time - info["chicken_feed_time"].toInt() < 100)
+    if(info["chicken_feed_time"].toInt() != -1 && _time - info["chicken_feed_time"].toInt() < 100)
          QMessageBox::warning(this , "Come later!" ,"Chickens are feeding !");
-   else if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
+     else if(!info["chicken_feeded"].toBool())
+        QMessageBox::warning(this , "Come later!" ,"nakhordan!");
+    else if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
                 info["nail_count"].toInt() +
                 info["shovel_count"].toInt() +
                 info["alfalfa_count"].toInt() +

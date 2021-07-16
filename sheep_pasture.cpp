@@ -164,26 +164,35 @@ void sheep_pasture::on_upgrade_clicked()
 void sheep_pasture::on_Fleece_Shave_clicked()
 {
     time_t _time = time(NULL) + info["time"].toInt();
-    if(_time -  info["sheep_feed_time"].toInt() >= 100){
-        if(info["coin"].toInt() < info["sheep_count"].toInt()){
+    if(info["sheep_feed_time"].toInt() != -1 && _time -  info["sheep_feed_time"].toInt() < 100)
+        QMessageBox::warning(this , "Come later!" ,"Sheeps are feeding !");
+
+    else if(!info["sheep_feeded"].toBool())
+           QMessageBox::warning(this , "Come later!" ,"nakhordan!");
+
+    else if(info["coin"].toInt() < info["sheep_count"].toInt()){
             if(info["sheep_count"].toInt() - info["coin"].toInt() == 1)
                 QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
             else
                 QMessageBox::warning(this , "Supply needed !" , "You need " +
                                      QString::number(info["sheep_count"].toInt() - info["coin"].toInt()) + " more coins !");
         }
-        else{
-            if(ceil(5 * pow(1.5, info["barn_level"].toInt() -1 )) <
+
+
+        else if(ceil(5 * pow(1.5, info["barn_level"].toInt() -1 )) <
                     info["nail_count"].toInt() +
                     info["shovel_count"].toInt() +
                     info["alfalfa_count"].toInt() +
                     info["eggs_count"].toInt() +
                     info["milk_count"].toInt() +
                     info["fleece_count"].toInt() +
-                    info["sheep_count"].toInt()){//sheep count for added fleece number
+                    info["sheep_count"].toInt())//sheep count for added fleece number
                 QMessageBox::warning(this , "Space needed !" ,"You don't have enough space in barn !");
-            }
+
             else{
+
+                info["sheep_feeded"] = false;
+
                 info["fleece_count"] = QJsonValue(info["fleece_count"] .toInt() + info["sheep_count"].toInt());
                 info["sheep_feed_time"] = -1;
                 QJsonArray info_2 = _info["User"].toArray();
@@ -195,10 +204,6 @@ void sheep_pasture::on_Fleece_Shave_clicked()
                 sheep_pasture *w = new sheep_pasture(farm , id);
                 w->show();
             }
-        }
-    }
-    else
-        QMessageBox::warning(this , "Come later!" ,"Sheeps are feeding !");
 }
 
 

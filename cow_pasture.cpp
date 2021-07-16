@@ -149,8 +149,12 @@ void cow_pasture::on_collect_milk_clicked()
     QJsonArray milk_array = info["milks"].toArray();
     time_t _time = time(NULL) + info["time"].toInt();
 
-        if(_time - info["cow_feed_time"].toInt() < 100)
+        if(info["cow_feed_time"].toInt() != -1 && _time - info["cow_feed_time"].toInt() < 100)
             QMessageBox::warning(this , "Come later!" ,"Cows are feeding!");
+
+        else if(!info["cow_feeded"].toBool())
+           QMessageBox::warning(this , "Come later!" ,"nakhordan!");
+
          else if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
                     info["nail_count"].toInt() +
                     info["shovel_count"].toInt() +
@@ -161,6 +165,7 @@ void cow_pasture::on_collect_milk_clicked()
                     info["cow_count"].toInt())//cow count for added milk number)
                 QMessageBox::warning(this , "Space needed !" ,"You don't have enough space in barn !");
             else{
+            info["cow_feeded"] = false;
                 time_t _time = time(NULL) + info["time"].toInt();
                 for(int i =0 ; i < info["cow_count"].toInt() ; i++)
                     milk_array.push_back(QJsonValue(_time));
