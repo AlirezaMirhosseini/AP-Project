@@ -27,7 +27,10 @@ private slots:
 
     void on_Fleece_Shave_clicked();
 
-    void increamenter();
+    void increamenter_upgrade();
+
+    void increamenter_collect();
+
     void on_build_clicked();
 
 private:
@@ -35,8 +38,9 @@ private:
 
     Ui::sheep_pasture *ui;
 
-    QTimer *timer;
+    QTimer *timer1 , *timer2;
     QJsonObject info ,_info ;
+    QWidget *farm;
 };
 
 #endif // SHEEP_PASTURE_H

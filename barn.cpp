@@ -44,14 +44,29 @@ void barn::on_upgrade_clicked()
     reply = QMessageBox::question(this," ","Are you sure?", QMessageBox::Yes | QMessageBox::No);
     if(reply == QMessageBox::Yes){
         if(info["barn_level"].toInt() >= info["level_player"].toInt())
-            QMessageBox::warning(this , " " ,"Barn level cant be greater than Your Level!");
+            QMessageBox::warning(this , "You must level up!" ,"Barn level cant be greater than Your Level!");
         else{
-            if((info["nail_count"].toInt() < info["barn_level"].toInt()))
-                QMessageBox::warning(this , " " ,"<b>Nail</b> needed!");
-            else if((info["shovel_count"].toInt() < (info["barn_level"].toInt()-1)))
-                QMessageBox::warning(this , " " ,"<b>Shovel</b> needed!");
-            else if((info["coin"].toInt() < (10*pow(info["barn_level"].toInt(),3))))
-                QMessageBox::warning(this , " " ,"<b>Coin</b> needed!");
+            if((info["nail_count"].toInt() < info["barn_level"].toInt())){
+                if(info["barn_level"].toInt() - info["nail_count"].toInt() == 1)
+                    QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more nail !");
+                else
+                    QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                         QString::number(info["barn_level"].toInt() - info["nail_count"].toInt()) + " more nails !");
+            }
+            else if((info["shovel_count"].toInt() < (info["barn_level"].toInt() - 1))){
+                if((info["barn_level"].toInt() - 1) - info["shovel_count"].toInt() == 1)
+                    QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more shovel !");
+                else
+                    QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                         QString::number((info["barn_level"].toInt() - 1) - info["shovel_count"].toInt()) + " more shovels !");
+            }
+            else if(info["coin"].toInt() < (10 * pow(info["barn_level"].toInt(), 3))){
+                if((10 * pow(info["barn_level"].toInt(), 3)) - info["coin"].toInt() == 1)
+                    QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
+                else
+                    QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                         QString::number((10 * pow(info["barn_level"].toInt(), 3)) - info["coin"].toInt()) + " more coins !");
+            }
             else{
                 info["nail_count"]=QJsonValue(info["nail_count"].toInt() - info["barn_level"].toInt());
                 info["shovel_count"]=QJsonValue(info["shovel_count"].toInt() - (info["barn_level"].toInt()-1));

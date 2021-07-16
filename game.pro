@@ -1,5 +1,5 @@
 QT       += core gui
-
+QT += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,11 +13,13 @@ SOURCES += \
     alfalfa_field.cpp \
     barn.cpp \
     chicken_coop.cpp \
+    client.cpp \
     cow_pasture.cpp \
     farm.cpp \
     login.cpp \
     main.cpp \
     game.cpp \
+    profile.cpp \
     register_info.cpp \
     sheep_pasture.cpp \
     silo.cpp \
@@ -29,11 +31,13 @@ HEADERS += \
     alfalfa_field.h \
     barn.h \
     chicken_coop.h \
+    client.h \
     cow_pasture.h \
     farm.h \
     game.h \
     information.h \
     login.h \
+    profile.h \
     register_info.h \
     sheep_pasture.h \
     silo.h \
@@ -49,6 +53,7 @@ FORMS += \
     farm.ui \
     game.ui \
     login.ui \
+    profile.ui \
     register_info.ui \
     sheep_pasture.ui \
     silo.ui \

@@ -318,14 +318,32 @@ border : none;</string>
   <widget class="QPushButton" name="build_pushButton">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>150</y>
-     <width>80</width>
-     <height>25</height>
+     <x>-30</x>
+     <y>20</y>
+     <width>131</width>
+     <height>101</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">alternate-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:1 rgba(0, 0, 0, 0));
+border:none;
+</string>
+   </property>
    <property name="text">
-    <string>Build</string>
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/buildicon.png</normaloff>:/game_backgrounds/pics_project/buildicon.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>70</width>
+     <height>70</height>
+    </size>
    </property>
   </widget>
   <widget class="QProgressBar" name="chicken_pro">
@@ -355,6 +373,22 @@ border : none;</string>
    <property name="value">
     <number>24</number>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="eggs_pro">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>120</y>
+     <width>118</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
   </widget>
   <zorder>label_4</zorder>
   <zorder>feed</zorder>
@@ -371,6 +405,7 @@ border : none;</string>
   <zorder>label_2</zorder>
   <zorder>build_pushButton</zorder>
   <zorder>chicken_pro</zorder>
+  <zorder>eggs_pro</zorder>
  </widget>
  <resources>
   <include location="game_recources.qrc"/>

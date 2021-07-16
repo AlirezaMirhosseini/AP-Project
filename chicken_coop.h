@@ -22,22 +22,24 @@ private slots:
 
     void on_feed_clicked();
 
-    void on_collect_eggs_clicked();
-
     void on_upgrade_clicked();
 
-    void increamenter();
+    void increamenter_upgrade();
+
+     void increamenter_collect();
 
     void on_build_pushButton_clicked();
+
+    void on_collecteggs_clicked();
 
 public:
 
 
     Ui::checken_coop *ui;
     int id ;
-    QTimer *timer;
+    QTimer *timer1 , *timer2;
     QJsonObject info ,_info ;
-
+     QWidget *farm;
 };
 
 #endif // CHECKEN_COOP_H

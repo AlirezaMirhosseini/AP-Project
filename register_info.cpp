@@ -27,12 +27,12 @@ void register_info::on_pushButton_clicked()
             ui->lineEdit_3->text().isEmpty()||
             ui->lineEdit_4->text().isEmpty()||
             ui->lineEdit_5->text().isEmpty())
-        QMessageBox::warning(this ," " , "one or more line is empty");
+        QMessageBox::warning(this ,"Fill the blanks!" , "one or more line is empty !");
 
     else{
         bool usernumber=0;
         if(ui->lineEdit_3->text()!=ui->lineEdit_4->text()){
-            QMessageBox::warning(this ," " , "confirm password is not equal to password");
+            QMessageBox::warning(this ,"try again!" , "confirm password is not equal to password !");
         }
         else{
 
@@ -43,7 +43,7 @@ void register_info::on_pushButton_clicked()
                 }
             }
             if(usernumber){
-                QMessageBox::warning(this ," " , "this username have already used");
+                QMessageBox::warning(this ,"Already existed !" , "this username have already used !");
             }
             else{
                 QJsonObject obj;
@@ -65,6 +65,9 @@ void register_info::on_pushButton_clicked()
                 obj["sheep_feed_time"] = -1 ;
                 obj["sheep_upgrade_time"] = -1;
                 obj["sheep_upgrade_pro"] = -1;
+                obj["sheep_fleece_pro"] = -1;
+                obj["sheep_feeded"] = false;
+
 
                 obj["cow_count"] = 0;
                 obj["cow_level"] = 0;
@@ -72,6 +75,8 @@ void register_info::on_pushButton_clicked()
                 obj["cow_feed_time"] = -1;
                 obj["cow_upgrade_time"] = -1;
                 obj["cow_upgrade_pro"] =  -1;
+                obj["cow_milk_pro"] = -1;
+                obj["cow_feeded"] = false;
 
 
                 obj["chicken_count"] = 0 ;
@@ -80,6 +85,8 @@ void register_info::on_pushButton_clicked()
                 obj["eggs_count"] = 0;
                 obj["chicken_upgrade_time"] = -1;
                 obj["chicken_upgrade_pro"] = -1 ;
+                obj["chicken_eggs_pro"] = -1;
+                obj["chicken_feeded"] = false;
 
                 obj["silo_level"] = 1;
                 obj["nail_count"] = 1;
@@ -119,6 +126,13 @@ void register_info::on_pushButton_clicked()
                 obj["milks"] = _milk;
 
                 obj["time"] = 0;
+
+                obj["store_lock"] = true;
+                obj["sheep_lock"] = true;
+                obj["cow_lock"] = true;
+                obj["chicken_lock"] = true;
+                obj["alfalfa_lock"] = true;
+
 
                 info.push_back(QJsonValue(obj));
                 _info["User"]=info;

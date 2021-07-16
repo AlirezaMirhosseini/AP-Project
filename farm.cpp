@@ -1,31 +1,50 @@
 #include "farm.h"
 #include "ui_farm.h"
 #include "cow_pasture.h"
-
 #include "information.h"
+#include "client.h"
 #include <QIcon>
-
 #include <login.h>
+#include<QMessageBox>
 
 
-farm::farm(QWidget *parent, int _id) :
-    QDialog(parent),
+farm::farm( int _id) :
+    QDialog(),
     ui(new Ui::farm)
 {
+
 
     ui->setupUi(this);
     id = _id;
     QJsonObject _info = read_info();
-     QJsonObject  info = (_info["User"].toArray())[id].toObject();
-     time_t now = time(NULL)+info["time"].toInt();
-     ui->exp_num->setText(QString::number(info["exp"].toInt()));
-     ui->level_num->setText(QString::number(info["level_player"].toInt()));
-     ui->day->setText(QString::number((int)((now-info["signup_time"].toInt())/86400)));
+    QJsonObject  info = (_info["User"].toArray())[id].toObject();
+    time_t now = time(NULL)+info["time"].toInt();
+    ui->exp_num->setText(QString::number(info["exp"].toInt()));
+    ui->level_num->setText(QString::number(info["level_player"].toInt()));
+    ui->day->setText(QString::number((int)((now-info["signup_time"].toInt())/86400)));
 
     if(info["gender"].toString()=="      Male")
         ui->profile_pushButton->setIcon(QIcon(":/game_backgrounds/pics_project/138manfarmer2_100718.png"));
     else
-    ui->profile_pushButton->setIcon(QIcon(":/game_backgrounds/pics_project/139womanfarmer1_100885 (1).png"));
+        ui->profile_pushButton->setIcon(QIcon(":/game_backgrounds/pics_project/139womanfarmer1_100885 (1).png"));
+
+
+    if(!info["store_lock"].toBool())
+        ui->store_lock->hide();
+
+    if(!info["cow_lock"].toBool())
+        ui->cow_lock->hide();
+
+    if(!info["sheep_lock"].toBool())
+        ui->sheep_lock->hide();
+
+    if(!info["chicken_lock"].toBool())
+        ui->chicken_lock->hide();
+
+    if(!info["alfalfa_lock"].toBool())
+        ui->alfalfa_lock->hide();
+
+
 }
 
 
@@ -94,11 +113,6 @@ void farm::on_alfalfa_pushButton_clicked()
 }
 
 
-void farm::on_profile_pushButton_clicked()
-{
-    game* gamer = new game(this);
-    gamer->show();
-}
 
 
 
@@ -111,6 +125,9 @@ void farm::on_next_day_clicked()
     info_2[id] = QJsonValue(info);
     _info["User"] = info_2;
     write_info(_info);
+    this->close();
+    farm *w = new farm(id);
+    w->show();
 }
 
 
@@ -119,6 +136,82 @@ void farm::on_back_clicked()
     this->close();
     login *_login = new login;
     _login->show();
+}
 
+
+void farm::on_store_lock_clicked()
+{
+    QJsonObject _info = read_info();
+    QJsonObject  info = (_info["User"].toArray())[id].toObject();
+    if(info["store_lock"].toBool())
+        QMessageBox::warning(this,"You must level up!" , "Store unlocks at <b>level 2</b> !");
+    else{
+        this->close();
+        farm *w = new farm(id);
+        w->show();
+    }
+}
+
+
+void farm::on_cow_lock_clicked()
+{
+    QJsonObject _info = read_info();
+    QJsonObject  info = (_info["User"].toArray())[id].toObject();
+    if(info["cow_lock"].toBool())
+        QMessageBox::warning(this,"You must level up!" , "Cow Pasture unlocks at <b>level 4</b> !");
+    else{
+        this->close();
+        farm *w = new farm(id);
+        w->show();
+    }
+}
+
+
+void farm::on_sheep_lock_clicked()
+{
+    QJsonObject _info = read_info();
+    QJsonObject  info = (_info["User"].toArray())[id].toObject();
+    if(info["sheep_lock"].toBool())
+        QMessageBox::warning(this,"You must level up!" , "Sheep Pasture unlocks at <b>level 6</b> !");
+    else{
+        this->close();
+        farm *w = new farm(id);
+        w->show();
+    }
+}
+
+
+void farm::on_chicken_lock_clicked()
+{
+    QJsonObject _info = read_info();
+    QJsonObject  info = (_info["User"].toArray())[id].toObject();
+    if(info["chicken_lock"].toBool())
+        QMessageBox::warning(this,"You must level up!" , "Chicken Coop unlocks at <b>level 2</b> !");
+    else{
+        this->close();
+        farm *w = new farm(id);
+        w->show();
+    }
+}
+
+
+void farm::on_alfalfa_lock_clicked()
+{
+    QJsonObject _info = read_info();
+    QJsonObject  info = (_info["User"].toArray())[id].toObject();
+    if(info["alfalfa_lock"].toBool())
+        QMessageBox::warning(this,"You must level up!" , "Alfalfa Field unlocks at <b>level 3</b> !");
+    else{
+        this->close();
+        farm *w = new farm(id);
+        w->show();
+    }
+}
+
+
+void farm::on_profile_pushButton_clicked()
+{
+    client * window = new client (this , id);
+   // window->show();
 }
 

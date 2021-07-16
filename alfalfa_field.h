@@ -28,6 +28,7 @@ private slots:
     void on_btn_plow_clicked();
     void on_build_clicked();
 
+
 public slots:
     void increamenter_upgrade();
     void increamenter_plow();
@@ -38,6 +39,7 @@ private:
     int id;
     QTimer* timer1 , *timer2 , *timer3;
     QJsonObject info ,_info ;
+    QWidget *farm;
 
 };
 

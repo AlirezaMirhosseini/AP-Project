@@ -30,7 +30,9 @@ private slots:
 
     void on_collect_milk_clicked();
 
-    void increamenter();
+    void increamenter_upgrade();
+
+    void increamenter_collect();
 
     void on_build_clicked();
 
@@ -39,8 +41,9 @@ private:
     Ui::cow_pasture *ui;
 
     int id ;
-    QTimer *timer;
+    QTimer *timer1  , *timer2;
     QJsonObject info ,_info ;
+    QWidget *farm;
 
 };
 
