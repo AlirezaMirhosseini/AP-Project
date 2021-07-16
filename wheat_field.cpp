@@ -81,8 +81,13 @@ void wheat_field::on_upgrade_clicked()
 {
     if(info["level_player"].toInt() < 2 )
         QMessageBox::warning(this , "You must level up!" , "You need to reach <b>level 2</b> !" );
-    else if(info["coin"].toInt() < 5)
-        QMessageBox::warning(this , " " , "<b>Coin</b> needed !" );
+    else if(info["coin"].toInt() < 5){
+        if(5 - info["coin"].toInt() == 1)
+            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+        else
+            QMessageBox::warning(this , " " , "You need " +
+                                 QString::number(5 - info["coin"].toInt()) + " more coins !");
+    }
     else if(info["shovel_count"].toInt() < 1)
         QMessageBox::warning(this , " " , "<b>Shovel</b> needed !" );
     else{

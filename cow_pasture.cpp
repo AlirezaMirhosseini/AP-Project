@@ -66,8 +66,13 @@ void cow_pasture::on_upgrade_clicked()
 {
     if(info["level_player"].toInt() < info["cow_level"].toInt() + 4)
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level </b>" + QString::number(info["cow_level"].toInt() + 4) + " !");
-    else if(info["coin"].toInt() < 15)
-        QMessageBox::warning(this , " " ,"Coin needed!");
+    else if(info["coin"].toInt() < 15){
+        if(15 - info["coin"].toInt() == 1)
+            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+        else
+            QMessageBox::warning(this , " " , "You need " +
+                                 QString::number(15 - info["coin"].toInt()) + " more coins !");
+    }
     else if(info["nail_count"].toInt()  < 2)
         QMessageBox::warning(this , " " ,"Nail needed!");
     else{
@@ -152,8 +157,13 @@ void cow_pasture::on_build_clicked()
         QMessageBox::warning(this , " " ,"You need to reach <b>level 4</b> !");
     else if(info["nail_count"].toInt())
         QMessageBox::warning(this , " " ,"Nail needed !");
-    else if(info["coin"].toInt() < 20)
-        QMessageBox::warning(this , " " ,"Coin needed !");
+    else if(info["coin"].toInt() < 20){
+        if(20 - info["coin"].toInt() == 1)
+            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+        else
+            QMessageBox::warning(this , " " , "You need " +
+                                 QString::number(20 - info["coin"].toInt()) + " more coins !");
+    }
     else if(info["shovel_count"].toInt() < 1)
         QMessageBox::warning(this , " " ,"Shovel needed !");
     else{

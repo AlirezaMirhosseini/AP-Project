@@ -94,9 +94,6 @@ void chicken_coop::on_feed_clicked()
             this->close();
             chicken_coop *w = new chicken_coop(farm , id);
             w->show();
-
-
-
         }
     }
 }
@@ -139,8 +136,13 @@ void chicken_coop::on_upgrade_clicked()
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level </b>" + QString::number(info["chicken_level"].toInt() + 1) + " !");
     else if(info["nail_count"].toInt()  < 1)
         QMessageBox::warning(this , " " ,"<b>Nail</b> needed !");
-    else if(info["coin"].toInt() < 10)
-        QMessageBox::warning(this , " " ,"<b>Coin</b> needed !");
+    else if(info["coin"].toInt() < 10){
+        if(10 - info["coin"].toInt() == 1)
+            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+        else
+            QMessageBox::warning(this , " " , "You need " +
+                                 QString::number(10 - info["coin"].toInt()) + " more coins !");
+    }
     else{
         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 1 );
         info["coin"] = QJsonValue (info["coin"].toInt() - 10 );
@@ -161,11 +163,15 @@ void chicken_coop::on_build_pushButton_clicked()
 {
     if(info["level_player"].toInt() < 2)
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level 2</b>");
-
     else if(info["nail_count"].toInt()  < 2)
         QMessageBox::warning(this , " " ,"<b>Nail</b> needed !");
-    else if(info["coin"].toInt() < 10)
-        QMessageBox::warning(this , " " ,"<b>Coin</b> needed !");
+    else if(info["coin"].toInt() < 10){
+        if(10 - info["coin"].toInt() == 1)
+            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+        else
+            QMessageBox::warning(this , " " , "You need " +
+                                 QString::number(10 - info["coin"].toInt()) + " more coins !");
+    }
     else{
         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 2 );
         info["coin"] = QJsonValue (info["coin"].toInt() - 10 );

@@ -50,8 +50,13 @@ void barn::on_upgrade_clicked()
                 QMessageBox::warning(this , " " ,"<b>Nail</b> needed !");
             else if((info["shovel_count"].toInt() < (info["barn_level"].toInt()-1)))
                 QMessageBox::warning(this , " " ,"<b>Shovel</b> needed !");
-            else if((info["coin"].toInt() < (10*pow(info["barn_level"].toInt(),3))))
-                QMessageBox::warning(this , " " ,"<b>Coin</b> needed !");
+            else if(info["coin"].toInt() < (10 * pow(info["barn_level"].toInt(), 3))){
+                if((10 * pow(info["barn_level"].toInt(), 3)) - info["coin"].toInt() == 1)
+                    QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+                else
+                    QMessageBox::warning(this , " " , "You need " +
+                                         QString::number((10 * pow(info["barn_level"].toInt(), 3)) - info["coin"].toInt()) + " more coins !");
+            }
             else{
                 info["nail_count"]=QJsonValue(info["nail_count"].toInt() - info["barn_level"].toInt());
                 info["shovel_count"]=QJsonValue(info["shovel_count"].toInt() - (info["barn_level"].toInt()-1));

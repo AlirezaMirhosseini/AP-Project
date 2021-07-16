@@ -99,6 +99,13 @@ void sheep_pasture::on_upgrade_clicked()
         QMessageBox::warning(this , " " ,"<b>Nail</b> needed !");
     else if(info["shovel_count"].toInt() < 1)
         QMessageBox::warning(this , " " ,"<b>Shovel</b> needed !");
+    else if(info["coin"].toInt() < 50){
+        if(50 - info["coin"].toInt() == 1)
+            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+        else
+            QMessageBox::warning(this , " " , "You need " +
+                                 QString::number(50 - info["coin"].toInt()) + " more coins !");
+    }
     else{
         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 3 );
         info["shovel_count"] = QJsonValue (info["shovel_count"].toInt() - 1 );
@@ -122,7 +129,11 @@ void sheep_pasture::on_Fleece_Shave_clicked()
     time_t _time = time(NULL) + info["time"].toInt();
     if(_time -  info["sheep_feed_time"].toInt() >= 100){
         if(info["coin"].toInt() < info["sheep_count"].toInt()){
-            QMessageBox::warning(this , " " ,"<b>Coin</b> needed !");
+            if(info["sheep_count"].toInt() - info["coin"].toInt() == 1)
+                QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+            else
+                QMessageBox::warning(this , " " , "You need " +
+                                     QString::number(info["sheep_count"].toInt() - info["coin"].toInt()) + " more coins !");
         }
         else{
             if(ceil(5 * pow(1.5, info["barn_level"].toInt() -1 )) <
@@ -162,8 +173,13 @@ void sheep_pasture::on_build_clicked()
         QMessageBox::warning(this , " " ,"<b>Nail</b> needed !");
     else if(info["shovel_count"].toInt()  < 2)
         QMessageBox::warning(this , " " ,"<b>Shovel</b> needed !");
-    else if(info["coin"].toInt() < 50)
-        QMessageBox::warning(this , " " ,"<b>Coin</b> needed !");
+    else if(info["coin"].toInt() < 50){
+        if(50 - info["coin"].toInt() == 1)
+            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+        else
+            QMessageBox::warning(this , " " , "You need " +
+                                 QString::number(50 - info["coin"].toInt()) + " more coins !");
+    }
     else{
         info["nail_count"] = QJsonValue (info["nail_count"].toInt() - 4 );
         info["shovel_count"] = QJsonValue (info["shovel_count"].toInt() - 2 );

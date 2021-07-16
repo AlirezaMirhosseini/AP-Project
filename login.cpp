@@ -28,7 +28,7 @@ void login::on_pushButton_clicked()
         QJsonObject _info=read_info();
         QJsonArray info = _info["User"].toArray();
         for(int counter = 0; counter < info.size(); counter++){
-            if( (info[counter].toObject())["username"]==ui->lineEdit->text() &&
+            if( (info[counter].toObject())["username"] == ui->lineEdit->text() &&
                     (info[counter].toObject())["password"] == ui->lineEdit_2->text()){
                 this->close();
                 temp = 0;

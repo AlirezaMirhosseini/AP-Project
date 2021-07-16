@@ -205,7 +205,6 @@ void store::on_buy_pushButton_clicked()
         return;
     }
 
-
     egg_num = ui->egg_spinBox->text().toInt();
     if(egg_num > 0){
         QMessageBox::warning(this," ","you can't buy egg :(");
@@ -246,12 +245,15 @@ void store::on_buy_pushButton_clicked()
             hen_num * 20 +
             alfalfa_num * 6 +
             wheat_num * 3;
-    if(paying_coins>info["coin"].toInt())
-    {
-        QMessageBox::warning(this," ","your money isn't enough :(");
+    if(info["coin"].toInt() < paying_coins){
+        if(paying_coins - info["coin"].toInt() == 1)
+            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+        else
+            QMessageBox::warning(this , " " , "You need " +
+                                 QString::number(paying_coins - info["coin"].toInt()) + " more coins !");
         return;
     }
-    info["coin"] = info["coin"].toInt()-paying_coins;
+    info["coin"] = info["coin"].toInt() - paying_coins;
 
     info["fleece_count"] = info["fleece_count"].toInt() + wool_num;
     info["shovel_count"] = info["shovel_count"].toInt() + shovel_num;

@@ -96,8 +96,13 @@ void alfalfa_field::on_btn_upgrade_clicked()
 {
     if(info["level_player"].toInt() < 4)
         QMessageBox::warning(this , "You must level up!" , "You need to reach <b>level 4</b> !!!" );
-    else if(info["coin"].toInt() < 5 *(4 * pow(2, info["alfalfa_level"].toInt() - 1)))
-        QMessageBox::warning(this , " " , "<b>Coin</b> needed !" );
+    else if(info["coin"].toInt() < 5 *(4 * pow(2, info["alfalfa_level"].toInt() - 1))){
+        if(5 *(4 * pow(2, info["alfalfa_level"].toInt() - 1)) - info["coin"].toInt() == 1)
+            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+        else
+            QMessageBox::warning(this , " " , "You need " +
+                                 QString::number(5 *(4 * pow(2, info["alfalfa_level"].toInt() - 1)) - info["coin"].toInt()) + " more coins !");
+    }
     else if(info["shovel_count"].toInt() < 2 * (4 * pow(2, info["alfalfa_level"].toInt() - 1)))
         QMessageBox::warning(this , " " , "<b>Shovel</b> needed !" );
     else{
@@ -194,8 +199,13 @@ void alfalfa_field::on_build_clicked()
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level 3</b> !");
     else if(info["nail_count"].toInt() < 1)
         QMessageBox::warning(this , " " , "<b>Nail</b> needed !" );
-    else if(info["coin"].toInt() < 15)
-        QMessageBox::warning(this , " " , "<b>Coin</b> needed !" );
+    else if(info["coin"].toInt() < 15){
+        if(15 - info["coin"].toInt() == 1)
+            QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+        else
+            QMessageBox::warning(this , " " , "You need " +
+                                 QString::number(15 - info["coin"].toInt()) + " more coins !");
+    }
     else if(info["shovel_count"].toInt() < 1 )
         QMessageBox::warning(this , " " , "<b>Shovel</b> needed !" );
     else{

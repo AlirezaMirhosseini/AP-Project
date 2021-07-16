@@ -27,20 +27,20 @@ farm::farm( int _id) :
         ui->profile_pushButton->setIcon(QIcon(":/game_backgrounds/pics_project/139womanfarmer1_100885 (1).png"));
 
 
-     if(!info["store_lock"].toBool())
-         ui->store_lock->hide();
+    if(!info["store_lock"].toBool())
+        ui->store_lock->hide();
 
-     if(!info["cow_lock"].toBool())
-         ui->cow_lock->hide();
+    if(!info["cow_lock"].toBool())
+        ui->cow_lock->hide();
 
-     if(!info["sheep_lock"].toBool())
-         ui->sheep_lock->hide();
+    if(!info["sheep_lock"].toBool())
+        ui->sheep_lock->hide();
 
-     if(!info["chicken_lock"].toBool())
-         ui->chicken_lock->hide();
+    if(!info["chicken_lock"].toBool())
+        ui->chicken_lock->hide();
 
-     if(!info["alfalfa_lock"].toBool())
-         ui->alfalfa_lock->hide();
+    if(!info["alfalfa_lock"].toBool())
+        ui->alfalfa_lock->hide();
 
 
 }
@@ -139,7 +139,6 @@ void farm::on_back_clicked()
     this->close();
     login *_login = new login;
     _login->show();
-
 }
 
 
@@ -168,7 +167,6 @@ void farm::on_cow_lock_clicked()
         farm *w = new farm(id);
         w->show();
     }
-
 }
 
 
@@ -183,7 +181,6 @@ void farm::on_sheep_lock_clicked()
         farm *w = new farm(id);
         w->show();
     }
-
 }
 
 
@@ -198,7 +195,6 @@ void farm::on_chicken_lock_clicked()
         farm *w = new farm(id);
         w->show();
     }
-
 }
 
 
@@ -213,6 +209,5 @@ void farm::on_alfalfa_lock_clicked()
         farm *w = new farm(id);
         w->show();
     }
-
 }
 

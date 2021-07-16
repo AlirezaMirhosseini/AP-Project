@@ -34,8 +34,13 @@ void silo::on_upgrade_clicked()
         if((info["silo_level"].toInt() + 1 ) >= info["level_player"].toInt())
             QMessageBox::warning(this , " " ,"Silo level cannot be higher than it !");
         else{
-            if(info["coin"].toInt() < (100 * pow((2 * info["silo_level"].toInt()), 2)))
-                QMessageBox::warning(this , " " ,"<b>Coin</b> needed !");
+            if(info["coin"].toInt() < (100 * pow((2 * info["silo_level"].toInt()), 2))){
+                if((100 * pow((2 * info["silo_level"].toInt()), 2)) - info["coin"].toInt() == 1)
+                    QMessageBox::warning(this , " " , "You need <u>1</u> more coin !");
+                else
+                    QMessageBox::warning(this , " " , "You need " +
+                                         QString::number((100 * pow((2 * info["silo_level"].toInt()), 2)) - info["coin"].toInt()) + " more coins !");
+            }
             else if((info["nail_count"].toInt() < (2 * info["silo_level"].toInt())))
                 QMessageBox::warning(this , " " ,"<b>Nail</b> needed !");
             else if (info["shovel_count"].toInt() < (info["silo_level"].toInt()-2))
