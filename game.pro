@@ -18,6 +18,7 @@ SOURCES += \
     login.cpp \
     main.cpp \
     game.cpp \
+    profile.cpp \
     register_info.cpp \
     sheep_pasture.cpp \
     silo.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     game.h \
     information.h \
     login.h \
+    profile.h \
     register_info.h \
     sheep_pasture.h \
     silo.h \
@@ -49,6 +51,7 @@ FORMS += \
     farm.ui \
     game.ui \
     login.ui \
+    profile.ui \
     register_info.ui \
     sheep_pasture.ui \
     silo.ui \
