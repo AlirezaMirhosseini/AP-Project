@@ -33,6 +33,7 @@ public slots:
     void increamenter_upgrade();
     void increamenter_plow();
     void increamenter_seed();
+    void  Refresh();
 private:
 
     Ui::alfalfa_field *ui;

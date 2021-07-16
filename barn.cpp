@@ -1,8 +1,9 @@
-#include "barn.h" 
+#include "barn.h"
 #include "ui_barn.h"
 #include "information.h"
 #include <cmath>
 #include <QMessageBox>
+#include<QThread>
 barn::barn(QWidget *parent, int _id) :
     QDialog(parent),
     ui(new Ui::barn)
@@ -12,7 +13,23 @@ barn::barn(QWidget *parent, int _id) :
 
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
+    farm = new QWidget;
+    farm = parent;
 
+     timer = new QTimer;
+
+
+
+
+     if(info["barn_upgrade_time"].toInt() != -1){
+         ui->upgrade->setEnabled(false);
+        ui->barn_pro->setValue(info["barn_upgrade_pro"].toInt());
+         timer->start(1000);
+     }
+     else
+         ui->barn_pro->hide();
+
+     connect(timer,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     ui->level->setText(QString::number(info["barn_level"].toInt()));
     ui->capacity->setText(QString::number(ceil(5*pow(1.5,info["barn_level"].toInt()-1))));
     ui->shovel->setText(QString::number(info["shovel_count"].toInt()));
@@ -21,9 +38,6 @@ barn::barn(QWidget *parent, int _id) :
     ui->egg->setText(QString::number(info["eggs_count"].toInt()));
     ui->milk->setText(QString::number(info["milks"].toArray().size()));
     ui->fleece->setText(QString::number(info["fleece_count"].toInt()));
-
-    if(info["barn_upgrade_time"] == -1)
-        ui->barn_pro->hide();
     int item = info["nail_count"].toInt() +
             info["shovel_count"].toInt() +
             info["alfalfa_count"].toInt() +
@@ -77,7 +91,20 @@ void barn::on_upgrade_clicked()
                 info_2[id] = QJsonValue(info);
                 _info["User"] = info_2;
                 write_info(_info);
+
+                QThread::msleep(100);
+                this->close();
+                barn *w = new barn(farm , id);
+                w->show();
             }
         }
     }
+}
+
+void barn::increamenter_upgrade()
+{
+    int aux = 0;
+    aux = ui->barn_pro->value();
+    aux++;
+    ui->barn_pro->setValue(aux);
 }

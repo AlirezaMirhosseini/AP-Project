@@ -15,6 +15,9 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
 
+    timer1 = new QTimer();
+    timer2 = new QTimer();
+
     if(info["cow_level"].toInt() == 0){
         ui->feed->setEnabled(false);
         ui->collect_milk->setEnabled(false);
@@ -49,8 +52,7 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
         ui->milk_pro->setValue(info["cow_milk_pro"].toInt());
 
 
-    timer1 = new QTimer();
-    timer2 = new QTimer();
+
 
     if(info["cow_feed_time"] != -1)
         ui->feed->setEnabled(false);
@@ -113,11 +115,7 @@ void cow_pasture::on_upgrade_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-
-        this->close();
-        cow_pasture *w = new cow_pasture(farm , id);
-        w->show();
+        Refresh();
 
     }
 }
@@ -144,11 +142,7 @@ void cow_pasture::on_feed_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-
-        this->close();
-        cow_pasture *w = new cow_pasture(farm , id);
-        w->show();
+        Refresh();
     }
 }
 
@@ -201,10 +195,7 @@ void cow_pasture::on_collect_milk_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
-        this->close();
-        cow_pasture *w = new cow_pasture(farm , id);
-        w->show();
+        Refresh();
     }
 }
 void cow_pasture::on_build_clicked()
@@ -242,11 +233,17 @@ void cow_pasture::on_build_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        QThread::msleep(100);
+        Refresh();
 
-        this->close();
-        cow_pasture *w = new cow_pasture(farm , id);
-        w->show();
+
     }
+}
+
+void cow_pasture::Refresh()
+{
+    QThread::msleep(100);
+    this->close();
+    cow_pasture *w = new cow_pasture(farm , id);
+    w->show();
 }
 

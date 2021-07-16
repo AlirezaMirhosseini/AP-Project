@@ -25,6 +25,8 @@ private slots:
 
     void on_Harvesting_clicked();
 
+    void Refresh();
+
 
 public slots:
     void increamenter_seed();

@@ -22,6 +22,9 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     _info = read_info();
     info = (_info["User"].toArray())[id].toObject();
 
+    timer1 = new QTimer();
+    timer2 = new QTimer();
+
     if(info["wheat_upgrade_time"].toInt() == -1)
         ui->wheat_upgrade_pro->hide();
 
@@ -44,8 +47,7 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     ui->wheat_upgrade_pro->setValue(info["wheat_upgrade_pro"].toInt());
     ui->seed_progress->setValue(info["wheat_seed_pro"].toInt());
 
-    timer1 = new QTimer();
-    timer2 = new QTimer();
+
 
     if(info["wheat_upgrade_time"].toInt() != -1)
         timer1->start(1000);
@@ -105,10 +107,7 @@ void wheat_field::on_upgrade_clicked()
         _info["User"] = info_2;
         write_info(_info);
 
-        QThread::msleep(100);
-        this->close();
-        wheat_field* wheatField = new wheat_field( farm , id);
-        wheatField->show();
+        Refresh();
     }
 }
 
@@ -128,10 +127,7 @@ void wheat_field::on_seed_clicked()
         _info["User"] = info_2;
         write_info(_info);
 
-        QThread::msleep(100);
-        this->close();
-        wheat_field* wheatField = new wheat_field( farm , id);
-        wheatField->show();
+        Refresh();
     }
 }
 
@@ -170,10 +166,15 @@ void wheat_field::on_Harvesting_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
+        Refresh();
 
-        QThread::msleep(100);
-        this->close();
-        wheat_field* wheatField = new wheat_field( farm , id);
-        wheatField->show();
     }
+}
+
+void wheat_field::Refresh()
+{
+    QThread::msleep(100);
+    this->close();
+    wheat_field* wheatField = new wheat_field( farm , id);
+    wheatField->show();
 }

@@ -8,6 +8,7 @@
 #include <deque>
 #include <QJsonObject>
 #include <QJsonArray>
+#include<QTimer>
 
 using namespace std;
 
@@ -25,12 +26,14 @@ public:
 
 private slots:
     void on_upgrade_clicked();
-
+    void increamenter_upgrade();
 private:
 
     Ui::barn *ui;
     int id;
     QJsonObject info ,_info ;
+    QTimer *timer;
+    QWidget *farm;
 
 };
 
