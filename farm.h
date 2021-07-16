@@ -42,9 +42,7 @@ private slots:
 
     void on_silo_pushButton_clicked();
 
-    void on_alfalfa_pushButton_clicked();
-
-    void on_profile_pushButton_clicked();
+    void on_alfalfa_pushButton_clicked();;
 
     void on_next_day_clicked();
 
@@ -59,6 +57,8 @@ private slots:
     void on_chicken_lock_clicked();
 
     void on_alfalfa_lock_clicked();
+
+    void on_profile_pushButton_clicked();
 
 private:
 
