@@ -377,6 +377,19 @@ border:none;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QProgressBar" name="eggs_pro">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>120</y>
+     <width>118</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+  </widget>
   <zorder>label_4</zorder>
   <zorder>feed</zorder>
   <zorder>upgrade</zorder>
@@ -392,6 +405,7 @@ border:none;
   <zorder>label_2</zorder>
   <zorder>build_pushButton</zorder>
   <zorder>chicken_pro</zorder>
+  <zorder>eggs_pro</zorder>
  </widget>
  <resources>
   <include location="game_recources.qrc"/>

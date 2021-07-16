@@ -65,6 +65,9 @@ void register_info::on_pushButton_clicked()
                 obj["sheep_feed_time"] = -1 ;
                 obj["sheep_upgrade_time"] = -1;
                 obj["sheep_upgrade_pro"] = -1;
+                obj["sheep_fleece_pro"] = -1;
+                obj["sheep_feeded"] = false;
+
 
                 obj["cow_count"] = 0;
                 obj["cow_level"] = 0;
@@ -72,6 +75,8 @@ void register_info::on_pushButton_clicked()
                 obj["cow_feed_time"] = -1;
                 obj["cow_upgrade_time"] = -1;
                 obj["cow_upgrade_pro"] =  -1;
+                obj["cow_milk_pro"] = -1;
+                obj["cow_feeded"] = false;
 
 
                 obj["chicken_count"] = 0 ;
@@ -80,6 +85,8 @@ void register_info::on_pushButton_clicked()
                 obj["eggs_count"] = 0;
                 obj["chicken_upgrade_time"] = -1;
                 obj["chicken_upgrade_pro"] = -1 ;
+                obj["chicken_eggs_pro"] = -1;
+                obj["chicken_feeded"] = false;
 
                 obj["silo_level"] = 1;
                 obj["nail_count"] = 1;

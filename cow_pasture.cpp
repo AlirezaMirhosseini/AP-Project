@@ -31,6 +31,8 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
         ui->capacity->hide();
         ui->level->hide();
     }
+    else
+        ui->build->hide();
 
     ui->count->setText(QString::number(info["cow_count"].toInt()));
     ui->capacity->setText(QString::number( pow(2,info["cow_level"].toInt())));
@@ -40,26 +42,48 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
         ui->cow_pro->hide();
     else
         ui->cow_pro->setValue(info["cow_upgrade_pro"].toInt());
-    timer = new QTimer();
+
+    if(info["cow_feed_time"].toInt() == -1)
+        ui->milk_pro->hide();
+    else
+        ui->milk_pro->setValue(info["cow_milk_pro"].toInt());
+
+
+    timer1 = new QTimer();
+    timer2 = new QTimer();
+
     if(info["cow_feed_time"] != -1)
         ui->feed->setEnabled(false);
 
     if(info["cow_upgrade_time"].toInt() != -1)
-        timer->start(100);
+        timer1->start(1000);
+    if(info["cow_feed_time"].toInt() != -1)
+        timer2->start(1000);
 
-    connect(timer,SIGNAL(timeout()),this,SLOT(increamenter()));
+
+    connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
+
+     connect(timer2 , SIGNAL(timeout()),this,SLOT(increamenter_collect()));
 }
 cow_pasture::~cow_pasture()
 {
     delete ui;
 }
 
-void cow_pasture::increamenter()
+void cow_pasture::increamenter_upgrade()
 {
     int aux = 0;
     aux = ui->cow_pro->value();
     aux++;
     ui->cow_pro->setValue(aux);
+}
+
+void cow_pasture::increamenter_collect()
+{
+    int aux = 0;
+    aux = ui->milk_pro->value();
+    aux++;
+    ui->milk_pro->setValue(aux);
 }
 
 void cow_pasture::on_upgrade_clicked()
@@ -96,9 +120,12 @@ void cow_pasture::on_upgrade_clicked()
 
 void cow_pasture::on_feed_clicked()
 {
-    if(info["alfalfa_count"].toInt()  < 2 * info["cow_count"].toInt()){
+    if(info["cow_count"].toInt() == 0)
+        QMessageBox::warning(this , " " ,"  0 cow!");
+    else if(info["cow_feeded"].toBool())
+         QMessageBox::warning(this , " " ,"  khordan!");
+    else if(info["alfalfa_count"].toInt()  < 2 * info["cow_count"].toInt())
         QMessageBox::warning(this , "Supply needed !" ,"Alfalfa needed !");
-    }
     else{
         info["alfalfa_count"] = QJsonValue(info["alfalfa_count"].toInt() - 2 * info["cow_count"].toInt());
         time_t _time = time(NULL) + info["time"].toInt();
@@ -113,6 +140,7 @@ void cow_pasture::on_feed_clicked()
         cow_pasture *w = new cow_pasture(farm , id);
         w->show();
     }
+
 }
 
 
@@ -120,11 +148,10 @@ void cow_pasture::on_collect_milk_clicked()
 {
     QJsonArray milk_array = info["milks"].toArray();
     time_t _time = time(NULL) + info["time"].toInt();
-    if(info["cow_feed_time"].toInt() != -1){
-        if(_time - info["cow_feed_time"].toInt() <259200  )
-            QMessageBox::warning(this , "Come later!" ,"Cows are feeding !");
-        else{
-            if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
+
+        if(_time - info["cow_feed_time"].toInt() < 100)
+            QMessageBox::warning(this , "Come later!" ,"Cows are feeding!");
+         else if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
                     info["nail_count"].toInt() +
                     info["shovel_count"].toInt() +
                     info["alfalfa_count"].toInt() +
@@ -143,19 +170,16 @@ void cow_pasture::on_collect_milk_clicked()
                 _info["User"] = info_2;
                 write_info(_info);
                 QThread::msleep(100);
-
                 this->close();
                 cow_pasture *w = new cow_pasture(farm , id);
                 w->show();
             }
-        }
-    }
 }
 void cow_pasture::on_build_clicked()
 {
-    if(info["level_player"].toInt() < 4)
+    if(info["level_player"].toInt() < 4 )
         QMessageBox::warning(this , "You must level up!" ,"You need to reach <b>level 4</b> !");
-    else if(info["nail_count"].toInt())
+    else if(info["nail_count"].toInt() < 3)
         QMessageBox::warning(this , "Supply needed !" ,"Nail needed !");
     else if(info["coin"].toInt() < 20){
         if(20 - info["coin"].toInt() == 1)
