@@ -22,6 +22,32 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
     timer2 = new QTimer();
     timer3 = new QTimer();
 
+    if(info["alfalfa_level"].toInt() == 0){
+        ui->label_2->hide();
+        ui->lbl_area->hide();
+        ui->lbl_area_value->hide();
+        ui->lbl_cultivated_area->hide();
+        ui->lbl_cultivated_area_value->hide();
+        ui->lbl_level->hide();
+        ui->lbl_level_value->hide();
+        ui->lbl_level_container->hide();
+        ui->lbl_level_container_2->hide();
+        ui->lbl_level_container_3->hide();
+
+        ui->btn_harvesting->setEnabled(false);
+        ui->btn_plow->setEnabled(false);
+        ui->btn_seed->setEnabled(false);
+
+        if(info["alfalfa_upgrade_time"].toInt() != -1)
+            ui->build->setEnabled(false);
+    }
+    else
+        ui->build->hide();
+
+
+
+
+
     if(!info["alfalfa_in_use"].toBool()){
         ui->lbl_cultivated_area->hide();
         ui->lbl_cultivated_area_value->hide();
@@ -53,6 +79,9 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
         ui->seed_pro->setValue(info["alfalfa_seed_pro"].toInt());
         timer3->start(1000);
     }
+
+
+
     ui->spinBox->setMaximum(min2(info["alfalfa_count"].toInt(),4 * pow(2, info["alfalfa_level"].toInt() - 1)));
     ui->lbl_area_value->setText(QString::number(4 * pow(2, info["alfalfa_level"].toInt() - 1)));
     ui->lbl_level_value->setText(QString::number(info["alfalfa_level"].toInt()));

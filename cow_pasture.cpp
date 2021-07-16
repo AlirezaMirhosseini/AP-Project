@@ -182,8 +182,9 @@ void cow_pasture::on_collect_milk_clicked()
         info["cow_feeded"] = false;
         time_t _time = time(NULL) + info["time"].toInt();
         for(int i =0 ; i < info["cow_count"].toInt() ; i++)
-            milk_array.push_back(QJsonValue(_time));
+        milk_array.push_back(QJsonValue(_time));
         info["milks"] = milk_array;
+        info["milk_count"] = milk_array.size();
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
