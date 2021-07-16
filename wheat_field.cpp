@@ -88,8 +88,13 @@ void wheat_field::on_upgrade_clicked()
             QMessageBox::warning(this , "Supply needed !" , "You need " +
                                  QString::number(5 - info["coin"].toInt()) + " more coins !");
     }
-    else if(info["shovel_count"].toInt() < 1)
-        QMessageBox::warning(this , " " , "<b>Shovel</b> needed !" );
+    else if(info["shovel_count"].toInt() < 1){
+        if(1 - info["shovel_count"].toInt() == 1)
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more shovel !");
+        else
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                 QString::number(1 - info["shovel_count"].toInt()) + " more shovels !");
+    }
     else{
         info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - 1);
         info["coin"] = QJsonValue(info["coin"].toInt() - 5);
@@ -134,8 +139,27 @@ void wheat_field::on_Harvesting_clicked()
 {
     if(!info["wheat_in_use"].toBool())
         QMessageBox::warning(this , "Seed first!" , "You havent seed yet !");
-    else if(info["wheat_seed_time"].toInt() != -1 && info["wheat_in_use"].toBool())
-        QMessageBox::warning(this , "Come later!" , "Wheat isn't ripe");
+    else if(info["wheat_seed_time"].toInt() != -1 && info["wheat_in_use"].toBool()){
+        int sec = ui->seed_progress->value() * 100 / 100; // after multiply
+        int remain_hour = 0, remain_min = 0;
+        while (sec > 3600) {
+            remain_hour++;
+            sec -= 3600;
+        }
+        while (sec > 60) {
+            remain_min++;
+            sec -= 60;
+        }
+        QString hstr = "hour";
+        QString mstr = "minute";
+        if(remain_hour > 1)
+            hstr.append('s');
+        if(remain_min > 1)
+            mstr.append('s');
+        QMessageBox::warning(this , "Wheat isn't ripe!" ,
+                             "Wheat will be ready in " + QString::number(remain_hour) + hstr + " and " +
+                             QString::number(remain_min) + mstr + " !");
+    }
     else if(5 * pow(2,info["silo_level"].toInt())  < info["wheat_count"].toInt() + 2 * info["wheat_cultivated_area"].toInt())
         QMessageBox::warning(this , "Space needed !" , "You dont have enough space in silo !");
     else{
