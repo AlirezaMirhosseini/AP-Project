@@ -4,8 +4,6 @@
 #include <QTableWidgetItem>
 #include <QPixmap>
 
-profile::profile(QWidget *parent, int _id) :
-
 #include "information.h"
 profile::profile(QWidget *parent, int _id , QByteArray ranks) :
 
