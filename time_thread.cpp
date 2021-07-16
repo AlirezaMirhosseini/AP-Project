@@ -17,7 +17,7 @@ void time_thread::run()
 
             time_t _time = time(NULL)  + info["time"].toInt();
             if(info["chicken_feed_time"].toInt() != -1 &&  _time - info["chicken_feed_time"].toInt() >= 100 )
-              {
+            {
                 info["chicken_feed_time"] = -1;
                 info["chicken_feeded"] = true;
             }
@@ -38,8 +38,8 @@ void time_thread::run()
 
             if(info["cow_feed_time"].toInt() != -1 &&  _time - info["cow_feed_time"].toInt() >= 100 )
             {
-                  info["cow_feed_time"] = -1;
-                  info["cow_feeded"] = true;
+                info["cow_feed_time"] = -1;
+                info["cow_feeded"] = true;
             }
 
             else if(info["cow_feed_time"].toInt() != -1){

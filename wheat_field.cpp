@@ -38,16 +38,12 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
         ui->lbl_cultivated_area_value->hide();
         ui->lbl_cultivated_area_container->hide();
     }
-
-
     ui->spinBox->setMaximum(min1(info["wheat_count"].toInt(),5 * pow(2, info["wheat_level"].toInt() - 1)));
     ui->lbl_area_value->setText(QString::number(5 * pow(2, info["wheat_level"].toInt() - 1)));
     ui->lbl_level_value->setText(QString::number(info["wheat_level"].toInt()));
     ui->lbl_cultivated_area_value->setText(QString::number( info["wheat_cultivated_area"].toInt()));
     ui->wheat_upgrade_pro->setValue(info["wheat_upgrade_pro"].toInt());
     ui->seed_progress->setValue(info["wheat_seed_pro"].toInt());
-
-
 
     if(info["wheat_upgrade_time"].toInt() != -1)
         timer1->start(1000);
@@ -136,7 +132,7 @@ void wheat_field::on_Harvesting_clicked()
     if(!info["wheat_in_use"].toBool())
         QMessageBox::warning(this , "Seed first!" , "You havent seed yet !");
     else if(info["wheat_seed_time"].toInt() != -1 && info["wheat_in_use"].toBool()){
-        int sec = ui->seed_progress->value() * 100 / 100; // after multiply
+        int sec = (100 - ui->seed_progress->value()) * 100 / 100; // after multiply
         int remain_hour = 0, remain_min = 0;
         while (sec > 3600) {
             remain_hour++;
@@ -153,8 +149,8 @@ void wheat_field::on_Harvesting_clicked()
         if(remain_min > 1)
             mstr.append('s');
         QMessageBox::warning(this , "Wheat isn't ripe!" ,
-                             "Wheat will be ready in " + QString::number(remain_hour) + hstr + " and " +
-                             QString::number(remain_min) + mstr + " !");
+                             "Wheat will be ready in " + QString::number(remain_hour) + " " + hstr + " and " +
+                             QString::number(remain_min) + " " + mstr + " !");
     }
     else if(5 * pow(2,info["silo_level"].toInt())  < info["wheat_count"].toInt() + 2 * info["wheat_cultivated_area"].toInt())
         QMessageBox::warning(this , "Space needed !" , "You dont have enough space in silo !");

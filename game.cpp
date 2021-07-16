@@ -12,7 +12,3 @@ game::~game()
 {
     delete ui;
 }
-
-
-
-

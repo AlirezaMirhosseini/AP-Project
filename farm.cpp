@@ -5,15 +5,13 @@
 #include "profile.h"
 #include <QIcon>
 #include <login.h>
-#include<QMessageBox>
+#include <QMessageBox>
 
 
 farm::farm( int _id) :
     QDialog(),
     ui(new Ui::farm)
 {
-
-
     ui->setupUi(this);
     id = _id;
     QJsonObject _info = read_info();
@@ -43,17 +41,12 @@ farm::farm( int _id) :
 
     if(!info["alfalfa_lock"].toBool())
         ui->alfalfa_lock->hide();
-
-
 }
-
-
 
 farm::~farm()
 {
     delete ui;
 }
-
 
 void farm::on_sheep_pushButton_clicked()
 {
@@ -61,13 +54,11 @@ void farm::on_sheep_pushButton_clicked()
     _sheep_pasture->show();
 }
 
-
 void farm::on_store_pushButton_clicked()
 {
     store *Store=new store(this , id);
     Store->show();
 }
-
 
 void farm::on_chicken_pushButton_clicked()
 {
@@ -75,14 +66,11 @@ void farm::on_chicken_pushButton_clicked()
     _chicken_coop->show();
 }
 
-
-
 void farm::on_wheat_pushButton_clicked()
 {
     wheat_field* wheatField = new wheat_field(this, id);
     wheatField->show();
 }
-
 
 void farm::on_barn_pushButton_clicked()
 {
@@ -90,14 +78,11 @@ void farm::on_barn_pushButton_clicked()
     _barn->show();
 }
 
-
-
 void farm::on_cow_pushButton_clicked()
 {
     cow_pasture* _cow_pasture = new cow_pasture(this , id);
     _cow_pasture->show();
 }
-
 
 void farm::on_silo_pushButton_clicked()
 {
@@ -105,16 +90,11 @@ void farm::on_silo_pushButton_clicked()
     _silo->show();
 }
 
-
 void farm::on_alfalfa_pushButton_clicked()
 {
     alfalfa_field* _alfalfa = new alfalfa_field(this , id);
     _alfalfa->show();
 }
-
-
-
-
 
 void farm::on_next_day_clicked()
 {
@@ -130,14 +110,12 @@ void farm::on_next_day_clicked()
     w->show();
 }
 
-
 void farm::on_back_clicked()
 {
     this->close();
     login *_login = new login;
     _login->show();
 }
-
 
 void farm::on_store_lock_clicked()
 {
@@ -152,7 +130,6 @@ void farm::on_store_lock_clicked()
     }
 }
 
-
 void farm::on_cow_lock_clicked()
 {
     QJsonObject _info = read_info();
@@ -165,7 +142,6 @@ void farm::on_cow_lock_clicked()
         w->show();
     }
 }
-
 
 void farm::on_sheep_lock_clicked()
 {
@@ -180,7 +156,6 @@ void farm::on_sheep_lock_clicked()
     }
 }
 
-
 void farm::on_chicken_lock_clicked()
 {
     QJsonObject _info = read_info();
@@ -193,7 +168,6 @@ void farm::on_chicken_lock_clicked()
         w->show();
     }
 }
-
 
 void farm::on_alfalfa_lock_clicked()
 {
@@ -208,10 +182,8 @@ void farm::on_alfalfa_lock_clicked()
     }
 }
 
-
 void farm::on_profile_pushButton_clicked()
 {
     profile * _profile = new profile (this , id);
     _profile->show();
 }
-

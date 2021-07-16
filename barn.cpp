@@ -16,20 +16,17 @@ barn::barn(QWidget *parent, int _id) :
     farm = new QWidget;
     farm = parent;
 
-     timer = new QTimer;
+    timer = new QTimer;
 
-
-
-
-     if(info["barn_upgrade_time"].toInt() != -1){
-         ui->upgrade->setEnabled(false);
+    if(info["barn_upgrade_time"].toInt() != -1){
+        ui->upgrade->setEnabled(false);
         ui->barn_pro->setValue(info["barn_upgrade_pro"].toInt());
-         timer->start(1000);
-     }
-     else
-         ui->barn_pro->hide();
+        timer->start(1000);
+    }
+    else
+        ui->barn_pro->hide();
 
-     connect(timer,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
+    connect(timer,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     ui->level->setText(QString::number(info["barn_level"].toInt()));
     ui->capacity->setText(QString::number(ceil(5*pow(1.5,info["barn_level"].toInt()-1))));
     ui->shovel->setText(QString::number(info["shovel_count"].toInt()));
