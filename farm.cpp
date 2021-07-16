@@ -2,7 +2,7 @@
 #include "ui_farm.h"
 #include "cow_pasture.h"
 #include "information.h"
-#include "profile.h"
+#include "client.h"
 #include <QIcon>
 #include <login.h>
 #include <QMessageBox>
@@ -184,6 +184,6 @@ void farm::on_alfalfa_lock_clicked()
 
 void farm::on_profile_pushButton_clicked()
 {
-    profile * _profile = new profile (this , id);
-    _profile->show();
+    client * window = new client (this , id);
+   // window->show();
 }
