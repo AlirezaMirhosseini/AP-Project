@@ -44,7 +44,7 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
       else{
           ui->sheep_pro->setValue(info["sheep_upgrade_pro"].toInt());
          ui->upgrade->setEnabled(false);
-               timer1->start(1000);
+               timer1->start(7776000);
   }
 
       if(info["sheep_feed_time"].toInt() == -1)
@@ -52,7 +52,7 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
       else{
           ui->fleece_pro->setValue(info["sheep_fleece_pro"].toInt());
            ui->feed->setEnabled(false);
-            timer2->start(1000);
+            timer2->start(8640000);
   }
 
       ui->count->setText(QString::number(info["sheep_count"].toInt()));
@@ -175,7 +175,7 @@ void sheep_pasture::on_Fleece_Shave_clicked()
 {
     time_t _time = time(NULL) + info["time"].toInt();
     if(info["sheep_feed_time"].toInt() != -1 && _time -  info["sheep_feed_time"].toInt() < 100){
-        int sec = (100 - ui->fleece_pro->value()) * 100 / 100; // after multiply
+        int sec = (100 - ui->fleece_pro->value()) * 864000 / 100; // after multiply
         int remain_hour = 0, remain_min = 0;
         while (sec > 3600) {
             remain_hour++;
