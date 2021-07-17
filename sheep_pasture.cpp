@@ -92,7 +92,7 @@ void sheep_pasture::on_feed_clicked()
     else if(info["sheep_feeded"].toBool())
         QMessageBox::warning(this , "Already done!" ,"Sheeps already feeded !");
     else  if(info["sheep_feed_time"].toInt() != -1){
-        int sec = (100 - ui->fleece_pro->value()) * 100 / 100; // after multiply
+        int sec = (100 - ui->fleece_pro->value()) * 864000 / 100; // after multiply
         int remain_hour = 0, remain_min = 0;
         while (sec > 3600) {
             remain_hour++;
@@ -174,7 +174,7 @@ void sheep_pasture::on_upgrade_clicked()
 void sheep_pasture::on_Fleece_Shave_clicked()
 {
     time_t _time = time(NULL) + info["time"].toInt();
-    if(info["sheep_feed_time"].toInt() != -1 && _time -  info["sheep_feed_time"].toInt() < 100){
+    if(info["sheep_feed_time"].toInt() != -1 && _time -  info["sheep_feed_time"].toInt() < 864000){
         int sec = (100 - ui->fleece_pro->value()) * 864000 / 100; // after multiply
         int remain_hour = 0, remain_min = 0;
         while (sec > 3600) {

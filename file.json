@@ -1,7 +1,7 @@
 {
     "User": [
         {
-            "alfalfa_count": 0,
+            "alfalfa_count": 8,
             "alfalfa_cultivated_area": 4,
             "alfalfa_in_use": false,
             "alfalfa_level": 1,
@@ -24,7 +24,7 @@
             "chicken_lock": false,
             "chicken_upgrade_pro": 66,
             "chicken_upgrade_time": -1,
-            "coin": 997376,
+            "coin": 997286,
             "cow_count": 2,
             "cow_feed_time": -1,
             "cow_feeded": false,
@@ -35,7 +35,7 @@
             "cow_upgrade_time": -1,
             "eggs_count": 0,
             "email": "a@gmail.com",
-            "exp": 769,
+            "exp": 808,
             "fleece_count": 0,
             "gender": "      Male",
             "level_player": 7,
@@ -46,9 +46,9 @@
             "name": "a",
             "password": "a",
             "sheep_count": 2,
-            "sheep_feed_time": -1,
+            "sheep_feed_time": 1659154069,
             "sheep_feeded": false,
-            "sheep_fleece_pro": -1,
+            "sheep_fleece_pro": 7,
             "sheep_level": 1,
             "sheep_lock": false,
             "sheep_upgrade_pro": 90,
@@ -59,10 +59,10 @@
             "silo_upgrade_pro": 75,
             "silo_upgrade_time": -1,
             "store_lock": false,
-            "time": 32486400,
-            "time_exp": 1659010267,
+            "time": 33264000,
+            "time_exp": 1659787867,
             "username": "a",
-            "wheat_count": 0,
+            "wheat_count": 10,
             "wheat_cultivated_area": 1,
             "wheat_in_use": true,
             "wheat_level": 1,
@@ -72,6 +72,6 @@
             "wheat_upgrade_time": -1
         }
     ],
-    "time_30": 1626537779,
+    "time_30": 1626538342,
     "time_in_use": true
 }
