@@ -21,7 +21,7 @@ barn::barn(QWidget *parent, int _id) :
     if(info["barn_upgrade_time"].toInt() != -1){
         ui->upgrade->setEnabled(false);
         ui->barn_pro->setValue(info["barn_upgrade_pro"].toInt());
-        timer->start(1000);
+        timer->start(4320000);
     }
     else
         ui->barn_pro->hide();

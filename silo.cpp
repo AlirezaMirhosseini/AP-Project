@@ -22,7 +22,7 @@ silo::silo(QWidget *parent, int _id) :
 
     if(info["silo_upgrade_time"].toInt() != -1){
         ui->silo_pro->setValue(info["silo_upgrade_pro"].toInt());
-        timer->start(1000);
+        timer->start(3456000);
         ui->upgrade->setEnabled(false);
     }
     else
