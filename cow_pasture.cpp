@@ -3,7 +3,8 @@
 #include "information.h"
 #include <QMessageBox>
 #include <cmath>
-#include<QThread>
+#include <QThread>
+
 cow_pasture::cow_pasture(QWidget *parent , int _id) :
     QDialog(parent),
     ui(new Ui::cow_pasture)
@@ -34,7 +35,7 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
         ui->capacity->hide();
         ui->level->hide();
         if(info["cow_upgrade_time"].toInt() != -1)
-           ui->build->setEnabled(false);
+            ui->build->setEnabled(false);
     }
     else
         ui->build->hide();
@@ -49,7 +50,7 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
         ui->upgrade->setEnabled(false);
         ui->cow_pro->setValue(info["cow_upgrade_pro"].toInt());
         timer1->start(4320000);
-        }
+    }
 
     if(info["cow_feed_time"].toInt() == -1)
         ui->milk_pro->hide();
@@ -57,7 +58,7 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
         ui->milk_pro->setValue(info["cow_milk_pro"].toInt());
         ui->feed->setEnabled(false);
         timer2->start(2592000);
-         }
+    }
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     connect(timer2 , SIGNAL(timeout()),this,SLOT(increamenter_collect()));
@@ -184,8 +185,8 @@ void cow_pasture::on_collect_milk_clicked()
         QMessageBox::information(this, tr("Done Successfully !"), tr("Product Transferred to Barn !"), QMessageBox::Ok);
         info["cow_feeded"] = false;
         time_t _time = time(NULL) + info["time"].toInt();
-        for(int i =0 ; i < info["cow_count"].toInt() ; i++)
-        milk_array.push_back(QJsonValue(_time));
+        for(int i = 0 ; i < info["cow_count"].toInt() ; i++)
+            milk_array.push_back(QJsonValue(_time));
         info["milks"] = milk_array;
         info["milk_count"] = milk_array.size();
         QJsonArray info_2 = _info["User"].toArray();

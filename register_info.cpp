@@ -14,15 +14,15 @@ register_info::register_info(QWidget *parent) :
 
     // Username Validation
     QRegularExpression validate_username("\\b[A-Z0-9]{1,50}\\b",
-                          QRegularExpression::CaseInsensitiveOption);
+                                         QRegularExpression::CaseInsensitiveOption);
     ui->lineEdit_2->setValidator(new QRegularExpressionValidator(validate_username, this));
     // Password Validation
     QRegularExpression validate_password("\\b[A-Z0-9+!@#$%^&*()<>{}.?;=_:/'\"]{1,50}\\b",
-                          QRegularExpression::CaseInsensitiveOption);
+                                         QRegularExpression::CaseInsensitiveOption);
     ui->lineEdit_3->setValidator(new QRegularExpressionValidator(validate_password, this));
     // Email Validation
     QRegularExpression validate_email("\\b[A-Z0-9]{1,100}+@[A-Z0-9]{1,20}+\\.[A-Z]{2,4}\\b",
-                          QRegularExpression::CaseInsensitiveOption);
+                                      QRegularExpression::CaseInsensitiveOption);
     ui->lineEdit_5->setValidator(new QRegularExpressionValidator(validate_email, this));
 }
 
@@ -145,11 +145,11 @@ void register_info::on_pushButton_clicked()
                 obj["chicken_lock"] = true;
                 obj["alfalfa_lock"] = true;
                 obj["time_exp"] = now;
-                 if(!_info["time_in_use"].toBool())
-                 {
-                _info["time_30"] = now  ;
-                _info["time_in_use"] = true;
-                 }
+                if(!_info["time_in_use"].toBool())
+                {
+                    _info["time_30"] = now  ;
+                    _info["time_in_use"] = true;
+                }
 
 
                 info.push_back(QJsonValue(obj));

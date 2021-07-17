@@ -45,14 +45,14 @@ void time_thread::run()
                 info["chicken_eggs_pro"] = (dif_time * 100 /172800);
             }
 
-            if(info["sheep_feed_time"].toInt() != -1 &&  _time - info["sheep_feed_time"].toInt() >= 8640000 )
+            if(info["sheep_feed_time"].toInt() != -1 &&  _time - info["sheep_feed_time"].toInt() >= 864000 )
             {
                 info["sheep_feed_time"] = -1;
                 info["sheep_feeded"] = true;
             }
             else if(info["sheep_feed_time"].toInt() != -1){
                 int dif_time = _time - info["sheep_feed_time"].toInt();
-                info["sheep_fleece_pro"] = (dif_time * 100 /8640000);
+                info["sheep_fleece_pro"] = (dif_time * 100 /864000);
             }
 
             if(info["cow_feed_time"].toInt() != -1 &&  _time - info["cow_feed_time"].toInt() >= 259200 )

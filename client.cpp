@@ -27,9 +27,6 @@ client::~client()
 
 }
 
-
-
-
 void client::connected(){
     qDebug() << "Connected\n";
     QJsonObject obj=read_info();
@@ -44,7 +41,6 @@ void client::connected(){
         finalArray.push_back(temp);
     }
     obj["User"] = finalArray;
-    //
 
     QJsonDocument doc;
     doc.setObject(obj);
@@ -57,12 +53,12 @@ void client::disconnected()
 
 }
 void client::bytesWritten(qint64 bytes){
-     qDebug() << "we wrote ";
-   // ted->append(QString::number(bytes));
+    qDebug() << "we wrote ";
+    // ted->append(QString::number(bytes));
 }
 void client::readyRead(){
     QByteArray data = socket->readAll();
-     qDebug() << data;
+    qDebug() << data;
     profile* window = new profile(this,id,data);
     window->show();
 }

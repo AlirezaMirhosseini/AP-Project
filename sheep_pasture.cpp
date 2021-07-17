@@ -3,65 +3,63 @@
 #include "information.h"
 #include <QMessageBox>
 #include <cmath>
-#include<QThread>
+#include <QThread>
 
 sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
     QDialog(parent),
     ui(new Ui::sheep_pasture)
 {
     ui->setupUi(this);
-      id=_id;
-      farm = new QWidget;
-      farm = parent;
-      timer1 = new QTimer();
-      timer2 = new QTimer();
+    id=_id;
+    farm = new QWidget;
+    farm = parent;
+    timer1 = new QTimer();
+    timer2 = new QTimer();
 
-      _info = read_info();
-      info = (_info["User"].toArray())[id].toObject();
+    _info = read_info();
+    info = (_info["User"].toArray())[id].toObject();
 
-      if(info["sheep_level"].toInt() == 0){
-          ui->Fleece_Shave->setEnabled(false);
-          ui->feed->setEnabled(false);
-          ui->capacity->hide();
-          ui->count->hide();
-          ui->label->hide();
-          ui->label_3->hide();
-          ui->label_5->hide();
-          ui->label_6->hide();
-          ui->label_7->hide();
-          ui->label_8->hide();
-          ui->count->hide();
-          ui->capacity->hide();
-          ui->level->hide();
-          if(info["sheep_upgrade_time"].toInt() != -1)
-              ui->build->setEnabled(false);
-      }
-      else
-          ui->build->hide();
+    if(info["sheep_level"].toInt() == 0){
+        ui->Fleece_Shave->setEnabled(false);
+        ui->feed->setEnabled(false);
+        ui->capacity->hide();
+        ui->count->hide();
+        ui->label->hide();
+        ui->label_3->hide();
+        ui->label_5->hide();
+        ui->label_6->hide();
+        ui->label_7->hide();
+        ui->label_8->hide();
+        ui->count->hide();
+        ui->capacity->hide();
+        ui->level->hide();
+        if(info["sheep_upgrade_time"].toInt() != -1)
+            ui->build->setEnabled(false);
+    }
+    else
+        ui->build->hide();
 
-      if(info["sheep_upgrade_time"].toInt() == -1)
-          ui->sheep_pro->hide();
-      else{
-          ui->sheep_pro->setValue(info["sheep_upgrade_pro"].toInt());
-         ui->upgrade->setEnabled(false);
-               timer1->start(7776000);
-  }
+    if(info["sheep_upgrade_time"].toInt() == -1)
+        ui->sheep_pro->hide();
+    else{
+        ui->sheep_pro->setValue(info["sheep_upgrade_pro"].toInt());
+        ui->upgrade->setEnabled(false);
+        timer1->start(7776000);
+    }
 
-      if(info["sheep_feed_time"].toInt() == -1)
-          ui->fleece_pro->hide();
-      else{
-          ui->fleece_pro->setValue(info["sheep_fleece_pro"].toInt());
-           ui->feed->setEnabled(false);
-            timer2->start(8640000);
-  }
+    if(info["sheep_feed_time"].toInt() == -1)
+        ui->fleece_pro->hide();
+    else{
+        ui->fleece_pro->setValue(info["sheep_fleece_pro"].toInt());
+        ui->feed->setEnabled(false);
+        timer2->start(8640000);
+    }
+    ui->count->setText(QString::number(info["sheep_count"].toInt()));
+    ui->capacity->setText(QString::number( pow(2,info["sheep_level"].toInt())));
+    ui->level->setText(QString::number(info["sheep_level"].toInt()));
 
-      ui->count->setText(QString::number(info["sheep_count"].toInt()));
-      ui->capacity->setText(QString::number( pow(2,info["sheep_level"].toInt())));
-      ui->level->setText(QString::number(info["sheep_level"].toInt()));
-
-
-      connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
-      connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_collect()));
+    connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_collect()));
 }
 
 sheep_pasture::~sheep_pasture()
@@ -173,9 +171,9 @@ void sheep_pasture::on_upgrade_clicked()
 
 void sheep_pasture::on_Fleece_Shave_clicked()
 {
-    int nbr=5;
-    for(int mineCounter = 0;mineCounter<info["barn_level"].toInt() - 1;mineCounter++)
-        nbr=ceil(nbr*1.5);
+    int nbr = 5;
+    for(int mineCounter = 0; mineCounter<info["barn_level"].toInt() - 1; mineCounter++)
+        nbr = ceil(nbr * 1.5);
     time_t _time = time(NULL) + info["time"].toInt();
     if(info["sheep_feed_time"].toInt() != -1 && _time -  info["sheep_feed_time"].toInt() < 864000){
         int sec = (100 - ui->fleece_pro->value()) * 864000 / 100; // after multiply
@@ -200,7 +198,6 @@ void sheep_pasture::on_Fleece_Shave_clicked()
     }
     else if(!info["sheep_feeded"].toBool())
         QMessageBox::warning(this , "Come later!" ,"You heve to feed first!");
-
     else if(info["coin"].toInt() < info["sheep_count"].toInt()){
         if(info["sheep_count"].toInt() - info["coin"].toInt() == 1)
             QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");

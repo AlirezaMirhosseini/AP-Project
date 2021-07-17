@@ -8,7 +8,6 @@
 #include <QMessageBox>
 #include "profile.h"
 
-
 farm::farm( int _id) :
     QDialog(),
     ui(new Ui::farm)
@@ -189,5 +188,5 @@ void farm::on_profile_pushButton_clicked()
     client * window = new client (this , id);
     //profile* window2 = new profile(this,id,data);
     //window2->show();
-   // window->show();
+    // window->show();
 }

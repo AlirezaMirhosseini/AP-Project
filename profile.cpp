@@ -5,7 +5,9 @@
 #include <QPixmap>
 #include <QBrush>
 #include "information.h"
+
 #define color "green"
+
 profile::profile(QWidget *parent, int _id , QByteArray ranks) :
 
     QDialog(parent),

@@ -15,11 +15,11 @@ login::login(QWidget *parent) :
 
     // Username Validation
     QRegularExpression validate_username("\\b[A-Z0-9]{1,50}\\b",
-                          QRegularExpression::CaseInsensitiveOption);
+                                         QRegularExpression::CaseInsensitiveOption);
     ui->lineEdit->setValidator(new QRegularExpressionValidator(validate_username, this));
     // Password Validation
     QRegularExpression validate_password("\\b[A-Z0-9+!@#$%^&*()<>{}.?;=_:/'\"]{1,50}\\b",
-                          QRegularExpression::CaseInsensitiveOption);
+                                         QRegularExpression::CaseInsensitiveOption);
     ui->lineEdit_2->setValidator(new QRegularExpressionValidator(validate_password, this));
 }
 

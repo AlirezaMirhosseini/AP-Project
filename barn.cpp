@@ -3,7 +3,7 @@
 #include "information.h"
 #include <cmath>
 #include <QMessageBox>
-#include<QThread>
+#include <QThread>
 barn::barn(QWidget *parent, int _id) :
     QDialog(parent),
     ui(new Ui::barn)

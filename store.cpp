@@ -145,8 +145,6 @@ void store::on_sell_pushButton_clicked()
     ui->egg_spinBox->setValue(0);
     ui->milk_spinBox->setValue(0);
 
-
-
     QJsonArray info_2 = _info["User"].toArray();
     info_2[id] = QJsonValue(info);
     _info["User"] = info_2;
