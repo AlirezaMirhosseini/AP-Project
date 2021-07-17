@@ -266,6 +266,9 @@ void store::on_buy_pushButton_clicked()
     info["cow_count"] = info["cow_count"].toInt() + cow_num;
     info["chicken_count"] = info["chicken_count"].toInt() + hen_num;
 
+    info["exp"]=info["exp"].toInt()+10*wool_num+
+            8*shovel_num+2*alfalfa_num+wheat_num+3*egg_num+5*milk_num
+            +4*nail_num+15*sheep_num+10*cow_num+5*hen_num;
 
     ui->coin_label->setText(QString::number(info["coin"].toInt()));
 
