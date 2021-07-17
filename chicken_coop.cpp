@@ -50,7 +50,7 @@ chicken_coop::chicken_coop(QWidget *parent , int _id) :
         ui->chicken_pro->hide();
     else{
         ui->chicken_pro->setValue(info["chicken_upgrade_pro"].toInt());
-        timer1->start(1000);
+        timer1->start(2592000);
         ui->upgrade->setEnabled(false);
     }
 
@@ -58,7 +58,7 @@ chicken_coop::chicken_coop(QWidget *parent , int _id) :
         ui->eggs_pro->hide();
     else{
         ui->eggs_pro->setValue(info["chicken_eggs_pro"].toInt());
-        timer2->start(1000);
+        timer2->start(1728000);
         ui->feed->setEnabled(false);
     }
 
@@ -94,7 +94,7 @@ void chicken_coop::increamenter_collect()
 void chicken_coop::on_feed_clicked()
 {
     if(info["chicken_count"].toInt() == 0)
-        QMessageBox::warning(this , "You havent Chicken!" ,"You have to buy a chicken!");
+        QMessageBox::warning(this , "You haven't Chicken!" ,"You have to buy a chicken!");
     else if(info["chicken_feeded"].toBool())
         QMessageBox::warning(this , "Already done!" ,"Chickens already feeded !");
     else if(info["chicken_feed_time"].toInt() != -1){
@@ -210,8 +210,8 @@ void chicken_coop::on_collecteggs_clicked()
 {
 
     time_t _time = time(NULL) + info["time"].toInt();
-    if(info["chicken_feed_time"].toInt() != -1 && _time - info["chicken_feed_time"].toInt() < 100){
-        int sec = (100 - ui->eggs_pro->value()) * 100 / 100; // after multiply
+    if(info["chicken_feed_time"].toInt() != -1 && _time - info["chicken_feed_time"].toInt() < 172800){
+        int sec = (100 - ui->eggs_pro->value()) * 172800 / 100; // after multiply
         int remain_hour = 0, remain_min = 0;
         while (sec > 3600) {
             remain_hour++;
@@ -228,7 +228,7 @@ void chicken_coop::on_collecteggs_clicked()
         if(remain_min > 1)
             mstr.append('s');
         QMessageBox::warning(this , "Come later!" ,
-                             "You can collect egg " + QString::number(remain_hour) + " " + hstr + " and " +
+                             "You can collect eggs " + QString::number(remain_hour) + " " + hstr + " and " +
                              QString::number(remain_min) + " " + mstr + " later !");
     }
     else if(!info["chicken_feeded"].toBool())

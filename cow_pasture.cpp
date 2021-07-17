@@ -48,7 +48,7 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
     else{
         ui->upgrade->setEnabled(false);
         ui->cow_pro->setValue(info["cow_upgrade_pro"].toInt());
-        timer1->start(1000);
+        timer1->start(4320000);
         }
 
     if(info["cow_feed_time"].toInt() == -1)
@@ -56,7 +56,7 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
     else{
         ui->milk_pro->setValue(info["cow_milk_pro"].toInt());
         ui->feed->setEnabled(false);
-        timer2->start(1000);
+        timer2->start(2592000);
          }
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
@@ -146,7 +146,7 @@ void cow_pasture::on_collect_milk_clicked()
     time_t _time = time(NULL) + info["time"].toInt();
 
     if(info["cow_feed_time"].toInt() != -1 && _time - info["cow_feed_time"].toInt() < 100){
-        int sec = (100 - ui->milk_pro->value()) * 100 / 100; // after multiply
+        int sec = (100 - ui->milk_pro->value()) * 259200 / 100; // after multiply
         int remain_hour = 0, remain_min = 0;
         while (sec > 3600) {
             remain_hour++;

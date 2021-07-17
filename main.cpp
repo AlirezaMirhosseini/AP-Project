@@ -12,5 +12,9 @@ int main(int argc, char *argv[])
     time_thread time;
     time.start();
 
-    return a.exec();
+
+     a.exec();
+     time.wait();
+
+
 }

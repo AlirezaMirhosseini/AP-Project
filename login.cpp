@@ -5,6 +5,7 @@
 #include "information.h"
 #include "game.h"
 #include <math.h>
+#include <time.h>
 
 login::login(QWidget *parent) :
     QDialog(parent),

@@ -30,7 +30,7 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     else{
         ui->wheat_upgrade_pro->setValue(info["wheat_upgrade_pro"].toInt());
         ui->upgrade->setEnabled(false);
-        timer1->start(1000);
+        timer1->start(1728000);
     }
 
     if(info["wheat_seed_time"].toInt() == -1)
@@ -38,7 +38,7 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     else{
         ui->seed_progress->setValue(info["wheat_seed_pro"].toInt());
         ui->seed->setEnabled(false);
-        timer2->start(1000);
+        timer2->start(1728000);
 
     }
 
@@ -136,7 +136,7 @@ void wheat_field::on_Harvesting_clicked()
     if(!info["wheat_in_use"].toBool())
         QMessageBox::warning(this , "Seed first!" , "You havent seed yet !");
     else if(info["wheat_seed_time"].toInt() != -1 && info["wheat_in_use"].toBool()){
-        int sec = (100 - ui->seed_progress->value()) * 100 / 100; // after multiply
+        int sec = (100 - ui->seed_progress->value()) * 172800 / 100; // after multiply
         int remain_hour = 0, remain_min = 0;
         while (sec > 3600) {
             remain_hour++;
