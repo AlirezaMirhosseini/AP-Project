@@ -208,7 +208,9 @@ void chicken_coop::on_build_pushButton_clicked()
 
 void chicken_coop::on_collecteggs_clicked()
 {
-
+    int nbr=5;
+    for(int mineCounter = 0;mineCounter<info["barn_level"].toInt() - 1;mineCounter++)
+        nbr=ceil(nbr*1.5);
     time_t _time = time(NULL) + info["time"].toInt();
     if(info["chicken_feed_time"].toInt() != -1 && _time - info["chicken_feed_time"].toInt() < 172800){
         int sec = (100 - ui->eggs_pro->value()) * 172800 / 100; // after multiply
@@ -233,7 +235,7 @@ void chicken_coop::on_collecteggs_clicked()
     }
     else if(!info["chicken_feeded"].toBool())
         QMessageBox::warning(this , "Come later!" ,"You have to feed first!");
-    else if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
+    else if(nbr <
             info["nail_count"].toInt() +
             info["shovel_count"].toInt() +
             info["alfalfa_count"].toInt() +

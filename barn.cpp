@@ -28,7 +28,10 @@ barn::barn(QWidget *parent, int _id) :
 
     connect(timer,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     ui->level->setText(QString::number(info["barn_level"].toInt()));
-    ui->capacity->setText(QString::number(ceil(5*pow(1.5,info["barn_level"].toInt()-1))));
+    int nbr=5;
+    for(int mineCounter = 0;mineCounter<info["barn_level"].toInt() - 1;mineCounter++)
+        nbr=ceil(nbr*1.5);
+    ui->capacity->setText(QString::number(nbr));
     ui->shovel->setText(QString::number(info["shovel_count"].toInt()));
     ui->nail->setText(QString::number(info["nail_count"].toInt()));
     ui->alfalfa->setText(QString::number(info["alfalfa_count"].toInt()));

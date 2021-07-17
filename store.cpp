@@ -234,7 +234,11 @@ void store::on_buy_pushButton_clicked()
     nail_num = ui->nail_spinBox->text().toInt();
     shovel_num = ui->shovel_spinBox->text().toInt();
 
-    if(nail_num + shovel_num + alfalfa_num > ceil(5*pow(1.5,info["barn_level"].toInt()-1)) - barn_input_num){
+    int nbr=5;
+    for(int mineCounter = 0;mineCounter<info["barn_level"].toInt() - 1;mineCounter++)
+        nbr=ceil(nbr*1.5);
+
+    if(nail_num + shovel_num + alfalfa_num > nbr - barn_input_num){
         QMessageBox::warning(this,"Space needed !","There isn't enough space in barn :(");
         return;
     }

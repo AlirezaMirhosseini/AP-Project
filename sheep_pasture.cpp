@@ -173,6 +173,9 @@ void sheep_pasture::on_upgrade_clicked()
 
 void sheep_pasture::on_Fleece_Shave_clicked()
 {
+    int nbr=5;
+    for(int mineCounter = 0;mineCounter<info["barn_level"].toInt() - 1;mineCounter++)
+        nbr=ceil(nbr*1.5);
     time_t _time = time(NULL) + info["time"].toInt();
     if(info["sheep_feed_time"].toInt() != -1 && _time -  info["sheep_feed_time"].toInt() < 864000){
         int sec = (100 - ui->fleece_pro->value()) * 864000 / 100; // after multiply
@@ -205,7 +208,7 @@ void sheep_pasture::on_Fleece_Shave_clicked()
             QMessageBox::warning(this , "Supply needed !" , "You need " +
                                  QString::number(info["sheep_count"].toInt() - info["coin"].toInt()) + " more coins !");
     }
-    else if(ceil(5 * pow(1.5, info["barn_level"].toInt() -1 )) <
+    else if(nbr <
             info["nail_count"].toInt() +
             info["shovel_count"].toInt() +
             info["alfalfa_count"].toInt() +
