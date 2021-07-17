@@ -56,6 +56,7 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
         ui->alfalfa_upgrade_pro->setValue(info["alfalfa_upgrade_pro"].toInt());
         timer1->start(1000);
     }
+
     if(info["alfalfa_plow_time"].toInt() == -1)
         ui->plow_pro->hide();
     else{
@@ -63,6 +64,7 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
         ui->plow_pro->setValue(info["alfalfa_plow_pro"].toInt());
         timer2->start(1000);
     }
+
     if(info["alfalfa_seed_time"].toInt() == -1)
         ui->seed_pro->hide();
     else{

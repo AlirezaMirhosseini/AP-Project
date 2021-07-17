@@ -16,6 +16,17 @@ void time_thread::run()
             QJsonObject info = _info["User"].toArray()[i].toObject();
 
             time_t _time = time(NULL)  + info["time"].toInt();
+
+
+
+            if(_time - info["time_exp"].toInt() >= 86400)
+            {
+                info["time_exp"] = info["time_exp"].toInt() + 86400;
+                info["exp"] = info["exp"].toInt() + 1 ;
+
+            }
+
+
             if(info["chicken_feed_time"].toInt() != -1 &&  _time - info["chicken_feed_time"].toInt() >= 100 )
             {
                 info["chicken_feed_time"] = -1;

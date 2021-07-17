@@ -95,5 +95,12 @@
         <file>pics_project/sign.png</file>
         <file>pics_project/sign up (2).jpg</file>
         <file>pics_project/sign up.jpg</file>
+        <file>pics_project/first.png</file>
+        <file>pics_project/second.png</file>
+        <file>pics_project/third.png</file>
+        <file>pics_project/profile back.jpg</file>
+        <file>pics_project/grass.png</file>
+        <file>pics_project/exp.png</file>
+        <file>pics_project/level.png</file>
     </qresource>
 </RCC>

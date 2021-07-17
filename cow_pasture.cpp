@@ -33,6 +33,8 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
         ui->count->hide();
         ui->capacity->hide();
         ui->level->hide();
+        if(info["cow_upgrade_time"].toInt() != -1)
+           ui->build->setEnabled(false);
     }
     else
         ui->build->hide();
@@ -43,22 +45,19 @@ cow_pasture::cow_pasture(QWidget *parent , int _id) :
 
     if(info["cow_upgrade_time"].toInt() == -1)
         ui->cow_pro->hide();
-    else
+    else{
+        ui->upgrade->setEnabled(false);
         ui->cow_pro->setValue(info["cow_upgrade_pro"].toInt());
+        timer1->start(1000);
+        }
 
     if(info["cow_feed_time"].toInt() == -1)
         ui->milk_pro->hide();
-    else
+    else{
         ui->milk_pro->setValue(info["cow_milk_pro"].toInt());
-
-    if(info["cow_feed_time"] != -1)
         ui->feed->setEnabled(false);
-
-    if(info["cow_upgrade_time"].toInt() != -1)
-        timer1->start(1000);
-    if(info["cow_feed_time"].toInt() != -1)
         timer2->start(1000);
-
+         }
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     connect(timer2 , SIGNAL(timeout()),this,SLOT(increamenter_collect()));
