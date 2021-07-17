@@ -45,7 +45,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/background-scene-with-green-field_1308-8895 (1).jpg</pixmap>
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/farm back.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -54,9 +54,9 @@
   <widget class="QPushButton" name="profile_pushButton">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>0</x>
      <y>10</y>
-     <width>101</width>
+     <width>91</width>
      <height>101</height>
     </rect>
    </property>
@@ -87,10 +87,10 @@ border: none;</string>
   <widget class="QPushButton" name="store_pushButton">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>440</y>
-     <width>211</width>
-     <height>171</height>
+     <x>110</x>
+     <y>460</y>
+     <width>121</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="cursor">
@@ -112,18 +112,18 @@ border: none;</string>
    </property>
    <property name="iconSize">
     <size>
-     <width>200</width>
-     <height>200</height>
+     <width>100</width>
+     <height>100</height>
     </size>
    </property>
   </widget>
   <widget class="QPushButton" name="chicken_pushButton">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>570</y>
-     <width>161</width>
-     <height>101</height>
+     <x>1010</x>
+     <y>150</y>
+     <width>151</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="cursor">
@@ -145,18 +145,18 @@ border: none;</string>
    </property>
    <property name="iconSize">
     <size>
-     <width>150</width>
-     <height>150</height>
+     <width>70</width>
+     <height>70</height>
     </size>
    </property>
   </widget>
   <widget class="QPushButton" name="cow_pushButton">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>390</y>
-     <width>221</width>
-     <height>131</height>
+     <x>650</x>
+     <y>490</y>
+     <width>231</width>
+     <height>181</height>
     </rect>
    </property>
    <property name="cursor">
@@ -172,24 +172,20 @@ border: none;</string>
    <property name="text">
     <string/>
    </property>
-   <property name="icon">
-    <iconset resource="game_recources.qrc">
-     <normaloff>:/game_backgrounds/pics_project/cow.png</normaloff>:/game_backgrounds/pics_project/cow.png</iconset>
-   </property>
    <property name="iconSize">
     <size>
-     <width>150</width>
-     <height>150</height>
+     <width>100</width>
+     <height>100</height>
     </size>
    </property>
   </widget>
   <widget class="QPushButton" name="sheep_pushButton">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>400</y>
-     <width>201</width>
-     <height>121</height>
+     <x>110</x>
+     <y>180</y>
+     <width>111</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="cursor">
@@ -211,18 +207,18 @@ border: none;</string>
    </property>
    <property name="iconSize">
     <size>
-     <width>200</width>
-     <height>200</height>
+     <width>100</width>
+     <height>100</height>
     </size>
    </property>
   </widget>
   <widget class="QPushButton" name="wheat_pushButton">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>540</y>
-     <width>301</width>
-     <height>211</height>
+     <x>660</x>
+     <y>190</y>
+     <width>221</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="cursor">
@@ -238,10 +234,6 @@ border: none;</string>
    <property name="text">
     <string/>
    </property>
-   <property name="icon">
-    <iconset resource="game_recources.qrc">
-     <normaloff>:/game_backgrounds/pics_project/favpng_common-wheat-cereal-ear-illustration.png</normaloff>:/game_backgrounds/pics_project/favpng_common-wheat-cereal-ear-illustration.png</iconset>
-   </property>
    <property name="iconSize">
     <size>
      <width>250</width>
@@ -252,10 +244,10 @@ border: none;</string>
   <widget class="QPushButton" name="alfalfa_pushButton">
    <property name="geometry">
     <rect>
-     <x>930</x>
-     <y>560</y>
-     <width>311</width>
-     <height>181</height>
+     <x>430</x>
+     <y>470</y>
+     <width>131</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="cursor">
@@ -271,13 +263,9 @@ border: none;</string>
    <property name="text">
     <string/>
    </property>
-   <property name="icon">
-    <iconset resource="game_recources.qrc">
-     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
-   </property>
    <property name="iconSize">
     <size>
-     <width>150</width>
+     <width>20</width>
      <height>150</height>
     </size>
    </property>
@@ -285,10 +273,10 @@ border: none;</string>
   <widget class="QPushButton" name="silo_pushButton">
    <property name="geometry">
     <rect>
-     <x>930</x>
-     <y>320</y>
-     <width>161</width>
-     <height>211</height>
+     <x>430</x>
+     <y>90</y>
+     <width>71</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="cursor">
@@ -306,22 +294,22 @@ border: none;</string>
    </property>
    <property name="icon">
     <iconset resource="game_recources.qrc">
-     <normaloff>:/game_backgrounds/pics_project/clipart244133.png</normaloff>:/game_backgrounds/pics_project/clipart244133.png</iconset>
+     <normaloff>:/game_backgrounds/pics_project/silo (2).png</normaloff>:/game_backgrounds/pics_project/silo (2).png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>200</width>
-     <height>200</height>
+     <width>150</width>
+     <height>150</height>
     </size>
    </property>
   </widget>
   <widget class="QPushButton" name="barn_pushButton">
    <property name="geometry">
     <rect>
-     <x>480</x>
-     <y>380</y>
-     <width>271</width>
-     <height>181</height>
+     <x>1040</x>
+     <y>410</y>
+     <width>111</width>
+     <height>111</height>
     </rect>
    </property>
    <property name="cursor">
@@ -339,79 +327,22 @@ border: none;</string>
    </property>
    <property name="icon">
     <iconset resource="game_recources.qrc">
-     <normaloff>:/game_backgrounds/pics_project/anbar.png</normaloff>:/game_backgrounds/pics_project/anbar.png</iconset>
+     <normaloff>:/game_backgrounds/pics_project/barn.png</normaloff>:/game_backgrounds/pics_project/barn.png</iconset>
    </property>
    <property name="iconSize">
     <size>
-     <width>300</width>
-     <height>300</height>
+     <width>100</width>
+     <height>100</height>
     </size>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>580</y>
-     <width>261</width>
-     <height>161</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/favpng_common-wheat-cereal-ear-illustration.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>-30</x>
-     <y>560</y>
-     <width>261</width>
-     <height>161</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/favpng_common-wheat-cereal-ear-illustration.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>530</y>
-     <width>261</width>
-     <height>161</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/favpng_common-wheat-cereal-ear-illustration.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>500</y>
-     <width>261</width>
-     <height>161</height>
+     <x>720</x>
+     <y>200</y>
+     <width>81</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -427,169 +358,14 @@ border: none;</string>
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>1010</x>
-     <y>590</y>
-     <width>111</width>
-     <height>151</height>
+     <x>350</x>
+     <y>400</y>
+     <width>251</width>
+     <height>201</height>
     </rect>
    </property>
    <property name="text">
     <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/Tea_plant.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_11">
-   <property name="geometry">
-    <rect>
-     <x>1120</x>
-     <y>610</y>
-     <width>111</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/Tea_plant.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_12">
-   <property name="geometry">
-    <rect>
-     <x>950</x>
-     <y>580</y>
-     <width>131</width>
-     <height>171</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/Tea_plant.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_13">
-   <property name="geometry">
-    <rect>
-     <x>1080</x>
-     <y>570</y>
-     <width>111</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/Tea_plant.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_14">
-   <property name="geometry">
-    <rect>
-     <x>1150</x>
-     <y>560</y>
-     <width>111</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/Tea_plant.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_15">
-   <property name="geometry">
-    <rect>
-     <x>1040</x>
-     <y>540</y>
-     <width>111</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/Tea_plant.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_16">
-   <property name="geometry">
-    <rect>
-     <x>1090</x>
-     <y>540</y>
-     <width>111</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/Tea_plant.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_17">
-   <property name="geometry">
-    <rect>
-     <x>1140</x>
-     <y>550</y>
-     <width>111</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/Tea_plant.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_18">
-   <property name="geometry">
-    <rect>
-     <x>920</x>
-     <y>560</y>
-     <width>111</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/Tea_plant.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -598,7 +374,7 @@ border: none;</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>1140</x>
+     <x>1150</x>
      <y>10</y>
      <width>101</width>
      <height>91</height>
@@ -617,7 +393,7 @@ border: none;</string>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>1020</x>
+     <x>1030</x>
      <y>30</y>
      <width>71</width>
      <height>41</height>
@@ -647,101 +423,97 @@ border: none;</string>
   <widget class="QPushButton" name="next_day">
    <property name="geometry">
     <rect>
-     <x>1010</x>
-     <y>100</y>
-     <width>80</width>
-     <height>21</height>
+     <x>1110</x>
+     <y>640</y>
+     <width>121</width>
+     <height>111</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Next Day</string>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
-  </widget>
-  <widget class="QLabel" name="exp">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>80</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Next Day&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
-   <property name="text">
-    <string>exp :</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="exp_num">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>80</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
    </property>
    <property name="text">
     <string/>
    </property>
-  </widget>
-  <widget class="QLabel" name="level">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>120</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/next.png</normaloff>:/game_backgrounds/pics_project/next.png</iconset>
    </property>
-   <property name="text">
-    <string>level : </string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="level_num">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>120</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
+   <property name="iconSize">
+    <size>
+     <width>150</width>
+     <height>150</height>
+    </size>
    </property>
   </widget>
   <widget class="QPushButton" name="back">
    <property name="geometry">
     <rect>
-     <x>620</x>
-     <y>30</y>
-     <width>80</width>
-     <height>21</height>
+     <x>10</x>
+     <y>670</y>
+     <width>81</width>
+     <height>71</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back To Login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
    <property name="text">
-    <string>back</string>
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/back.png</normaloff>:/game_backgrounds/pics_project/back.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>75</width>
+     <height>75</height>
+    </size>
    </property>
   </widget>
   <widget class="QLabel" name="day">
    <property name="geometry">
     <rect>
-     <x>1080</x>
-     <y>50</y>
-     <width>47</width>
-     <height>13</height>
+     <x>1106</x>
+     <y>41</y>
+     <width>51</width>
+     <height>31</height>
     </rect>
    </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(179, 0, 255);
+font: 16pt &quot;MS Shell Dlg 2&quot;;
+</string>
+   </property>
    <property name="text">
-    <string/>
+    <string>d</string>
    </property>
   </widget>
   <widget class="QPushButton" name="chicken_lock">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>580</y>
-     <width>141</width>
-     <height>101</height>
+     <x>950</x>
+     <y>130</y>
+     <width>271</width>
+     <height>211</height>
     </rect>
    </property>
    <property name="cursor">
@@ -760,18 +532,18 @@ border:none;</string>
    </property>
    <property name="iconSize">
     <size>
-     <width>150</width>
-     <height>150</height>
+     <width>250</width>
+     <height>250</height>
     </size>
    </property>
   </widget>
   <widget class="QPushButton" name="cow_lock">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>410</y>
-     <width>171</width>
-     <height>111</height>
+     <x>640</x>
+     <y>480</y>
+     <width>251</width>
+     <height>241</height>
     </rect>
    </property>
    <property name="cursor">
@@ -790,18 +562,18 @@ border:none;</string>
    </property>
    <property name="iconSize">
     <size>
-     <width>150</width>
-     <height>150</height>
+     <width>250</width>
+     <height>250</height>
     </size>
    </property>
   </widget>
   <widget class="QPushButton" name="sheep_lock">
    <property name="geometry">
     <rect>
-     <x>-20</x>
-     <y>420</y>
-     <width>231</width>
-     <height>111</height>
+     <x>40</x>
+     <y>170</y>
+     <width>241</width>
+     <height>211</height>
     </rect>
    </property>
    <property name="cursor">
@@ -820,18 +592,18 @@ border:none;</string>
    </property>
    <property name="iconSize">
     <size>
-     <width>170</width>
-     <height>150</height>
+     <width>250</width>
+     <height>250</height>
     </size>
    </property>
   </widget>
   <widget class="QPushButton" name="store_lock">
    <property name="geometry">
     <rect>
-     <x>660</x>
-     <y>460</y>
+     <x>60</x>
+     <y>450</y>
      <width>241</width>
-     <height>141</height>
+     <height>241</height>
     </rect>
    </property>
    <property name="cursor">
@@ -858,10 +630,10 @@ border:none;</string>
   <widget class="QPushButton" name="alfalfa_lock">
    <property name="geometry">
     <rect>
-     <x>890</x>
-     <y>610</y>
-     <width>691</width>
-     <height>141</height>
+     <x>420</x>
+     <y>470</y>
+     <width>141</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="cursor">
@@ -880,48 +652,1231 @@ border:none;</string>
    </property>
    <property name="iconSize">
     <size>
-     <width>800</width>
-     <height>1000</height>
+     <width>150</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>370</y>
+     <width>261</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/land3.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>110</y>
+     <width>261</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/land3.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_19">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>100</y>
+     <width>261</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/land2.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_20">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>420</y>
+     <width>261</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/land2.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_21">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>440</y>
+     <width>321</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/land1.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_22">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>110</y>
+     <width>321</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/land1.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_23">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>450</y>
+     <width>261</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/land2.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_24">
+   <property name="geometry">
+    <rect>
+     <x>920</x>
+     <y>80</y>
+     <width>321</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/land1.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_7">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_8">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_9">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_10">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>470</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_11">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_12">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_13">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>470</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_14">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>470</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_15">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_16">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_17">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_18">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>470</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_19">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>470</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_20">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_21">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>470</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_22">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_23">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>460</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_24">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>470</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="alfalfa_pushButton_25">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>470</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Barley&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/Tea_plant.png</normaloff>:/game_backgrounds/pics_project/Tea_plant.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>150</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>190</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/favpng_common-wheat-cereal-ear-illustration.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>190</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/favpng_common-wheat-cereal-ear-illustration.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>200</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/favpng_common-wheat-cereal-ear-illustration.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>200</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/favpng_common-wheat-cereal-ear-illustration.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>190</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/favpng_common-wheat-cereal-ear-illustration.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>200</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="game_recources.qrc">:/game_backgrounds/pics_project/favpng_common-wheat-cereal-ear-illustration.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cow_pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>480</y>
+     <width>111</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Cow pasture&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/cow.png</normaloff>:/game_backgrounds/pics_project/cow.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>100</width>
+     <height>100</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="chicken_pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>1100</x>
+     <y>150</y>
+     <width>91</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;chicken coop&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/hen.png</normaloff>:/game_backgrounds/pics_project/hen.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>70</width>
+     <height>70</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="chicken_pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>980</x>
+     <y>140</y>
+     <width>111</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;chicken coop&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/hen.png</normaloff>:/game_backgrounds/pics_project/hen.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>70</width>
+     <height>70</height>
     </size>
    </property>
   </widget>
   <zorder>label</zorder>
   <zorder>profile_pushButton</zorder>
-  <zorder>chicken_pushButton</zorder>
-  <zorder>cow_pushButton</zorder>
-  <zorder>sheep_pushButton</zorder>
-  <zorder>barn_pushButton</zorder>
-  <zorder>silo_pushButton</zorder>
-  <zorder>label_3</zorder>
-  <zorder>label_4</zorder>
-  <zorder>label_5</zorder>
-  <zorder>label_6</zorder>
-  <zorder>wheat_pushButton</zorder>
   <zorder>label_9</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_7</zorder>
+  <zorder>day</zorder>
+  <zorder>label_8</zorder>
+  <zorder>label_10</zorder>
+  <zorder>label_19</zorder>
+  <zorder>label_20</zorder>
+  <zorder>label_21</zorder>
+  <zorder>label_22</zorder>
+  <zorder>label_23</zorder>
+  <zorder>silo_pushButton</zorder>
   <zorder>store_pushButton</zorder>
+  <zorder>barn_pushButton</zorder>
+  <zorder>sheep_pushButton</zorder>
+  <zorder>cow_pushButton</zorder>
+  <zorder>label_24</zorder>
+  <zorder>alfalfa_pushButton_2</zorder>
+  <zorder>alfalfa_pushButton_3</zorder>
+  <zorder>alfalfa_pushButton_4</zorder>
+  <zorder>alfalfa_pushButton_5</zorder>
+  <zorder>alfalfa_pushButton_6</zorder>
+  <zorder>alfalfa_pushButton_7</zorder>
+  <zorder>alfalfa_pushButton_8</zorder>
+  <zorder>alfalfa_pushButton_9</zorder>
+  <zorder>alfalfa_pushButton_10</zorder>
+  <zorder>alfalfa_pushButton_11</zorder>
+  <zorder>alfalfa_pushButton_12</zorder>
+  <zorder>alfalfa_pushButton_13</zorder>
+  <zorder>alfalfa_pushButton_14</zorder>
+  <zorder>alfalfa_pushButton_15</zorder>
+  <zorder>alfalfa_pushButton_16</zorder>
+  <zorder>alfalfa_pushButton_17</zorder>
+  <zorder>alfalfa_pushButton_18</zorder>
+  <zorder>alfalfa_pushButton_19</zorder>
+  <zorder>alfalfa_pushButton_20</zorder>
+  <zorder>alfalfa_pushButton_21</zorder>
+  <zorder>alfalfa_pushButton_22</zorder>
+  <zorder>alfalfa_pushButton_23</zorder>
+  <zorder>alfalfa_pushButton_24</zorder>
+  <zorder>alfalfa_pushButton_25</zorder>
+  <zorder>label_6</zorder>
   <zorder>label_11</zorder>
   <zorder>label_12</zorder>
   <zorder>label_13</zorder>
   <zorder>label_14</zorder>
   <zorder>label_15</zorder>
   <zorder>label_16</zorder>
-  <zorder>label_17</zorder>
-  <zorder>label_18</zorder>
-  <zorder>alfalfa_pushButton</zorder>
-  <zorder>label_2</zorder>
-  <zorder>label_7</zorder>
-  <zorder>next_day</zorder>
-  <zorder>exp</zorder>
-  <zorder>exp_num</zorder>
-  <zorder>level</zorder>
-  <zorder>level_num</zorder>
-  <zorder>back</zorder>
-  <zorder>day</zorder>
-  <zorder>chicken_lock</zorder>
-  <zorder>cow_lock</zorder>
-  <zorder>sheep_lock</zorder>
   <zorder>store_lock</zorder>
+  <zorder>sheep_lock</zorder>
+  <zorder>cow_lock</zorder>
+  <zorder>cow_pushButton_2</zorder>
+  <zorder>wheat_pushButton</zorder>
+  <zorder>alfalfa_pushButton</zorder>
   <zorder>alfalfa_lock</zorder>
+  <zorder>chicken_pushButton_2</zorder>
+  <zorder>chicken_pushButton_3</zorder>
+  <zorder>chicken_pushButton</zorder>
+  <zorder>back</zorder>
+  <zorder>next_day</zorder>
+  <zorder>chicken_lock</zorder>
  </widget>
  <resources>
   <include location="game_recources.qrc"/>

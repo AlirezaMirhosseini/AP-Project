@@ -94,7 +94,7 @@ void chicken_coop::increamenter_collect()
 void chicken_coop::on_feed_clicked()
 {
     if(info["chicken_count"].toInt() == 0)
-        QMessageBox::warning(this , "You havent Chicken!" ,"You have to buy a chicken!");
+        QMessageBox::warning(this , "You haven't Chicken!" ,"You have to buy a chicken!");
     else if(info["chicken_feeded"].toBool())
         QMessageBox::warning(this , "Already done!" ,"Chickens already feeded !");
     else if(info["chicken_feed_time"].toInt() != -1){
@@ -212,7 +212,7 @@ void chicken_coop::on_collecteggs_clicked()
     for(int mineCounter = 0;mineCounter<info["barn_level"].toInt() - 1;mineCounter++)
         nbr=ceil(nbr*1.5);
     time_t _time = time(NULL) + info["time"].toInt();
-    if(info["chicken_feed_time"].toInt() != -1 && _time - info["chicken_feed_time"].toInt() < 100){
+    if(info["chicken_feed_time"].toInt() != -1 && _time - info["chicken_feed_time"].toInt() < 172800){
         int sec = (100 - ui->eggs_pro->value()) * 172800 / 100; // after multiply
         int remain_hour = 0, remain_min = 0;
         while (sec > 3600) {
@@ -230,7 +230,7 @@ void chicken_coop::on_collecteggs_clicked()
         if(remain_min > 1)
             mstr.append('s');
         QMessageBox::warning(this , "Come later!" ,
-                             "You can collect egg " + QString::number(remain_hour) + " " + hstr + " and " +
+                             "You can collect eggs " + QString::number(remain_hour) + " " + hstr + " and " +
                              QString::number(remain_min) + " " + mstr + " later !");
     }
     else if(!info["chicken_feeded"].toBool())

@@ -214,11 +214,11 @@ void alfalfa_field::on_btn_harvesting_clicked()
 void alfalfa_field::on_btn_plow_clicked()
 {
     if(info["alfalfa_plowed"].toBool() )
-        QMessageBox::warning(this , "Plow first!" , "You have already plowed !");
+        QMessageBox::warning(this , "Already done!" , "You have already plowed !");
     else if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() != -1 )
-        QMessageBox::warning(this , "Come later!" , "You cant plow , alfalfa isn't ripe !");
+        QMessageBox::warning(this , "Come later!" , "You can't plow , alfalfa isn't ripe !");
     else if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() == -1)
-        QMessageBox::warning(this , "Alfalfa is ready!" , "you cant plow , You havent harvesting yet !");
+        QMessageBox::warning(this , "Alfalfa is ready!" , "You can't plow , You havent harvesting yet !");
     else
     {
         time_t _time = time(NULL) + info["time"].toInt();
