@@ -203,7 +203,6 @@ void sheep_pasture::on_Fleece_Shave_clicked()
                              "You can Shave " + QString::number(remain_hour) + " " + hstr + " and " +
                              QString::number(remain_min) + " " + mstr + " later !");
     }
-
     else if(!info["sheep_feeded"].toBool())
         QMessageBox::warning(this , "Come later!" ,"You heve to feed first!");
 
@@ -224,8 +223,8 @@ void sheep_pasture::on_Fleece_Shave_clicked()
             info["sheep_count"].toInt())//sheep count for added fleece number
         QMessageBox::warning(this , "Space needed !" ,"You don't have enough space in barn !");
     else{
+        QMessageBox::information(this, tr("Done Successfully !"), tr("Product Transferred to Barn !"), QMessageBox::Ok);
         info["sheep_feeded"] = false;
-
         info["fleece_count"] = QJsonValue(info["fleece_count"] .toInt() + info["sheep_count"].toInt());
         info["sheep_feed_time"] = -1;
         QJsonArray info_2 = _info["User"].toArray();

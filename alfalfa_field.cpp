@@ -44,17 +44,11 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
     else
         ui->build->hide();
 
-
-
-
-
     if(!info["alfalfa_in_use"].toBool()){
         ui->lbl_cultivated_area->hide();
         ui->lbl_cultivated_area_value->hide();
         ui->lbl_level_container_3->hide();
     }
-
-
     if(info["alfalfa_upgrade_time"].toInt() == -1)
         ui->alfalfa_upgrade_pro->hide();
     else{
@@ -62,8 +56,6 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
         ui->alfalfa_upgrade_pro->setValue(info["alfalfa_upgrade_pro"].toInt());
         timer1->start(1000);
     }
-
-
     if(info["alfalfa_plow_time"].toInt() == -1)
         ui->plow_pro->hide();
     else{
@@ -71,7 +63,6 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
         ui->plow_pro->setValue(info["alfalfa_plow_pro"].toInt());
         timer2->start(1000);
     }
-
     if(info["alfalfa_seed_time"].toInt() == -1)
         ui->seed_pro->hide();
     else{
@@ -80,14 +71,10 @@ alfalfa_field::alfalfa_field(QWidget *parent, int _id):
         timer3->start(1000);
     }
 
-
-
     ui->spinBox->setMaximum(min2(info["alfalfa_count"].toInt(),4 * pow(2, info["alfalfa_level"].toInt() - 1)));
     ui->lbl_area_value->setText(QString::number(4 * pow(2, info["alfalfa_level"].toInt() - 1)));
     ui->lbl_level_value->setText(QString::number(info["alfalfa_level"].toInt()));
     ui->lbl_cultivated_area_value->setText(QString::number(info["alfalfa_cultivated_area"].toInt()));
-
-
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_plow()));
