@@ -10,66 +10,58 @@ sheep_pasture::sheep_pasture(QWidget *parent , int _id) :
     ui(new Ui::sheep_pasture)
 {
     ui->setupUi(this);
-    id=_id;
-    farm = new QWidget;
-    farm = parent;
-    timer1 = new QTimer();
-    timer2 = new QTimer();
+      id=_id;
+      farm = new QWidget;
+      farm = parent;
+      timer1 = new QTimer();
+      timer2 = new QTimer();
 
-    _info = read_info();
-    info = (_info["User"].toArray())[id].toObject();
+      _info = read_info();
+      info = (_info["User"].toArray())[id].toObject();
 
-    if(info["sheep_level"].toInt() == 0){
-        ui->Fleece_Shave->setEnabled(false);
-        ui->feed->setEnabled(false);
-        ui->capacity->hide();
-        ui->count->hide();
-        ui->label->hide();
-        ui->label_3->hide();
-        ui->label_5->hide();
-        ui->label_6->hide();
-        ui->label_7->hide();
-        ui->label_8->hide();
-        ui->count->hide();
-        ui->capacity->hide();
-        ui->level->hide();
-    }
-    else
-        ui->build->hide();
+      if(info["sheep_level"].toInt() == 0){
+          ui->Fleece_Shave->setEnabled(false);
+          ui->feed->setEnabled(false);
+          ui->capacity->hide();
+          ui->count->hide();
+          ui->label->hide();
+          ui->label_3->hide();
+          ui->label_5->hide();
+          ui->label_6->hide();
+          ui->label_7->hide();
+          ui->label_8->hide();
+          ui->count->hide();
+          ui->capacity->hide();
+          ui->level->hide();
+          if(info["sheep_upgrade_time"].toInt() != -1)
+              ui->build->setEnabled(false);
+      }
+      else
+          ui->build->hide();
 
-    if(info["sheep_upgrade_time"].toInt() == -1)
-        ui->sheep_pro->hide();
-    else
-        ui->sheep_pro->setValue(info["sheep_upgrade_pro"].toInt());
+      if(info["sheep_upgrade_time"].toInt() == -1)
+          ui->sheep_pro->hide();
+      else{
+          ui->sheep_pro->setValue(info["sheep_upgrade_pro"].toInt());
+         ui->upgrade->setEnabled(false);
+               timer1->start(1000);
+  }
 
+      if(info["sheep_feed_time"].toInt() == -1)
+          ui->fleece_pro->hide();
+      else{
+          ui->fleece_pro->setValue(info["sheep_fleece_pro"].toInt());
+           ui->feed->setEnabled(false);
+            timer2->start(1000);
+  }
 
-    if(info["sheep_feed_time"].toInt() == -1)
-        ui->fleece_pro->hide();
-    else
-        ui->fleece_pro->setValue(info["sheep_fleece_pro"].toInt());
-
-
-    ui->count->setText(QString::number(info["sheep_count"].toInt()));
-    ui->capacity->setText(QString::number( pow(2,info["sheep_level"].toInt())));
-    ui->level->setText(QString::number(info["sheep_level"].toInt()));
-
-    if(info["sheep_upgrade_time"].toInt() == -1)
-        ui->sheep_pro->hide();
-
-    if(info["sheep_feed_time"] != -1)
-        ui->feed->setEnabled(false);
-
-    ui->sheep_pro->setValue(info["sheep_upgrade_pro"].toInt());
-
-    if(info["sheep_upgrade_time"].toInt() != -1)
-        timer1->start(1000);
-
-    if(info["sheep_feed_time"].toInt() != -1)
-        timer2->start(1000);
+      ui->count->setText(QString::number(info["sheep_count"].toInt()));
+      ui->capacity->setText(QString::number( pow(2,info["sheep_level"].toInt())));
+      ui->level->setText(QString::number(info["sheep_level"].toInt()));
 
 
-    connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
-    connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_collect()));
+      connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
+      connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_collect()));
 }
 
 sheep_pasture::~sheep_pasture()

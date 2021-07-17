@@ -27,11 +27,20 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
 
     if(info["wheat_upgrade_time"].toInt() == -1)
         ui->wheat_upgrade_pro->hide();
+    else{
+        ui->wheat_upgrade_pro->setValue(info["wheat_upgrade_pro"].toInt());
+        ui->upgrade->setEnabled(false);
+        timer1->start(1000);
+    }
 
-    if(info["wheat_seed_time"].toInt() != -1)
-        ui->seed->setEnabled(false);
-    else
+    if(info["wheat_seed_time"].toInt() == -1)
         ui->seed_progress->hide();
+    else{
+        ui->seed_progress->setValue(info["wheat_seed_pro"].toInt());
+        ui->seed->setEnabled(false);
+        timer2->start(1000);
+
+    }
 
     if(!info["wheat_in_use"].toBool()){
         ui->lbl_cultivated_area->hide();
@@ -44,11 +53,6 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     ui->lbl_cultivated_area_value->setText(QString::number( info["wheat_cultivated_area"].toInt()));
     ui->wheat_upgrade_pro->setValue(info["wheat_upgrade_pro"].toInt());
     ui->seed_progress->setValue(info["wheat_seed_pro"].toInt());
-
-    if(info["wheat_upgrade_time"].toInt() != -1)
-        timer1->start(1000);
-    if(info["wheat_seed_time"].toInt() != -1)
-        timer2->start(1000);
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_seed()));
