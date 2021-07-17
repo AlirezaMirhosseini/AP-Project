@@ -142,6 +142,9 @@ void cow_pasture::on_feed_clicked()
 
 void cow_pasture::on_collect_milk_clicked()
 {
+    int nbr=5;
+    for(int mineCounter = 0;mineCounter<info["barn_level"].toInt() - 1;mineCounter++)
+        nbr=ceil(nbr*1.5);
     QJsonArray milk_array = info["milks"].toArray();
     time_t _time = time(NULL) + info["time"].toInt();
 
@@ -168,7 +171,7 @@ void cow_pasture::on_collect_milk_clicked()
     }
     else if(!info["cow_feeded"].toBool())
         QMessageBox::warning(this , "Come later!" ,"You heve to feed first!");
-    else if(ceil(5 * pow(1.5, info["barn_level"].toInt() - 1)) <
+    else if(nbr <
             info["nail_count"].toInt() +
             info["shovel_count"].toInt() +
             info["alfalfa_count"].toInt() +
