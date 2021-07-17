@@ -4,6 +4,8 @@
 #define REGISTER_INFO_H
 
 #include <QDialog>
+#include <QRegularExpression>
+#include <QValidator>
 
 namespace Ui {class register_info;}
 

@@ -27,11 +27,20 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
 
     if(info["wheat_upgrade_time"].toInt() == -1)
         ui->wheat_upgrade_pro->hide();
+    else{
+        ui->wheat_upgrade_pro->setValue(info["wheat_upgrade_pro"].toInt());
+        ui->upgrade->setEnabled(false);
+        timer1->start(1000);
+    }
 
-    if(info["wheat_seed_time"].toInt() != -1)
-        ui->seed->setEnabled(false);
-    else
+    if(info["wheat_seed_time"].toInt() == -1)
         ui->seed_progress->hide();
+    else{
+        ui->seed_progress->setValue(info["wheat_seed_pro"].toInt());
+        ui->seed->setEnabled(false);
+        timer2->start(1000);
+
+    }
 
     if(!info["wheat_in_use"].toBool()){
         ui->lbl_cultivated_area->hide();
@@ -44,11 +53,6 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     ui->lbl_cultivated_area_value->setText(QString::number( info["wheat_cultivated_area"].toInt()));
     ui->wheat_upgrade_pro->setValue(info["wheat_upgrade_pro"].toInt());
     ui->seed_progress->setValue(info["wheat_seed_pro"].toInt());
-
-    if(info["wheat_upgrade_time"].toInt() != -1)
-        timer1->start(1000);
-    if(info["wheat_seed_time"].toInt() != -1)
-        timer2->start(1000);
 
     connect(timer1,SIGNAL(timeout()),this,SLOT(increamenter_upgrade()));
     connect(timer2,SIGNAL(timeout()),this,SLOT(increamenter_seed()));
@@ -155,6 +159,7 @@ void wheat_field::on_Harvesting_clicked()
     else if(5 * pow(2,info["silo_level"].toInt())  < info["wheat_count"].toInt() + 2 * info["wheat_cultivated_area"].toInt())
         QMessageBox::warning(this , "Space needed !" , "You dont have enough space in silo !");
     else{
+        QMessageBox::information(this, tr("Done Successfully !"), tr("Product Transferred to Silo !"), QMessageBox::Ok);
         info["wheat_count"] = info["wheat_count"].toInt() + 2 * info["wheat_cultivated_area"].toInt();
         info["wheat_in_use"] = false;
         info["exp"] =QJsonValue(info["exp"].toInt() + info["wheat_cultivated_area"].toInt());
@@ -162,8 +167,8 @@ void wheat_field::on_Harvesting_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        Refresh();
 
+        Refresh();
     }
 }
 
