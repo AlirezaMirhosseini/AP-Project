@@ -123,7 +123,7 @@ void alfalfa_field::on_btn_upgrade_clicked()
 {
     if(info["level_player"].toInt() < 4)
         QMessageBox::warning(this , "You must level up!" , "You need to reach <b>level 4</b> !!!" );
-    else if(info["coin"].toInt() < 5 *(4 * pow(2, info["alfalfa_level"].toInt() - 1))){
+    else if(info["coin"].toInt() < 5 * (4 * pow(2, info["alfalfa_level"].toInt() - 1))){
         if(5 *(4 * pow(2, info["alfalfa_level"].toInt() - 1)) - info["coin"].toInt() == 1)
             QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
         else
@@ -175,6 +175,10 @@ void alfalfa_field::on_btn_seed_clicked()
 
 void alfalfa_field::on_btn_harvesting_clicked()
 {
+    int nbr = 5;
+    for(int mineCounter = 0; mineCounter < info["barn_level"].toInt() - 1; mineCounter++)
+        nbr = ceil(nbr * 1.5);
+
     if(!info["alfalfa_in_use"].toBool())
         QMessageBox::warning(this , "Seed first!" , "You havent seed yet !");
     else if(info["alfalfa_in_use"].toBool() && info["alfalfa_seed_time"].toInt() != -1 ){
@@ -198,6 +202,14 @@ void alfalfa_field::on_btn_harvesting_clicked()
                              "Alfalfa will be ready in " + QString::number(remain_hour) + " " + hstr + " and " +
                              QString::number(remain_min) + " " + mstr + " !");
     }
+    else if(nbr < info["alfalfa_count"].toInt() +
+            2 * info["alfalfa_cultivated_area"].toInt() +
+            info["fleece_count"].toInt() +
+            info["shovel_count"].toInt() +
+            info["eggs_count"].toInt() +
+            info["milk_count"].toInt() +
+            info["nail_count"].toInt())
+        QMessageBox::warning(this , "Space needed !" , "You dont have enough space in barn !");
     else{
         QMessageBox::information(this, tr("Done Successfully !"), tr("Product Transferred to Barn !"), QMessageBox::Ok);
         info["alfalfa_count"] = QJsonValue(info["alfalfa_count"].toInt() + 2 * info["alfalfa_cultivated_area"].toInt());
