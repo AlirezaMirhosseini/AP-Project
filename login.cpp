@@ -29,9 +29,10 @@ login::~login()
 
 void login::on_pushButton_clicked()
 {
-    if(ui->lineEdit->text().isEmpty() || ui->lineEdit_2->text().isEmpty()){
-        QMessageBox::warning(this,"Fill the blanks!","Username or Password is empty please fill both of them !");
-    }
+    if(ui->lineEdit->text().isEmpty())
+        QMessageBox::warning(this,"Fill the blanks!","Username is empty! please fill it !");
+    else if(ui->lineEdit_2->text().isEmpty())
+        QMessageBox::warning(this,"Fill the blanks!","Password is empty please fill it !");
     else{
         bool temp = 1;
         QJsonObject _info = read_info();
@@ -46,7 +47,7 @@ void login::on_pushButton_clicked()
             }
         }
         if(temp){
-            QMessageBox::warning(this,"Not found !","there is no any account with these username and password !");
+            QMessageBox::warning(this,"Not found !","There is no any account with these Username and Password !");
         }
     }
 }
