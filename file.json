@@ -35,7 +35,7 @@
             "cow_upgrade_time": -1,
             "eggs_count": 0,
             "email": "a@G.com",
-            "exp": 110,
+            "exp": 112,
             "fleece_count": 0,
             "gender": "      Male",
             "level_player": 4,
@@ -59,8 +59,8 @@
             "silo_upgrade_pro": -1,
             "silo_upgrade_time": -1,
             "store_lock": false,
-            "time": 2635200,
-            "time_exp": 1629129672,
+            "time": 2808000,
+            "time_exp": 1629302472,
             "username": "a",
             "wheat_count": 0,
             "wheat_cultivated_area": 2,
@@ -72,6 +72,6 @@
             "wheat_upgrade_time": -1
         }
     ],
-    "time_30": 1626540250,
+    "time_30": 1626540310,
     "time_in_use": true
 }
