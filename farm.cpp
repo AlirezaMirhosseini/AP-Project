@@ -6,6 +6,7 @@
 #include <QIcon>
 #include <login.h>
 #include <QMessageBox>
+#include "profile.h"
 
 
 farm::farm( int _id) :
@@ -184,6 +185,9 @@ void farm::on_alfalfa_lock_clicked()
 
 void farm::on_profile_pushButton_clicked()
 {
+    QByteArray data;
     client * window = new client (this , id);
+    //profile* window2 = new profile(this,id,data);
+    //window2->show();
    // window->show();
 }
