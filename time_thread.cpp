@@ -22,7 +22,7 @@ void time_thread::run()
             else if(time_30 - _info["time_30"].toInt() >= 15 ){
                 _info["time_30"] = time_30;
                 info["time"] = info["time"].toInt() + 43200 ;
-             }
+            }
 
             time_t _time = time(NULL)  + info["time"].toInt();
 
@@ -204,6 +204,15 @@ void time_thread::run()
             for(int j= 0 ; j < info["milks"].toArray().size() ; j++ )
                 if(_time - info["milks"].toArray()[j].toInt() >= 864000)
                     info["milks"].toArray().erase(info["milks"].toArray().begin() + j);
+
+            QJsonArray milk_array = info["milks"].toArray();
+            for(int j= 0 ; j < milk_array.size() ; j++ ){
+                if(_time - milk_array[j].toInt() >= 864000){
+                    milk_array.erase(milk_array.begin() + j);
+                }
+            }
+            info["milks"] = milk_array;
+            info["milk_count"] = milk_array.size();
 
             for(int j=  info["level_player"].toInt() ; true ; j++){
                 if(info["exp"].toInt() < (pow(2 , j) -1)*10){
