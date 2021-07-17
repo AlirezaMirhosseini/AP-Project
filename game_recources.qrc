@@ -15,7 +15,6 @@
         <file>pics_project/favpng_grocery-store-shopping-clip-art.png</file>
         <file>pics_project/favpng_common-wheat-cereal-ear-illustration.png</file>
         <file>pics_project/favpng_vaisakhi.png</file>
-        <file>pics_project/clipart244133.png</file>
         <file>pics_project/Tea_plant.png</file>
         <file>pics_project/sun.png</file>
         <file>pics_project/egg.png</file>
@@ -102,5 +101,14 @@
         <file>pics_project/grass.png</file>
         <file>pics_project/exp.png</file>
         <file>pics_project/level.png</file>
+        <file>pics_project/farm back.jpg</file>
+        <file>pics_project/land1.png</file>
+        <file>pics_project/land2.png</file>
+        <file>pics_project/land3.png</file>
+        <file>pics_project/land4.png</file>
+        <file>pics_project/silo (2).png</file>
+        <file>pics_project/barn.png</file>
+        <file>pics_project/back.png</file>
+        <file>pics_project/next.png</file>
     </qresource>
 </RCC>
