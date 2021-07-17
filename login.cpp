@@ -58,4 +58,3 @@ void login::on_pushButton_2_clicked()
     w->show();
     this->close();
 }
-
