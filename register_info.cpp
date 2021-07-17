@@ -144,6 +144,7 @@ void register_info::on_pushButton_clicked()
                 obj["cow_lock"] = true;
                 obj["chicken_lock"] = true;
                 obj["alfalfa_lock"] = true;
+                obj["time_exp"] = now;
 
 
                 info.push_back(QJsonValue(obj));
