@@ -38,53 +38,52 @@ silo::~silo()
 
 void silo::on_upgrade_clicked()
 {
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this," ","Are you sure ?", QMessageBox::Yes | QMessageBox::No);
-    if(reply == QMessageBox::Yes){
-        if((info["silo_level"].toInt() + 1 ) >= info["level_player"].toInt())
-            QMessageBox::warning(this , "You must level up!" ,"Silo level cannot be higher than your level !");
-        else{
-            if(info["coin"].toInt() < (100 * pow((2 * info["silo_level"].toInt()), 2))){
-                if((100 * pow((2 * info["silo_level"].toInt()), 2)) - info["coin"].toInt() == 1)
-                    QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
-                else
-                    QMessageBox::warning(this , "Supply needed !" , "You need " +
-                                         QString::number((100 * pow((2 * info["silo_level"].toInt()), 2)) - info["coin"].toInt()) + " more coins !");
-            }
-            else if((info["nail_count"].toInt() < (2 * info["silo_level"].toInt()))){
-                if((2 * info["silo_level"].toInt()) - info["nail_count"].toInt() == 1)
-                    QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more nail !");
-                else
-                    QMessageBox::warning(this , "Supply needed !" , "You need " +
-                                         QString::number((2 * info["silo_level"].toInt()) - info["nail_count"].toInt()) + " more nails !");
-            }
-            else if (info["shovel_count"].toInt() < (info["silo_level"].toInt()-2)){
-                if((info["silo_level"].toInt()-2) - info["shovel_count"].toInt() == 1)
-                    QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more shovel !");
-                else
-                    QMessageBox::warning(this , "Supply needed !" , "You need " +
-                                         QString::number((info["silo_level"].toInt()-2) - info["shovel_count"].toInt()) + " more shovels !");
-            }
-            else{
-                info["nail_count"] = QJsonValue(info["nail_count"].toInt() - 2 * info["silo_level"].toInt());
-                info["coin"] = QJsonValue( info["coin"].toInt() - (100*pow((2*info["silo_level"].toInt()), 2)));
-                if(info["silo_level"].toInt() > 2)
-                    info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - (info["silo_level"].toInt() - 2));
-                time_t _time = time(NULL) + info["time"].toInt();
-                info["silo_upgrade_time"] = _time;
-                QJsonArray info_2 = _info["User"].toArray();
-                info_2[id] = QJsonValue(info);
-                _info["User"] = info_2;
-                write_info(_info);
+    if((info["silo_level"].toInt() + 1 ) >= info["level_player"].toInt())
+        QMessageBox::warning(this , "You must level up!" ,"Silo level cannot be higher than your level !");
+    else if(info["coin"].toInt() < (100 * pow((2 * info["silo_level"].toInt()), 2))){
+        if((100 * pow((2 * info["silo_level"].toInt()), 2)) - info["coin"].toInt() == 1)
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
+        else
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                 QString::number((100 * pow((2 * info["silo_level"].toInt()), 2)) - info["coin"].toInt()) + " more coins !");
+    }
+    else if((info["nail_count"].toInt() < (2 * info["silo_level"].toInt()))){
+        if((2 * info["silo_level"].toInt()) - info["nail_count"].toInt() == 1)
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more nail !");
+        else
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                 QString::number((2 * info["silo_level"].toInt()) - info["nail_count"].toInt()) + " more nails !");
+    }
+    else if (info["shovel_count"].toInt() < (info["silo_level"].toInt()-2)){
+        if((info["silo_level"].toInt()-2) - info["shovel_count"].toInt() == 1)
+            QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more shovel !");
+        else
+            QMessageBox::warning(this , "Supply needed !" , "You need " +
+                                 QString::number((info["silo_level"].toInt()-2) - info["shovel_count"].toInt()) + " more shovels !");
+    }
+    else{
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this,"Confirmation","Are you sure ?", QMessageBox::Yes | QMessageBox::No);
+        if(reply == QMessageBox::Yes){
+            info["nail_count"] = QJsonValue(info["nail_count"].toInt() - 2 * info["silo_level"].toInt());
+            info["coin"] = QJsonValue( info["coin"].toInt() - (100*pow((2*info["silo_level"].toInt()), 2)));
+            if(info["silo_level"].toInt() > 2)
+                info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - (info["silo_level"].toInt() - 2));
+            time_t _time = time(NULL) + info["time"].toInt();
+            info["silo_upgrade_time"] = _time;
+            QJsonArray info_2 = _info["User"].toArray();
+            info_2[id] = QJsonValue(info);
+            _info["User"] = info_2;
+            write_info(_info);
 
-                QThread::msleep(100);
-                this->close();
-                silo *w = new silo(farm , id);
-                w->show();
-            }
+            QThread::msleep(100);
+            this->close();
+            silo *w = new silo(farm , id);
+            w->show();
         }
     }
 }
+
 
 void silo::increamenter_upgrade()
 {

@@ -179,6 +179,7 @@ void cow_pasture::on_collect_milk_clicked()
             info["cow_count"].toInt())//cow count for added milk number)
         QMessageBox::warning(this , "Space needed !" ,"You don't have enough space in barn !");
     else{
+        QMessageBox::information(this, tr("Done Successfully !"), tr("Product Transferred to Barn !"), QMessageBox::Ok);
         info["cow_feeded"] = false;
         time_t _time = time(NULL) + info["time"].toInt();
         for(int i =0 ; i < info["cow_count"].toInt() ; i++)

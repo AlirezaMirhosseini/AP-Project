@@ -2,6 +2,8 @@
 #define LOGIN_H
 
 #include <QDialog>
+#include <QRegularExpression>
+#include <QValidator>
 
 
 namespace Ui {

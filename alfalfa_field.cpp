@@ -210,6 +210,7 @@ void alfalfa_field::on_btn_harvesting_clicked()
                              QString::number(remain_min) + " " + mstr + " !");
     }
     else{
+        QMessageBox::information(this, tr("Done Successfully !"), tr("Product Transferred to Barn !"), QMessageBox::Ok);
         info["alfalfa_count"] = QJsonValue(info["alfalfa_count"].toInt() + 2 * info["alfalfa_cultivated_area"].toInt());
         info["alfalfa_in_use"] = QJsonValue(false);
         info["exp"] = QJsonValue(info["exp"].toInt() + 2 * 4 * pow(2, info["alfalfa_level"].toInt() - 1));

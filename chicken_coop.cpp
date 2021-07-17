@@ -243,6 +243,7 @@ void chicken_coop::on_collecteggs_clicked()
             info["chicken_count"].toInt()) //chicken count for added eggs number)
         QMessageBox::warning(this , "Space needed" ,"You don't have enough space in barn !");
     else{
+        QMessageBox::information(this, tr("Done Successfully !"), tr("Product Transferred to Barn !"), QMessageBox::Ok);
         info["chicken_feeded"] = false;
         info["eggs_count"] = QJsonValue(info["eggs_count"] .toInt() + info["chicken_count"].toInt());
         info["chicken_feed_time"] = -1;

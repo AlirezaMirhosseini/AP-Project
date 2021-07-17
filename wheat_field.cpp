@@ -155,6 +155,7 @@ void wheat_field::on_Harvesting_clicked()
     else if(5 * pow(2,info["silo_level"].toInt())  < info["wheat_count"].toInt() + 2 * info["wheat_cultivated_area"].toInt())
         QMessageBox::warning(this , "Space needed !" , "You dont have enough space in silo !");
     else{
+        QMessageBox::information(this, tr("Done Successfully !"), tr("Product Transferred to Silo !"), QMessageBox::Ok);
         info["wheat_count"] = info["wheat_count"].toInt() + 2 * info["wheat_cultivated_area"].toInt();
         info["wheat_in_use"] = false;
         info["exp"] =QJsonValue(info["exp"].toInt() + info["wheat_cultivated_area"].toInt());
@@ -162,8 +163,8 @@ void wheat_field::on_Harvesting_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-        Refresh();
 
+        Refresh();
     }
 }
 

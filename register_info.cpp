@@ -11,6 +11,19 @@ register_info::register_info(QWidget *parent) :
     ui->setupUi(this);
     ui->lineEdit_3->setEchoMode(QLineEdit::Password);
     ui->lineEdit_4->setEchoMode(QLineEdit::Password);
+
+    // Username Validation
+    QRegularExpression validate_username("\\b[A-Z0-9]{1,50}\\b",
+                          QRegularExpression::CaseInsensitiveOption);
+    ui->lineEdit_2->setValidator(new QRegularExpressionValidator(validate_username, this));
+    // Password Validation
+    QRegularExpression validate_password("\\b[A-Z0-9+!@#$%^&*()<>{}.?;=_:/'\"]{1,50}\\b",
+                          QRegularExpression::CaseInsensitiveOption);
+    ui->lineEdit_3->setValidator(new QRegularExpressionValidator(validate_password, this));
+    // Email Validation
+    QRegularExpression validate_email("\\b[A-Z0-9]{1,100}+@[A-Z0-9]{1,20}+\\.[A-Z]{2,4}\\b",
+                          QRegularExpression::CaseInsensitiveOption);
+    ui->lineEdit_5->setValidator(new QRegularExpressionValidator(validate_email, this));
 }
 
 register_info::~register_info()
@@ -20,7 +33,7 @@ register_info::~register_info()
 
 void register_info::on_pushButton_clicked()
 {
-    QJsonObject _info=read_info();
+    QJsonObject _info = read_info();
     QJsonArray info = _info["User"].toArray();
     if(ui->lineEdit->text().isEmpty() ||
             ui->lineEdit_2->text().isEmpty()||
@@ -28,27 +41,26 @@ void register_info::on_pushButton_clicked()
             ui->lineEdit_4->text().isEmpty()||
             ui->lineEdit_5->text().isEmpty())
         QMessageBox::warning(this ,"Fill the blanks!" , "one or more line is empty !");
-
+    else if(!ui->lineEdit_5->hasAcceptableInput())
+        QMessageBox::warning(this, tr("Email verification"),
+                             tr("Email format is incorrect!"), QMessageBox::Ok);
     else{
-        bool usernumber=0;
-        if(ui->lineEdit_3->text()!=ui->lineEdit_4->text()){
+        bool usernumber = 0;
+        if(ui->lineEdit_3->text() != ui->lineEdit_4->text())
             QMessageBox::warning(this ,"try again!" , "confirm password is not equal to password !");
-        }
         else{
-
-            for(int counter=0;counter<info.size();counter++){
-                if( (info[counter].toObject())["username"] == ui->lineEdit_2->text()){
+            for(int counter = 0; counter < info.size(); counter++){
+                if((info[counter].toObject())["username"] == ui->lineEdit_2->text()){
                     usernumber = 1;
                     break;
                 }
             }
-            if(usernumber){
+            if(usernumber)
                 QMessageBox::warning(this ,"Already existed !" , "this username have already used !");
-            }
             else{
                 QJsonObject obj;
                 QJsonArray _milk;
-                time_t now=time(NULL);
+                time_t now = time(NULL);
                 obj["name"] = ui->lineEdit->text();
                 obj["username"] = ui->lineEdit_2->text();
                 obj["password"] = ui->lineEdit_3->text();
