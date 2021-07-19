@@ -1,3 +1,6 @@
 <RCC>
     <qresource prefix="/new/backgroundsong"/>
+    <qresource prefix="/">
+        <file>background sound/batchbug-sweet-dreams.mp2</file>
+    </qresource>
 </RCC>
