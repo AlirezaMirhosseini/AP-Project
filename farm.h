@@ -12,8 +12,8 @@
 #include "wheat_field.h"
 #include "alfalfa_field.h"
 #include "store.h"
-#include "farm.h"
-
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 namespace Ui {class farm;}
 
 class farm : public QDialog
