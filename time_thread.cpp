@@ -8,21 +8,32 @@ time_thread::time_thread(QObject *parent) : QThread(parent)
 
 void time_thread::run()
 {
+    bool tmp = false;
     forever{
         QJsonObject _info  = read_info();
         QJsonArray info_2 ;
 
+
+
+        time_t time_30 = time(NULL);
+        if(time_30 - _info["time_30"].toInt()  >= 20 ){
+            _info["time_30"] = time_30;
+        }
+        else if(time_30 - _info["time_30"].toInt() >= 15 ){
+            _info["time_30"] = time_30;
+            tmp = true;
+
+        }
+
         for(int i = 0; i < _info["User"].toArray().size() ; i++){
             QJsonObject info = _info["User"].toArray()[i].toObject();
 
-            time_t time_30 = time(NULL);
-            if(time_30 - _info["time_30"].toInt()  >= 20 ){
-                _info["time_30"] = time_30;
-            }
-            else if(time_30 - _info["time_30"].toInt() >= 15 ){
-                _info["time_30"] = time_30;
-                info["time"] = info["time"].toInt() + 43200 ;
-            }
+
+            if(tmp)
+                 info["time"] = info["time"].toInt() + 43200 ;
+
+
+
 
             time_t _time = time(NULL)  + info["time"].toInt();
 
@@ -240,6 +251,7 @@ void time_thread::run()
 
             info_2.push_back(QJsonValue(info));
         }
+        tmp = false;
         _info["User"] = info_2;
         write_info(_info);
         this->msleep(100);
