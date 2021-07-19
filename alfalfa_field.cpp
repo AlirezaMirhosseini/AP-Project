@@ -235,6 +235,7 @@ void alfalfa_field::on_btn_plow_clicked()
     {
         time_t _time = time(NULL) + info["time"].toInt();
         info["alfalfa_plow_time"] = QJsonValue(_time);
+        info["exp"] = QJsonValue(info["exp"].toInt() + 4 * pow(2, info["alfalfa_level"].toInt() - 1));
         QJsonArray info_2 = _info["User"].toArray();
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
