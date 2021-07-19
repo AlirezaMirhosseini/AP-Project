@@ -34,6 +34,8 @@ private slots:
 
     void Refresh();
 
+    void on_refresh_clicked();
+
 public:
 
 

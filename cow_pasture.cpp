@@ -244,3 +244,9 @@ void cow_pasture::Refresh()
     w->show();
 }
 
+
+void cow_pasture::on_refresh_clicked()
+{
+    Refresh();
+}
+

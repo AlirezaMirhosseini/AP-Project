@@ -29,6 +29,8 @@ private slots:
     void on_build_clicked();
 
 
+    void on_refresh_clicked();
+
 public slots:
     void increamenter_upgrade();
     void increamenter_plow();

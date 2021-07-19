@@ -274,3 +274,9 @@ void sheep_pasture::Refresh()
     sheep_pasture *w = new sheep_pasture(farm , id);
     w->show();
 }
+
+void sheep_pasture::on_refresh_clicked()
+{
+    Refresh();
+}
+

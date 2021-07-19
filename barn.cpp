@@ -91,7 +91,7 @@ void barn::on_upgrade_clicked()
             _info["User"] = info_2;
             write_info(_info);
 
-            QThread::msleep(100);
+
             this->close();
             barn *w = new barn(farm , id);
             w->show();
@@ -106,3 +106,12 @@ void barn::increamenter_upgrade()
     aux++;
     ui->barn_pro->setValue(aux);
 }
+
+void barn::on_refresh_clicked()
+{
+   QThread::msleep(100);
+    this->close();
+    barn *w = new barn(farm , id);
+    w->show();
+}
+

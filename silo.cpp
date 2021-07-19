@@ -92,3 +92,12 @@ void silo::increamenter_upgrade()
     aux++;
     ui->silo_pro->setValue(aux);
 }
+
+void silo::on_refresh_clicked()
+{
+    QThread::msleep(100);
+    this->close();
+    silo *w = new silo(farm , id);
+    w->show();
+}
+

@@ -28,6 +28,8 @@ private slots:
     void Refresh();
 
 
+    void on_refresh_clicked();
+
 public slots:
     void increamenter_seed();
 
