@@ -16,12 +16,12 @@ farm::farm( int _id) :
     ui->setupUi(this);
     id = _id;
     QMediaPlaylist *playlist = new QMediaPlaylist();
-    playlist->addMedia(QUrl("qrc:/new/backgroundsong/background sound/batchbug-sweet-dreams.mp3"));
+    playlist->addMedia(QUrl("qrc:/background sound/batchbug-sweet-dreams.mp2"));
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
     QMediaPlayer *music = new QMediaPlayer();
     music->setPlaylist(playlist);
-    music->setVolume(8);
+    music->setVolume(80);
     music->play();
     QJsonObject _info = read_info();
     QJsonObject  info = (_info["User"].toArray())[id].toObject();
