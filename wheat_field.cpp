@@ -84,19 +84,19 @@ void wheat_field::on_upgrade_clicked()
 {
     if(info["level_player"].toInt() < 2 )
         QMessageBox::warning(this , "You must level up!" , "You need to reach <b>level 2</b> !" );
-    else if(info["coin"].toInt() < 5){
-        if(5 - info["coin"].toInt() == 1)
+    else if(info["coin"].toInt() < 5 * 5 * pow(2,info["silo_level"].toInt())){
+        if(5 * 5 * pow(2,info["silo_level"].toInt()) - info["coin"].toInt() == 1)
             QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more coin !");
         else
             QMessageBox::warning(this , "Supply needed !" , "You need " +
-                                 QString::number(5 - info["coin"].toInt()) + " more coins !");
+                                 QString::number(5 * 5 * pow(2,info["silo_level"].toInt()) - info["coin"].toInt()) + " more coins !");
     }
-    else if(info["shovel_count"].toInt() < 1){
-        if(1 - info["shovel_count"].toInt() == 1)
+    else if(info["shovel_count"].toInt() < 5 * pow(2,info["silo_level"].toInt())){
+        if(5 * pow(2,info["silo_level"].toInt()) - info["shovel_count"].toInt() == 1)
             QMessageBox::warning(this , "Supply needed !" , "You need <u>1</u> more shovel !");
         else
             QMessageBox::warning(this , "Supply needed !" , "You need " +
-                                 QString::number(1 - info["shovel_count"].toInt()) + " more shovels !");
+                                 QString::number(5 * pow(2,info["silo_level"].toInt()) - info["shovel_count"].toInt()) + " more shovels !");
     }
     else{
         info["shovel_count"] = QJsonValue(info["shovel_count"].toInt() - 1);
