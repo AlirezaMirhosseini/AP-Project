@@ -156,7 +156,7 @@ void alfalfa_field::on_btn_seed_clicked()
         QMessageBox::warning(this , "Alfalfa is ready!" , "After harvesting, you can seed !");
     else if(!info["alfalfa_plowed"].toBool())
         QMessageBox::warning(this , "Plow first!" , "You have to plow field first !");
-    else{
+    else if(ui->spinBox->value() > 0){
         info["alfalfa_plowed"] = false;
         time_t _time = time(NULL) + info["time"].toInt();
         info["alfalfa_cultivated_area"] = QJsonValue(ui->spinBox->value());

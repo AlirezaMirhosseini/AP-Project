@@ -115,7 +115,7 @@ void wheat_field::on_seed_clicked()
 {
     if(info["wheat_in_use"].toBool())
         QMessageBox::warning(this , "Wheat is ready!" , "After harvesting, you can seed !");
-    else{
+    else if(ui->spinBox->value() > 0){
         time_t _time = time(NULL) + info["time"].toInt();
         info["wheat_cultivated_area"] = ui->spinBox->value();
         info["wheat_seed_time"] = QJsonValue(_time);
