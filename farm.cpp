@@ -15,13 +15,14 @@ farm::farm( int _id) :
 {
     ui->setupUi(this);
     id = _id;
-//    QMediaPlaylist *playlist = new QMediaPlaylist();
-//    playlist->addMedia(QUrl("qrc:/new/backgroundsong/background sound/batchbug-sweet-dreams.mp3"));
-//    playlist->setPlaybackMode(QMediaPlaylist::Loop);
+    QMediaPlaylist *playlist = new QMediaPlaylist();
+    playlist->addMedia(QUrl("qrc:/new/backgroundsong/background sound/batchbug-sweet-dreams.mp3"));
+    playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
-//    QMediaPlayer *music = new QMediaPlayer();
-//    music->setPlaylist(playlist);
-//    music->play();
+    QMediaPlayer *music = new QMediaPlayer();
+    music->setPlaylist(playlist);
+    music->setVolume(8);
+    music->play();
     QJsonObject _info = read_info();
     QJsonObject  info = (_info["User"].toArray())[id].toObject();
     time_t now = time(NULL)+info["time"].toInt();

@@ -7,7 +7,7 @@ time_thread::time_thread(QObject *parent) : QThread(parent)
 }
 
 void time_thread::run()
-{
+{  
     forever{
         QJsonObject _info  = read_info();
         QJsonArray info_2 ;
