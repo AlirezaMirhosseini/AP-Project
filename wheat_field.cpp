@@ -25,6 +25,7 @@ wheat_field::wheat_field(QWidget *parent, int _id) :
     timer1 = new QTimer();
     timer2 = new QTimer();
 
+
     if(info["wheat_upgrade_time"].toInt() == -1)
         ui->wheat_upgrade_pro->hide();
     else{

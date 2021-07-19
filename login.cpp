@@ -3,7 +3,8 @@
 #include <QLabel>
 #include <QMessageBox>
 #include "information.h"
-#include "game.h"
+#include "farm.h"
+#include "register_info.h"
 #include <math.h>
 #include <time.h>
 
