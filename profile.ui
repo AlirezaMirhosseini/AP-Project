@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Profile</string>
   </property>
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">

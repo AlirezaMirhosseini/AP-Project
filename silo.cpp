@@ -2,7 +2,7 @@
 #include "ui_silo.h"
 #include "information.h"
 #include <QMessageBox>
-#include<QThread>
+#include <QThread>
 
 silo::silo(QWidget *parent, int _id) :
     QDialog(parent),

@@ -1,4 +1,3 @@
-#include "game.h"
 #include "login.h"
 #include <QApplication>
 #include "time_thread.h"

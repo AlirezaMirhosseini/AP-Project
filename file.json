@@ -1,7 +1,7 @@
 {
     "User": [
         {
-            "alfalfa_count": 2,
+            "alfalfa_count": 0,
             "alfalfa_cultivated_area": 4,
             "alfalfa_in_use": false,
             "alfalfa_level": 1,
@@ -35,8 +35,8 @@
             "cow_upgrade_time": -1,
             "eggs_count": 0,
             "email": "a@a.aa",
-            "exp": 890,
-            "fleece_count": 0,
+            "exp": 902,
+            "fleece_count": 2,
             "gender": "     Female",
             "level_player": 7,
             "milk_count": 0,
@@ -46,9 +46,9 @@
             "name": "a",
             "password": "a",
             "sheep_count": 2,
-            "sheep_feed_time": -1,
-            "sheep_feeded": true,
-            "sheep_fleece_pro": 95,
+            "sheep_feed_time": 1665921662,
+            "sheep_feeded": false,
+            "sheep_fleece_pro": 60,
             "sheep_level": 1,
             "sheep_lock": false,
             "sheep_upgrade_pro": 95,
@@ -59,8 +59,8 @@
             "silo_upgrade_pro": -1,
             "silo_upgrade_time": -1,
             "store_lock": false,
-            "time": 38664000,
-            "time_exp": 1665323429,
+            "time": 39744000,
+            "time_exp": 1666360229,
             "username": "a",
             "wheat_count": 0,
             "wheat_cultivated_area": 5,
@@ -143,6 +143,6 @@
             "wheat_upgrade_time": -1
         }
     ],
-    "time_30": 1626695361,
+    "time_30": 1626698039,
     "time_in_use": true
 }
