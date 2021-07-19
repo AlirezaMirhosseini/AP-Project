@@ -114,5 +114,6 @@
         <file>pics_project/b2.png</file>
         <file>pics_project/rope.png</file>
         <file>pics_project/lader.png</file>
+        <file>pics_project/refresh.png</file>
     </qresource>
 </RCC>
