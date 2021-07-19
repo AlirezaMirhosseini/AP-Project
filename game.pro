@@ -1,6 +1,6 @@
 QT       += core gui
 QT += network
-QT += multimedia
+# QT += multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -18,7 +18,6 @@ SOURCES += \
     farm.cpp \
     login.cpp \
     main.cpp \
-    game.cpp \
     profile.cpp \
     register_info.cpp \
     sheep_pasture.cpp \
@@ -34,7 +33,6 @@ HEADERS += \
     client.h \
     cow_pasture.h \
     farm.h \
-    game.h \
     information.h \
     login.h \
     profile.h \
@@ -51,7 +49,6 @@ FORMS += \
     chicken_coop.ui \
     cow_pasture.ui \
     farm.ui \
-    game.ui \
     login.ui \
     profile.ui \
     register_info.ui \

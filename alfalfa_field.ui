@@ -483,6 +483,39 @@ border:none;
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="refresh">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>70</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="toolTip">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Refresh&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0.043, y1:0.426, x2:1, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 0));
+border: none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="game_recources.qrc">
+     <normaloff>:/game_backgrounds/pics_project/refresh.png</normaloff>:/game_backgrounds/pics_project/refresh.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>50</width>
+     <height>50</height>
+    </size>
+   </property>
+  </widget>
   <zorder>label_2</zorder>
   <zorder>label</zorder>
   <zorder>btn_upgrade</zorder>
@@ -503,6 +536,7 @@ border:none;
   <zorder>plow_pro</zorder>
   <zorder>btn_plow</zorder>
   <zorder>spinBox</zorder>
+  <zorder>refresh</zorder>
  </widget>
  <resources>
   <include location="game_recources.qrc"/>
