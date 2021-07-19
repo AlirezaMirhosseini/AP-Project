@@ -110,5 +110,9 @@
         <file>pics_project/barn.png</file>
         <file>pics_project/back.png</file>
         <file>pics_project/next.png</file>
+        <file>pics_project/b1.png</file>
+        <file>pics_project/b2.png</file>
+        <file>pics_project/rope.png</file>
+        <file>pics_project/lader.png</file>
     </qresource>
 </RCC>
