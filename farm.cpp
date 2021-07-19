@@ -7,6 +7,7 @@
 #include <login.h>
 #include <QMessageBox>
 #include "profile.h"
+#include<QThread>
 
 farm::farm( int _id) :
     QDialog(),
@@ -113,9 +114,7 @@ void farm::on_next_day_clicked()
     info_2[id] = QJsonValue(info);
     _info["User"] = info_2;
     write_info(_info);
-    this->close();
-    farm *w = new farm(id);
-    w->show();
+     Refresh();
 }
 
 void farm::on_back_clicked()
@@ -132,9 +131,7 @@ void farm::on_store_lock_clicked()
     if(info["store_lock"].toBool())
         QMessageBox::warning(this,"You must level up!" , "Store unlocks at <b>level 2</b> !");
     else{
-        this->close();
-        farm *w = new farm(id);
-        w->show();
+       Refresh();
     }
 }
 
@@ -145,9 +142,7 @@ void farm::on_cow_lock_clicked()
     if(info["cow_lock"].toBool())
         QMessageBox::warning(this,"You must level up!" , "Cow Pasture unlocks at <b>level 4</b> !");
     else{
-        this->close();
-        farm *w = new farm(id);
-        w->show();
+       Refresh();
     }
 }
 
@@ -158,9 +153,7 @@ void farm::on_sheep_lock_clicked()
     if(info["sheep_lock"].toBool())
         QMessageBox::warning(this,"You must level up!" , "Sheep Pasture unlocks at <b>level 6</b> !");
     else{
-        this->close();
-        farm *w = new farm(id);
-        w->show();
+        Refresh();
     }
 }
 
@@ -171,9 +164,7 @@ void farm::on_chicken_lock_clicked()
     if(info["chicken_lock"].toBool())
         QMessageBox::warning(this,"You must level up!" , "Chicken Coop unlocks at <b>level 2</b> !");
     else{
-        this->close();
-        farm *w = new farm(id);
-        w->show();
+       Refresh();
     }
 }
 
@@ -184,9 +175,7 @@ void farm::on_alfalfa_lock_clicked()
     if(info["alfalfa_lock"].toBool())
         QMessageBox::warning(this,"You must level up!" , "Alfalfa Field unlocks at <b>level 3</b> !");
     else{
-        this->close();
-        farm *w = new farm(id);
-        w->show();
+        Refresh();
     }
 }
 
@@ -198,3 +187,19 @@ void farm::on_profile_pushButton_clicked()
     //window2->show();
     // window->show();
 }
+
+
+void farm::on_refresh_clicked()
+{
+    Refresh();
+
+}
+
+void farm::Refresh()
+{
+     QThread::msleep(100);
+    this->close();
+    farm *w = new farm(id);
+    w->show();
+}
+

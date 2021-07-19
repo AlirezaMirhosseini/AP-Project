@@ -59,6 +59,10 @@ private slots:
 
     void on_profile_pushButton_clicked();
 
+    void on_refresh_clicked();
+public slots:
+    void Refresh();
+
 private:
 
     Ui::farm *ui;

@@ -180,3 +180,9 @@ void wheat_field::Refresh()
     wheat_field* wheatField = new wheat_field( farm , id);
     wheatField->show();
 }
+
+void wheat_field::on_refresh_clicked()
+{
+    Refresh();
+}
+

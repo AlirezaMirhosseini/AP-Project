@@ -266,3 +266,9 @@ void chicken_coop::Refresh()
     w->show();
 }
 
+
+void chicken_coop::on_refresh_clicked()
+{
+    Refresh();
+}
+

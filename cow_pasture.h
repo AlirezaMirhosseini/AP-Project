@@ -38,6 +38,8 @@ private slots:
 
     void Refresh();
 
+    void on_refresh_clicked();
+
 private:
 
     Ui::cow_pasture *ui;

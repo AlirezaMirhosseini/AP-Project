@@ -25,6 +25,8 @@ private slots:
     void on_upgrade_clicked();
     void increamenter_upgrade();
 
+    void on_refresh_clicked();
+
 private:
 
     Ui::silo *ui;

@@ -168,7 +168,6 @@ void alfalfa_field::on_btn_seed_clicked()
         info_2[id] = QJsonValue(info);
         _info["User"] = info_2;
         write_info(_info);
-
         Refresh();
     }
 }
@@ -283,4 +282,10 @@ void alfalfa_field::on_build_clicked()
     }
 }
 
+
+
+void alfalfa_field::on_refresh_clicked()
+{
+ Refresh();
+}
 
