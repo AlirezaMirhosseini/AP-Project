@@ -44,6 +44,9 @@
      <height>21</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>WaitCursor</cursorShape>
+   </property>
    <property name="toolTip">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Seeding process&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
@@ -272,6 +275,9 @@ background-image: url(:/game_backgrounds/pics_project/clipart244133.png);</strin
      <width>118</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>WaitCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true"/>

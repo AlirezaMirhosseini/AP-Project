@@ -232,6 +232,9 @@ border:none;
      <height>16</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>WaitCursor</cursorShape>
+   </property>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
@@ -250,6 +253,9 @@ border:none;
      <width>118</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>WaitCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
@@ -290,7 +296,7 @@ border:none;
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>SizeHorCursor</cursorShape>
+    <cursorShape>WaitCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
